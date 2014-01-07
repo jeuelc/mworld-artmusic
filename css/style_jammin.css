@@ -1,5 +1,5 @@
 /* Main common basic pages */
-#sub-jammin,#sub-jammin-jammin-in-the-style-of{
+#sub-jammin, #sub-jammin-jammin-in-the-style-of, #sub-jammin-jammin-tools-chords, #sub-jammin-jammin-tools-rhythms,#sub-jammin-jammin-tools-scales,#sub-jammin-jammin-tools-riffs{
   background:url('images/9-12/Art_and_Music/Jammin/Jammin_BG.jpg') no-repeat;
   height:748px !important;
   overflow:hidden !important;
@@ -8,13 +8,31 @@
 
 /* Custom Pages Style */
 #sub-jammin-jammin-in-the-style-of-classical {
-  background:url('images/9-12/Art_and_Music/Jammin/Classical/Classical_BG.jpg') no-repeat;
+  background:url('images/9-12/Art_and_Music/Jammin/Jammin_In_The_Style_Of/Classical/Classical_BG.jpg') no-repeat;
   height:748px !important;
   overflow:hidden !important;
   width:1024px !important;
 }
 #sub-jammin-jammin-in-the-style-of-jazz {
-  background:url('images/9-12/Art_and_Music/Jammin/Jazz/Jazz_BG.jpg') no-repeat;
+  background:url('images/9-12/Art_and_Music/Jammin/Jammin_In_The_Style_Of/Jazz/Jazz_BG.jpg') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+#sub-jammin-jammin-in-the-style-of-latin {
+  background:url('images/9-12/Art_and_Music/Jammin/Jammin_In_The_Style_Of/Latin/Latin_BG.jpg') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+#sub-jammin-jammin-in-the-style-of-rock {
+  background:url('images/9-12/Art_and_Music/Jammin/Jammin_In_The_Style_Of/Rock/Rock_BG.jpg') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+#sub-jammin-jammin-tools{
+  background:url('images/9-12/Art_and_Music/Jammin/Jammin_Tools/Jammin_Tools_BG.png') no-repeat;
   height:748px !important;
   overflow:hidden !important;
   width:1024px !important;
@@ -144,7 +162,7 @@
 
 
 /* Common Header Div Design */
-#sub-jammin .bptitleholder, #sub-jammin-jammin-in-the-style-of .bptitleholder{
+#sub-jammin .bptitleholder, #sub-jammin-jammin-in-the-style-of .bptitleholder,#sub-jammin-jammin-tools-chords .bptitleholder, #sub-jammin-jammin-tools-rhythms .bptitleholder,#sub-jammin-jammin-tools-scales .bptitleholder,#sub-jammin-jammin-tools-riffs .bptitleholder{
 	width: 627px;
 	height: 68px;
 	text-align: center;
@@ -173,10 +191,36 @@
 	top: 44px;
 	left: 563px;
 }
-
+#sub-jammin-jammin-in-the-style-of-latin .bptitleholder {
+	width: 450px;
+	height: 68px;
+	text-align: center;
+	line-height: 28px;
+	position: absolute;
+	top: 44px;
+	left: 563px;
+}
+#sub-jammin-jammin-in-the-style-of-rock .bptitleholder {
+	width: 450px;
+	height: 68px;
+	text-align: center;
+	line-height: 28px;
+	position: absolute;
+	top: 44px;
+	left: 563px;
+}
+#sub-jammin-jammin-tools .bptitleholder{
+	width: 450px;
+	height: 68px;
+	text-align: center;
+	line-height: 28px;
+	position: absolute;
+	top: 585px;
+	left: 296px;
+}
 
 /* Common Header Design h1 */
-#sub-jammin .bptitleholder h1,#sub-jammin-jammin-in-the-style-of .bptitleholder h1{
+#sub-jammin .bptitleholder h1,#sub-jammin-jammin-in-the-style-of .bptitleholder h1,#sub-jammin-jammin-tools-chords .bptitleholder h1,#sub-jammin-jammin-tools-rhythms .bptitleholder h1,#sub-jammin-jammin-tools-scales .bptitleholder h1,#sub-jammin-jammin-tools-riffs .bptitleholder h1{
 	text-transform: uppercase;
 	color: #FFFFFF !important;
 	font-family: "comic sans ms" !important;
@@ -202,7 +246,31 @@
 	padding: 0;
 	margin: 0;	
 }
+#sub-jammin-jammin-in-the-style-of-latin .bptitleholder h1{
+	text-transform: uppercase;
+	color: #FFFFFF !important;
+	font-family: "comic sans ms" !important;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;	
+}
+#sub-jammin-jammin-in-the-style-of-rock .bptitleholder h1{
+	text-transform: uppercase;
+	color: #FFFFFF !important;
+	font-family: "comic sans ms" !important;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;	
+}
 
+#sub-jammin-jammin-tools .bptitleholder h1{
+	text-transform: uppercase;
+	color: #000000 !important;
+	font-family: "comic sans ms" !important;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;	
+}
 .bpcontentJammin{
 	color: #000000;
     font-family: "comic sans ms";
@@ -246,20 +314,7 @@
 }
 
 /* Custom content */
-.navJammin-classical{
-	position: absolute;
-	left: 564px;
-	top: 100px;
-	width: 450px;
-	height: 518px;
-	overflow: auto;
-	text-align: left;
-	font-family: comic sans ms;
-	font-size: 18px;
-	font-weight: normal;
-	color: #FFFFFF;
-}
-.navJammin-jazz{
+.navJammin-classical,.navJammin-jazz,.navJammin-latin,.navJammin-rock{
 	position: absolute;
 	left: 564px;
 	top: 100px;
@@ -273,3 +328,17 @@
 	color: #FFFFFF;
 }
 
+
+.navJammin-jammintools{
+	position: absolute;
+	left: 564px;
+	top: 100px;
+	width: 450px;
+	height: 518px;
+	overflow: auto;
+	text-align: left;
+	font-family: comic sans ms;
+	font-size: 18px;
+	font-weight: normal;
+	color: #FFFFFF;	
+}
