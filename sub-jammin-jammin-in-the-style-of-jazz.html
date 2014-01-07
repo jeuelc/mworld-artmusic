@@ -1,0 +1,107 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-jammin-jammin-in-the-style-of-jazz">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_jammin.js"></script>
+  <link rel="stylesheet" href="css/style_jammin.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnJammin"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnJammin"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnJammin"></div></div>
+  <div class="infobtnholder"><div class="infobtnJammin"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnJammin"></div></div>
+  <div class="menubtnholder"><div class="menubtnJammin"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Jazz</h1></div>
+
+  <div data-role="content" class="kidzcontent">
+	<div class="navJammin-jazz">
+		<p>Jazz music is played with an iconic rhythm called 'swing'.  Swinging music feels like it is bouncing and jumping, and makes you want to click your fingers or sway. </p>
+
+		<p>Jazz is a style that is full of improvisation (that's just a big word for made-up stuff!).  Songs often have long sections for improvised solos, and dont have many set parts other than a basic melody and a chord progression.  This means almost the whole song can become a jam.  Musicians can jam along by playing chords on piano, guitar or bass, and take turns at playing a solo on these or other instruments such as saxophones, trumpet or by singing.  Even the drummer might take a solo!</p>
+
+		<p>Jazz songs have quite complicated chord progressions that can make them difficult to play if youre just starting, but anyone can sound 'jazzier' by playing bouncing, swinging rhythms.</p>
+	</div>
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnJammin" id="playstopJazz"></div></div>
+    <div class="bJammin"><div class="rwJammin" id="Jazzaudiobbtn"></div></div>
+    <div class="plJammin"><div class="plpsJammin" id="Jazzaudioplbtn"></div></div>
+    <div class="fJammin"><div class="fwJammin" id="Jazzaudiofbtn"></div></div>
+    <div id="actualaudio-Jazz" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Jazz').html('<audio id="Jazzaudio" controls preload onpause="playsJammin()" onplay="pauseJammin()"><source src="audio/Jammin/Jazz.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-jammin-jammin-in-the-style-of-jazz").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundJammin.pause(); bgsoundJammin.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-jammin-jammin-in-the-style-of.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsJammin() {
+         bgsoundJammin.play();
+    }
+       
+    function pauseJammin() {
+         bgsoundJammin.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopJazz").on('tap', function() {
+      if(!playing) {
+        Jazzaudio.play();
+        $('.micbtnJammin').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Jazzaudio.pause(); Jazzaudio.currentTime = 0;
+        $('.micbtnJammin').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Jazzaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Jazzaudio.pause();
+        paused = true;
+      } else {
+        Jazzaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Jazzaudiofbtn").on('tap', function() {
+      var ctime = Jazzaudio.currentTime;
+      Jazzaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Jazzaudiobbtn").on('tap', function() {
+      var ctime = Jazzaudio.currentTime;
+      Jazzaudio.currentTime = ctime - 10;
+    });
+    
+    $("#Jamminaudiopsbtn").on('tap', function() {
+      Jazzaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+
+  </script>
+</div> <!--//home-->
