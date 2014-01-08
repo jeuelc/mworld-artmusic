@@ -1,0 +1,107 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-jammin-jammin-in-the-style-of-rock">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_jammin.js"></script>
+  <link rel="stylesheet" href="css/style_jammin.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnJammin"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnJammin"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnJammin"></div></div>
+  <div class="infobtnholder"><div class="infobtnJammin"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnJammin"></div></div>
+  <div class="menubtnholder"><div class="menubtnJammin"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Rock</h1></div>
+
+  <div data-role="content" class="kidzcontent">
+	<div class="navJammin-rock">
+		<p>Rock music has a steady and heavy beat that can feel driving or moving. It can make you want to jump around and nod your head. </p>
+
+			<p>Jamming is a big part of rock music.  Rock bands often feature long jam sections in their songs.  You might hear a guitar player or a drummer taking a very long solo that builds in excitement, while the rest of the band plays the chords of the song along with them.  Jamming is so common in rock music that there are many jam bands that are famous for long jams in their live performances.</p>
+
+			<p>Rock music is often played with repeating chords that can make songs easy to learn and play along with. Rock musicians frequently use the 'pentatonic', or five-note scale to make their solos, which gives the melodies an iconic sound.</p>
+	</div>
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnJammin" id="playstopRock"></div></div>
+    <div class="bJammin"><div class="rwJammin" id="Rockaudiobbtn"></div></div>
+    <div class="plJammin"><div class="plpsJammin" id="Rockaudioplbtn"></div></div>
+    <div class="fJammin"><div class="fwJammin" id="Rockaudiofbtn"></div></div>
+    <div id="actualaudio-Rock" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Rock').html('<audio id="Rockaudio" controls preload onpause="playsJammin()" onplay="pauseJammin()"><source src="audio/Jammin/Rock.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-jammin-jammin-in-the-style-of-rock").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundJammin.pause(); bgsoundJammin.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-jammin-jammin-in-the-style-of.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsJammin() {
+         bgsoundJammin.play();
+    }
+       
+    function pauseJammin() {
+         bgsoundJammin.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopRock").on('tap', function() {
+      if(!playing) {
+        Rockaudio.play();
+        $('.micbtnJammin').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Rockaudio.pause(); Rockaudio.currentTime = 0;
+        $('.micbtnJammin').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Rockaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Rockaudio.pause();
+        paused = true;
+      } else {
+        Rockaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Rockaudiofbtn").on('tap', function() {
+      var ctime = Rockaudio.currentTime;
+      Rockaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Rockaudiobbtn").on('tap', function() {
+      var ctime = Rockaudio.currentTime;
+      Rockaudio.currentTime = ctime - 10;
+    });
+    
+    $("#Jamminaudiopsbtn").on('tap', function() {
+      Rockaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+
+  </script>
+</div> <!--//home-->

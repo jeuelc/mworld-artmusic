@@ -1,5 +1,5 @@
 /* Main common basic pages */
-#sub-jammin, #sub-jammin-jammin-in-the-style-of, #sub-jammin-jammin-tools-chords, #sub-jammin-jammin-tools-rhythms,#sub-jammin-jammin-tools-scales,#sub-jammin-jammin-tools-riffs{
+#sub-jammin, #sub-jammin-jammin-in-the-style-of, #sub-jammin-jammin-tools-chords, #sub-jammin-jammin-tools-rhythms,#sub-jammin-jammin-tools-scales,#sub-jammin-jammin-tools-riffs,#sub-jammin-jammin-tools-scales-scale-types,#sub-jammin-whats-your-jam,#sub-jammin-whats-your-jam-whats-going-on-in-a-jam,#sub-jammin-whats-your-jam-why-jam , #sub-jammin-whats-your-jam-jam-sessions,#sub-jammin-whats-your-jam-who-can-jam{
   background:url('images/9-12/Art_and_Music/Jammin/Jammin_BG.jpg') no-repeat;
   height:748px !important;
   overflow:hidden !important;
@@ -162,7 +162,7 @@
 
 
 /* Common Header Div Design */
-#sub-jammin .bptitleholder, #sub-jammin-jammin-in-the-style-of .bptitleholder,#sub-jammin-jammin-tools-chords .bptitleholder, #sub-jammin-jammin-tools-rhythms .bptitleholder,#sub-jammin-jammin-tools-scales .bptitleholder,#sub-jammin-jammin-tools-riffs .bptitleholder{
+#sub-jammin .bptitleholder, #sub-jammin-jammin-in-the-style-of .bptitleholder,#sub-jammin-jammin-tools-chords .bptitleholder, #sub-jammin-jammin-tools-rhythms .bptitleholder,#sub-jammin-jammin-tools-scales .bptitleholder,#sub-jammin-jammin-tools-riffs .bptitleholder,#sub-jammin-jammin-tools-scales-scale-types .bptitleholder,#sub-jammin-whats-your-jam .bptitleholder,#sub-jammin-whats-your-jam-whats-going-on-in-a-jam .bptitleholder,#sub-jammin-whats-your-jam-why-jam .bptitleholder,#sub-jammin-whats-your-jam-jam-sessions .bptitleholder,#sub-jammin-whats-your-jam-who-can-jam .bptitleholder{
 	width: 627px;
 	height: 68px;
 	text-align: center;
@@ -220,7 +220,7 @@
 }
 
 /* Common Header Design h1 */
-#sub-jammin .bptitleholder h1,#sub-jammin-jammin-in-the-style-of .bptitleholder h1,#sub-jammin-jammin-tools-chords .bptitleholder h1,#sub-jammin-jammin-tools-rhythms .bptitleholder h1,#sub-jammin-jammin-tools-scales .bptitleholder h1,#sub-jammin-jammin-tools-riffs .bptitleholder h1{
+#sub-jammin .bptitleholder h1,#sub-jammin-jammin-in-the-style-of .bptitleholder h1,#sub-jammin-jammin-tools-chords .bptitleholder h1,#sub-jammin-jammin-tools-rhythms .bptitleholder h1,#sub-jammin-jammin-tools-scales .bptitleholder h1,#sub-jammin-jammin-tools-riffs .bptitleholder h1,#sub-jammin-jammin-tools-scales-scale-types .bptitleholder h1,#sub-jammin-whats-your-jam .bptitleholder h1,#sub-jammin-whats-your-jam-whats-going-on-in-a-jam .bptitleholder h1,#sub-jammin-whats-your-jam-why-jam .bptitleholder h1, #sub-jammin-whats-your-jam-jam-sessions .bptitleholder h1, #sub-jammin-whats-your-jam-who-can-jam .bptitleholder h1{
 	text-transform: uppercase;
 	color: #FFFFFF !important;
 	font-family: "comic sans ms" !important;
@@ -341,4 +341,32 @@
 	font-size: 18px;
 	font-weight: normal;
 	color: #FFFFFF;	
+}
+
+
+/**********flipcard effect**************/
+#f3_container,#f4_container  {
+  position: relative;
+  width: 360px;
+  height: 280px;
+  z-index: 1;
+}
+#f3_container,#f4_container {
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -o-perspective: 1000px;
+  perspective: 1000px;
+}
+#f3_card,#f4_card{
+  width: 360px;
+  height: 280px;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: all 1.0s linear;
+  -moz-transform-style: preserve-3d;
+  -moz-transition: all 1.0s linear;
+  -o-transform-style: preserve-3d;
+  -o-transition: all 1.0s linear;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+  
 }

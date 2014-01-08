@@ -1,0 +1,176 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-jammin-jammin-tools-riffs">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>    
+  <script src="js/slidebar_jammin.js"></script>
+  <link rel="stylesheet" href="css/style_jammin.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnJammin"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnJammin"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnJammin"></div></div>
+  <div class="infobtnholder"><div class="infobtnJammin"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnJammin"></div></div>
+  <div class="menubtnholder"><div class="menubtnJammin"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Riffs</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+	  <div class="sidebarleft-half">		
+	  <!-- Game (Link to new page) -->
+	  
+	  <!-- Hear Me -->
+		  
+			<!-- hear me -->
+			<div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+			  <div id="f1_card">
+				<div class="front face">
+				  <img id="dopple" src="css/images/9-12/Art_and_Music/Jammin/Jammin_Tools/Riffs/Riffs.png">
+				</div>
+				<div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Jammin/Jammin_Tools/Riffs/Riffs_Reverse.png) no-repeat;">
+				  <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+				  <div id="trueans" style="position:absolute;left: 58px;top: 156px;width: 97px;height: 30px;"></div>
+				  <div class="falseans" style="position:absolute;left: 214px;top: 156px;width: 97px;height: 30px;"></div>
+				  <div class="falseans" style="position:absolute;left: 58px;top: 195px;width: 97px;height: 30px;"></div>
+				  <div class="falseans" style="position:absolute;left: 214px;top: 195px;width: 97px;height: 30px;"></div>
+				</div>
+			  </div><!--/f1+card-->
+			</div><!--/f1_container-->
+
+
+
+        
+		<div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/Art_and_Music/Jammin/Jammin_Tools/Riffs/Riff_Jammer.png" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/Art_and_Music/Jammin/Jammin_Tools/Riffs/Riffs.png" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentJammin">
+			<p>You've seen that scales can be turned into short phrases by playing groups of notes.  If you take one of those phrases and play it over and over, it might start to become a riff.</p>
+
+			<p>A riff is a short, memorable phrase that can come from other solos and melodies that musicians have played.  By learning and practising riffs, musicians have melody ideas that they can use in their improvised solos.  They often find riffs they like when they are listening to songs.  Then, they learn the notes and the rhythm they are played with and play those riffs in their own jams.</p>
+
+			<p>You can find riffs by listening to your favourite songs - they can be introductions, solos or the melody sung by the singer too.  Or, you can make up your own out of scales and rhythmic patterns!</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnJammin" id="playstopRiffs"></div></div>
+    <div class="bJammin"><div class="rwJammin" id="Riffsaudiobbtn"></div></div>
+    <div class="plJammin"><div class="plpsJammin" id="Riffsaudioplbtn"></div></div>
+    <div class="fJammin"><div class="fwJammin" id="Riffsaudiofbtn"></div></div>
+    <div id="actualaudio-Riffs" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Riffs').html('<audio id="Riffsaudio" controls preload onpause="playsJammin()" onplay="pauseJammin()"><source src="audio/Jammin/Riffs.mp3" type="audio/mpeg"></audio>');
+      }            
+      $("#sub-jammin-jammin-tools-riffs").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    
+    $('.homelinkbh').on('tap', function() { bgsoundJammin.pause(); bgsoundJammin.currentTime = 0; mainaudiobg.play(); });
+    
+    $("#pol1").on('tap', function() {
+      $.mobile.changePage("sub-jammin-jammin-tools-riffs-riff-jammer.html", {transition: "slide"});
+    });
+
+    
+    $(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol2").css({"visibility":"visible", "z-index":4});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+    
+    $("#pol2").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
+
+
+    function goBack() {
+      $.mobile.changePage("sub-jammin-jammin-tools.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsJammin() {
+         bgsoundJammin.play();
+    }
+       
+    function pauseJammin() {
+         bgsoundJammin.pause();
+    }	
+	
+	
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopRiffs").on('tap', function() {
+      if(!playing) {
+        Riffsaudio.play();
+        $('.micbtnJammin').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Riffsaudio.pause(); Riffsaudio.currentTime = 0;
+        $('.micbtnJammin').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Riffsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Riffsaudio.pause();
+        paused = true;
+      } else {
+        Riffsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Riffsaudiofbtn").on('tap', function() {
+      var ctime = Riffsaudio.currentTime;
+      Riffsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Riffsaudiobbtn").on('tap', function() {
+      var ctime = Riffsaudio.currentTime;
+      Riffsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#Riffsaudiopsbtn").on('tap', function() {
+      Riffsaudio.pause();
+    });
+  </script>
+  <script src="js/twocardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

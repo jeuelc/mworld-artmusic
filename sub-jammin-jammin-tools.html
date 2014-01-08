@@ -1,0 +1,173 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-jammin-jammin-tools">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_jammin.js"></script>
+  <link rel="stylesheet" href="css/style_jammin.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnJammin"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnJammin"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnJammin"></div></div>
+  <div class="infobtnholder"><div class="infobtnJammin"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnJammin"></div></div>
+  <div class="menubtnholder"><div class="menubtnJammin"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Jammin' Tools</h1></div>
+
+  <div data-role="content" class="kidzcontent">
+	<!--
+	<div class="navJammin-jammintools">
+		<p>There are lots of different 'tools' musicians can use to jam, like learning different scales, chord progressions, melodies, musical styles and rhythms.  A few simple tools can be used in lots of different ways to make jams interesting.</p>
+
+		<p>Look through the toolbox to learn about a few of these jamming techniques.  If you play an instrument, you could try some of these tools and jam with your friends!</p>
+
+		<p>The best music to jam to is simple songs and chord progressions.  Ask a friend to play some while you play some scales or melodies you might know.  Then, you could try playing them using different the rhythm styles we've explored. an iconic sound.</p>
+	</div>
+	-->
+	<style>
+		.chords-box{
+			position: absolute;
+			left: 279px;
+			height: 20px;
+			width: 100px;
+			background: #FFFFFF;
+			top: 541px;
+			color:#000000;
+		}
+		.rhythms-box{
+			position: absolute;
+			left: 385px;
+			height: 20px;
+			width: 100px;
+			background: #FFFFFF;
+			top: 541px;
+			color:#000000;
+		}
+		.scales-box{
+			position: absolute;
+			left: 490px;
+			height: 20px;
+			width: 100px;
+			background: #FFFFFF;
+			top: 541px;
+			color:#000000;
+		}
+		.riffs-box{
+			position: absolute;
+			left: 595px;
+			height: 20px;
+			width: 100px;
+			background: #FFFFFF;
+			top: 541px;
+			color:#000000;
+		}		
+	</style>
+	<div class="chords-box">
+		Chords
+	</div>
+	<div class="rhythms-box">
+		Rhythms
+	</div>
+	<div class="scales-box">
+		Scales
+	</div>
+	<div class="riffs-box">
+		Riffs
+	</div>	
+	
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnJammin" id="playstopJamminTools"></div></div>
+    <div class="bJammin"><div class="rwJammin" id="JamminToolsaudiobbtn"></div></div>
+    <div class="plJammin"><div class="plpsJammin" id="JamminToolsaudioplbtn"></div></div>
+    <div class="fJammin"><div class="fwJammin" id="JamminToolsaudiofbtn"></div></div>
+    <div id="actualaudio-JamminTools" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-JamminTools').html('<audio id="JamminToolsaudio" controls preload onpause="playsJammin()" onplay="pauseJammin()"><source src="audio/Jammin/JamminTools.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-jammin-jammin-tools").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundJammin.pause(); bgsoundJammin.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-jammin.html", {transition: "slide", reverse: true });
+    }
+
+    $(".chords-box").on('tap', function() {
+      $.mobile.changePage("sub-jammin-jammin-tools-chords.html", {transition: "slide"});
+    });	
+    $(".rhythms-box").on('tap', function() {
+      $.mobile.changePage("sub-jammin-jammin-tools-rhythms.html", {transition: "slide"});
+    });	
+    $(".scales-box").on('tap', function() {
+      $.mobile.changePage("sub-jammin-jammin-tools-scales.html", {transition: "slide"});
+    });	
+    $(".riffs-box").on('tap', function() {
+      $.mobile.changePage("sub-jammin-jammin-tools-riffs.html", {transition: "slide"});
+    });	
+    
+    function playsJammin() {
+         bgsoundJammin.play();
+    }
+       
+    function pauseJammin() {
+         bgsoundJammin.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopJamminTools").on('tap', function() {
+      if(!playing) {
+        JamminToolsaudio.play();
+        $('.micbtnJammin').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        JamminToolsaudio.pause(); JamminToolsaudio.currentTime = 0;
+        $('.micbtnJammin').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#JamminToolsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        JamminToolsaudio.pause();
+        paused = true;
+      } else {
+        JamminToolsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#JamminToolsaudiofbtn").on('tap', function() {
+      var ctime = JamminToolsaudio.currentTime;
+      JamminToolsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#JamminToolsaudiobbtn").on('tap', function() {
+      var ctime = JamminToolsaudio.currentTime;
+      JamminToolsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#Jamminaudiopsbtn").on('tap', function() {
+      JamminToolsaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+
+  </script>
+</div> <!--//home-->

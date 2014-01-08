@@ -1,0 +1,137 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-jammin-whats-your-jam">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_jammin.js"></script>
+  <link rel="stylesheet" href="css/style_jammin.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnJammin"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnJammin"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnJammin"></div></div>
+  <div class="infobtnholder"><div class="infobtnJammin"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnJammin"></div></div>
+  <div class="menubtnholder"><div class="menubtnJammin"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>What's Your Jam?</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navJammin-content">
+			<p>When musicians play a prepared song in a group, they often know how the song goes, what each musicians is going to play, how long they will play it for, and when the song will end.  Jamming musicians usually dont know these things  and thats what makes it exciting!</p>
+
+			<p>When musicians jam, they make up music on the spot by inventing new melodies and musical ideas based on what the other musicians play.  To do this, musicians need to understand a little about their instrument so that when they listen to other musicians they can add notes that make the music sound good.</p>
+
+			<p>Musicians can jam when they are practising and performing improvised (or made up) songs or sections of music.  You can hear musicians jam at concerts, and also at special events called 'jam sessions' where all of the songs played are improvised jams.</p>
+      </div>
+        
+      <div class="navbtn1">
+        <p><a href="sub-jammin-whats-your-jam-whats-going-on-in-a-jam.html" data-transition="slide"><img src="css/images/9-12/Art_And_Music/Jammin/Whats_Your_Jam/Whats_Goin_On_In_A_Jam.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-jammin-whats-your-jam-why-jam.html" data-transition="slide"><img src="css/images/9-12/Art_And_Music/Jammin/Whats_Your_Jam/Why_Jam.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-jammin-whats-your-jam-jam-sessions.html" data-transition="slide"><img src="css/images/9-12/Art_And_Music/Jammin/Whats_Your_Jam/Jam_Sessions.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-jammin-whats-your-jam-who-can-jam.html" data-transition="slide"><img src="css/images/9-12/Art_And_Music/Jammin/Whats_Your_Jam/Who_Can_Jam.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnJammin" id="playstopWhatsYourJam"></div></div>
+    <div class="bJammin"><div class="rwJammin" id="WhatsYourJamaudiobbtn"></div></div>
+    <div class="plJammin"><div class="plpsJammin" id="WhatsYourJamaudioplbtn"></div></div>
+    <div class="fJammin"><div class="fwJammin" id="WhatsYourJamaudiofbtn"></div></div>
+    <div id="actualaudio-WhatsYourJam" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-WhatsYourJam').html('<audio id="WhatsYourJamaudio" controls preload onpause="playsJammin()" onplay="pauseJammin()"><source src="audio/Jammin/Whats_Your_Jam.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-jammin-whats-your-jam").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundJammin.pause(); bgsoundJammin.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-jammin.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsJammin() {
+         bgsoundJammin.play();
+    }
+       
+    function pauseJammin() {
+         bgsoundJammin.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopWhatsYourJam").on('tap', function() {
+      if(!playing) {
+        WhatsYourJamaudio.play();
+        $('.micbtnJammin').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        WhatsYourJamaudio.pause(); WhatsYourJamaudio.currentTime = 0;
+        $('.micbtnJammin').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#WhatsYourJamaudioplbtn").on('tap', function() {
+      if(!paused) {
+        WhatsYourJamaudio.pause();
+        paused = true;
+      } else {
+        WhatsYourJamaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#WhatsYourJamaudiofbtn").on('tap', function() {
+      var ctime = WhatsYourJamaudio.currentTime;
+      WhatsYourJamaudio.currentTime = ctime + 10;
+    });
+    
+    $("#WhatsYourJamaudiobbtn").on('tap', function() {
+      var ctime = WhatsYourJamaudio.currentTime;
+      WhatsYourJamaudio.currentTime = ctime - 10;
+    });
+    
+    $("#Jamminaudiopsbtn").on('tap', function() {
+      WhatsYourJamaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });
+  </script>
+</div> <!--//home-->

@@ -1,0 +1,105 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-jammin-jammin-in-the-style-of-latin">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_jammin.js"></script>
+  <link rel="stylesheet" href="css/style_jammin.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnJammin"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnJammin"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnJammin"></div></div>
+  <div class="infobtnholder"><div class="infobtnJammin"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnJammin"></div></div>
+  <div class="menubtnholder"><div class="menubtnJammin"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Latin</h1></div>
+
+  <div data-role="content" class="kidzcontent">
+	<div class="navJammin-latin">
+		<p>Lots of different styles of music have come from Latin America, including salsa from Cuba, bossa nova and samba from Brazil, and flamenco from Spain.  These styles have one thing in common: a very strong rhythm.  Most Latin styles are played around a rhythmic pattern called the 'clave'  three long notes followed by two short ones.  They are often very energetic and are played to make you dance!</p>
+
+		<p>Latin bands often feature instruments such as guitar, piano, trumpets and lots of percussion players, and feature a lot of jamming.  Bands play melodies and rhythms that are quite complex, but are all connected to the clave pattern.  Latin styles are so popular that lots of jazz and rock bands use these rhythms in their songs and jams.</p>
+	</div>
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnJammin" id="playstopLatin"></div></div>
+    <div class="bJammin"><div class="rwJammin" id="Latinaudiobbtn"></div></div>
+    <div class="plJammin"><div class="plpsJammin" id="Latinaudioplbtn"></div></div>
+    <div class="fJammin"><div class="fwJammin" id="Latinaudiofbtn"></div></div>
+    <div id="actualaudio-Latin" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Latin').html('<audio id="Latinaudio" controls preload onpause="playsJammin()" onplay="pauseJammin()"><source src="audio/Jammin/Latin.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-jammin-jammin-in-the-style-of-latin").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundJammin.pause(); bgsoundJammin.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-jammin-jammin-in-the-style-of.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsJammin() {
+         bgsoundJammin.play();
+    }
+       
+    function pauseJammin() {
+         bgsoundJammin.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopLatin").on('tap', function() {
+      if(!playing) {
+        Latinaudio.play();
+        $('.micbtnJammin').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Latinaudio.pause(); Latinaudio.currentTime = 0;
+        $('.micbtnJammin').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Latinaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Latinaudio.pause();
+        paused = true;
+      } else {
+        Latinaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Latinaudiofbtn").on('tap', function() {
+      var ctime = Latinaudio.currentTime;
+      Latinaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Latinaudiobbtn").on('tap', function() {
+      var ctime = Latinaudio.currentTime;
+      Latinaudio.currentTime = ctime - 10;
+    });
+    
+    $("#Jamminaudiopsbtn").on('tap', function() {
+      Latinaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+
+  </script>
+</div> <!--//home-->

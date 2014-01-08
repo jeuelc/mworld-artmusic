@@ -1,0 +1,160 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-jammin-jammin-tools-rhythms">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>    
+  <script src="js/slidebar_jammin.js"></script>
+  <link rel="stylesheet" href="css/style_jammin.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnJammin"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnJammin"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnJammin"></div></div>
+  <div class="infobtnholder"><div class="infobtnJammin"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnJammin"></div></div>
+  <div class="menubtnholder"><div class="menubtnJammin"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Rhythms</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+		<!-- hear me -->
+        <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="css/images/9-12/Art_and_Music/Jammin/Jammin_Tools/Rhythms/Rhythms.png">
+            </div>
+            <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Jammin/Jammin_Tools/Rhythms/Rhythms_Reverse.png) no-repeat;">
+              <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container-->		
+  
+		<div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/Art_and_Music/Jammin/Jammin_Tools/Rhythms/Rhythms.png" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentJammin">
+		<p>'Rhythm' can mean the length of time that notes, chords and phrases are played for - and how fast, slow, steady or bouncing they feel.  If you leave lots of space between notes, the rhythm might sound slower.  If you play them close together, the rhythm might sound fast.  If you play two notes, one note slow and one quick, it might start to sound like a swing rhythm.</p>
+
+		<p>Rhythm might be the most important part of jamming, as each musical style is different mainly because of its special rhythmic style.  Jamming bands play phrases and chords in different styles and rhythms all the time.</p>
+
+		<p>If you can play just one chord, but play it in a swinging, funky, or grooving way, you'll have a great jam.  You can also try listening to a rhythm, tapping it back, and then playing your scales and melodies in the same style!</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnJammin" id="playstopRhythms"></div></div>
+    <div class="bJammin"><div class="rwJammin" id="Rhythmsaudiobbtn"></div></div>
+    <div class="plJammin"><div class="plpsJammin" id="Rhythmsaudioplbtn"></div></div>
+    <div class="fJammin"><div class="fwJammin" id="Rhythmsaudiofbtn"></div></div>
+    <div id="actualaudio-Rhythms" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Rhythms').html('<audio id="Rhythmsaudio" controls preload onpause="playsJammin()" onplay="pauseJammin()"><source src="audio/Jammin/Rhythms.mp3" type="audio/mpeg"></audio>');
+      }            
+      $("#sub-jammin-jammin-tools-rhythms").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    
+    $('.homelinkbh').on('tap', function() { bgsoundJammin.pause(); bgsoundJammin.currentTime = 0; mainaudiobg.play(); });
+    
+
+    
+    $(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol1").css({"visibility":"visible", "z-index":4});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+    
+    $("#pol1").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
+	
+
+
+    function goBack() {
+      $.mobile.changePage("sub-jammin-jammin-tools.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsJammin() {
+         bgsoundJammin.play();
+    }
+       
+    function pauseJammin() {
+         bgsoundJammin.pause();
+    }	
+	
+	
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopRhythms").on('tap', function() {
+      if(!playing) {
+        Rhythmsaudio.play();
+        $('.micbtnJammin').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Rhythmsaudio.pause(); Rhythmsaudio.currentTime = 0;
+        $('.micbtnJammin').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Rhythmsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Rhythmsaudio.pause();
+        paused = true;
+      } else {
+        Rhythmsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Rhythmsaudiofbtn").on('tap', function() {
+      var ctime = Rhythmsaudio.currentTime;
+      Rhythmsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Rhythmsaudiobbtn").on('tap', function() {
+      var ctime = Rhythmsaudio.currentTime;
+      Rhythmsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#Rhythmsaudiopsbtn").on('tap', function() {
+      Rhythmsaudio.pause();
+    });
+  </script>
+  <script src="js/onecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->
