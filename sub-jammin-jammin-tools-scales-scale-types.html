@@ -26,6 +26,7 @@
 				</div>
 				<div id="backofcard1" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Jammin/Jammin_Tools/Scales/Scale_Types/Blues_Scale_Reverse.png) no-repeat;">
 				  <div class="returncard1" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+				  <div id="blue_scale_hear_me" style="height: 59px;width: 60px;position: absolute;left: 152px;top: 173px;"></div>
 				</div>
 			  </div><!--/f1+card-->
 			</div><!--/f1_container-->
@@ -38,6 +39,7 @@
 				</div>
 				<div id="backofcard2" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Jammin/Jammin_Tools/Scales/Scale_Types/Major_Scale_Reverse.png) no-repeat;">
 				  <div class="returncard2" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+				  <div id="major_hear_me" style="height: 59px;width: 60px;position: absolute;left: 152px;top: 173px;"></div>
 				</div>
 			  </div><!--/f1+card-->
 			</div><!--/f2_container-->
@@ -50,6 +52,7 @@
 				</div>
 				<div id="backofcard3" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Jammin/Jammin_Tools/Scales/Scale_Types/Minor_Scale_Reverse.png) no-repeat;">
 				  <div class="returncard3" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+				  <div id="minor_hear_me" style="height: 59px;width: 60px;position: absolute;left: 152px;top: 173px;"></div>
 				</div>
 			  </div><!--/f1+card-->
 			</div><!--/f3_container-->			
@@ -62,6 +65,7 @@
 				</div>
 				<div id="backofcard4" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Jammin/Jammin_Tools/Scales/Scale_Types/Pentatonic_Scale_Reverse.png) no-repeat;">
 				  <div class="returncard4" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+				  <div id="pentatonic_hear_me" style="height: 59px;width: 60px;position: absolute;left: 152px;top: 173px;"></div>
 				</div>
 			  </div><!--/f1+card-->
 			</div><!--/f4_container-->				
@@ -102,7 +106,21 @@
     <div class="fJammin"><div class="fwJammin" id="ScaleTypesaudiofbtn"></div></div>
     <div id="actualaudio-ScaleTypes" style="visibility:hidden;"></div>
   <!-- </div> -->
-  
+    <div id="actualaudio-blue" style="display: none;">
+		<audio id="blueAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Blues_Scale_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>
+	
+	<div id="actualaudio-major" style="display: none;">
+		<audio id="majorAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Major_Scale_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>
+	
+	<div id="actualaudio-minor" style="display: none;">
+		<audio id="minorAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Minor_Scale_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>
+	
+	<div id="actualaudio-pentatonic" style="display: none;">
+		<audio id="pentatonicAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Pentatonic_Scale_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>
   <script>
   // sound setup is in home.html and index.js
     sound = new Audio(); // 'sound' is now an audio object
@@ -128,7 +146,58 @@
     
     $('.homelinkbh').on('tap', function() { bgsoundJammin.pause(); bgsoundJammin.currentTime = 0; mainaudiobg.play(); });
     
-	
+	$("#blue_scale_hear_me").on('tap', function() {
+        if(blueAudio.currentTime == 0){
+			blueAudio.play();
+			ScaleTypesaudio.pause();
+			ScaleTypesaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(blueAudio.currentTime > 0){
+			blueAudio.pause();
+			blueAudio.currentTime = 0;
+		}
+	});
+	$("#major_hear_me").on('tap', function() {
+        if(majorAudio.currentTime == 0){
+			majorAudio.play();
+			ScaleTypesaudio.pause();
+			ScaleTypesaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(majorAudio.currentTime > 0){
+			majorAudio.pause();
+			majorAudio.currentTime = 0;
+		}
+	});
+	$("#minor_hear_me").on('tap', function() {
+        if(minorAudio.currentTime == 0){
+			minorAudio.play();
+			ScaleTypesaudio.pause();
+			ScaleTypesaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(minorAudio.currentTime > 0){
+			minorAudio.pause();
+			minorAudio.currentTime = 0;
+		}
+	});
+	$("#pentatonic_hear_me").on('tap', function() {
+        if(pentatonicAudio.currentTime == 0){
+			pentatonicAudio.play();
+			ScaleTypesaudio.pause();
+			ScaleTypesaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(pentatonicAudio.currentTime > 0){
+			pentatonicAudio.pause();
+			pentatonicAudio.currentTime = 0;
+		}
+	});
     /* Hear Me 1 */
     $(".returncard1").on('tap', function() {
       $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});

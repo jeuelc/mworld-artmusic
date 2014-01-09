@@ -32,6 +32,7 @@
             </div>
             <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Jammin/Jammin_Tools/Scales/Match_The_Style_Quiz_Reverse.png) no-repeat;">
               <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+			  <div id="match_style_hear_me" style="height: 59px;width: 60px;position: absolute;left: 152px;top: 173px;"></div>
               <div id="trueans" style="position:absolute;left: 58px;top: 156px;width: 97px;height: 30px;"></div>
               <div class="falseans" style="position:absolute;left: 214px;top: 156px;width: 97px;height: 30px;"></div>
 			  <div class="falseans" style="position:absolute;left: 58px;top: 195px;width: 97px;height: 30px;"></div>
@@ -74,6 +75,10 @@
     <div id="actualaudio-Scales" style="visibility:hidden;"></div>
   <!-- </div> -->
   
+    <div id="actualaudio-match" style="display: none;">
+		<audio id="matchAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Match_The_Style_Quiz.mp3" type="audio/mpeg"></audio>
+	</div>
+  
   <script>
   // sound setup is in home.html and index.js
     sound = new Audio(); // 'sound' is now an audio object
@@ -97,6 +102,20 @@
     
     $('.homelinkbh').on('tap', function() { bgsoundJammin.pause(); bgsoundJammin.currentTime = 0; mainaudiobg.play(); });
     
+	$("#match_style_hear_me").on('tap', function() {
+        if(matchAudio.currentTime == 0){
+			matchAudio.play();
+			Scalesaudio.pause();
+			Scalesaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(matchAudio.currentTime > 0){
+			matchAudio.pause();
+			matchAudio.currentTime = 0;
+		}
+	});
+	
     $("#pol1").on('tap', function() {
       $.mobile.changePage("sub-jammin-jammin-tools-scales-scale-types.html", {transition: "slide"});
     });

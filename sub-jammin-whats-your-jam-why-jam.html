@@ -26,6 +26,7 @@
             </div>
             <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Jammin/Whats_Your_Jam/Why_Jam/Classical_Film_Reverse.png) no-repeat;">
               <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+			  <div id="film_hear_me" style="height: 59px;width: 60px;position: absolute;left: 152px;top: 173px;"></div>
             </div>
           </div><!--/f1+card-->
         </div><!--/f1_container-->
@@ -38,6 +39,7 @@
             </div>
             <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Jammin/Whats_Your_Jam/Why_Jam/Classical_Melodies_Reverse.png) no-repeat;">
               <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+			  <div id="melodies_hear_me" style="height: 59px;width: 60px;position: absolute;left: 152px;top: 173px;"></div>
             </div>
           </div><!--/f1+card-->
         </div><!--/f2_container-->
@@ -50,6 +52,7 @@
             </div>
             <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Jammin/Whats_Your_Jam/Why_Jam/Modern_Songs_Reverse.png) no-repeat;">
               <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+			  <div id="quiz_hear_me" style="height: 59px;width: 60px;position: absolute;left: 152px;top: 173px;"></div>
               <div id="trueans" style="position:absolute;left: 58px;top: 156px;width: 97px;height: 30px;"></div>
               <div class="falseans" style="position:absolute;left: 214px;top: 156px;width: 97px;height: 30px;"></div>
 			  <div class="falseans" style="position:absolute;left: 58px;top: 195px;width: 97px;height: 30px;"></div>
@@ -60,7 +63,6 @@
 		
 		<!-- image -->
         <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Jammin/Whats_Your_Jam/Why_Jam/Classical_Ensemble_Reverse.jpg', 'Jamming is for all instruments and styles.  Some musicians jam their favourite styles of music with other types to make new music - like classical music and hip hop.');">click here</a>
-
         
 		<div id="zoomwrapper">
           <div id="pol1" class="pPiece" style="left:100px;top:270px;">
@@ -95,6 +97,17 @@
     <div id="actualaudio-WhyJam" style="visibility:hidden;"></div>
   <!-- </div> -->
   
+    <div id="actualaudio-films" style="display: none;">
+		<audio id="filmAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Classical_Film_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>
+	
+	<div id="actualaudio-melodies" style="display: none;">
+		<audio id="melodiesAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Classical_Melodies_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>
+	
+	<div id="actualaudio-quiz" style="display: none;">
+		<audio id="quizAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Modern_Songs_Quiz.mp3" type="audio/mpeg"></audio>
+	</div>
   <script>
   // sound setup is in home.html and index.js
     sound = new Audio(); // 'sound' is now an audio object
@@ -121,9 +134,46 @@
     
     
     $('.homelinkbh').on('tap', function() { bgsoundJammin.pause(); bgsoundJammin.currentTime = 0; mainaudiobg.play(); });
-    
-
-    
+    $("#film_hear_me").on('tap', function() {
+        if(filmAudio.currentTime == 0){
+			filmAudio.play();
+			WhyJamaudio.pause();
+			WhyJamaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(filmAudio.currentTime > 0){
+			filmAudio.pause();
+			filmAudio.currentTime = 0;
+		}
+	});
+	$("#riffs_hear_me").on('tap', function() {
+        if(melodiesAudio.currentTime == 0){
+			melodiesAudio.play();
+			WhyJamaudio.pause();
+			WhyJamaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(melodiesAudio.currentTime > 0){
+			melodiesAudio.pause();
+			melodiesAudio.currentTime = 0;
+		}
+	});
+	$("#quiz_hear_me").on('tap', function() {
+        if(quizAudio.currentTime == 0){
+			quizAudio.play();
+			WhyJamaudio.pause();
+			WhyJamaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(quizAudio.currentTime > 0){
+			quizAudio.pause();
+			quizAudio.currentTime = 0;
+		}
+	});
+        
     $(".returncard").on('tap', function() {
       $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
       $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});

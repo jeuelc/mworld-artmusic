@@ -30,6 +30,7 @@
 				</div>
 				<div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Jammin/Jammin_Tools/Riffs/Riffs_Reverse.png) no-repeat;">
 				  <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+				  <div id="riffs_hear_me" style="height: 59px;width: 60px;position: absolute;left: 152px;top: 173px;"></div>
 				  <div id="trueans" style="position:absolute;left: 58px;top: 156px;width: 97px;height: 30px;"></div>
 				  <div class="falseans" style="position:absolute;left: 214px;top: 156px;width: 97px;height: 30px;"></div>
 				  <div class="falseans" style="position:absolute;left: 58px;top: 195px;width: 97px;height: 30px;"></div>
@@ -37,9 +38,6 @@
 				</div>
 			  </div><!--/f1+card-->
 			</div><!--/f1_container-->
-
-
-
         
 		<div id="zoomwrapper">
           <div id="pol1" class="pPiece" style="left:100px;top:270px;">
@@ -68,6 +66,10 @@
     <div class="plJammin"><div class="plpsJammin" id="Riffsaudioplbtn"></div></div>
     <div class="fJammin"><div class="fwJammin" id="Riffsaudiofbtn"></div></div>
     <div id="actualaudio-Riffs" style="visibility:hidden;"></div>
+	
+	<div id="actualaudio-riffs" style="display: none;">
+		<audio id="riffAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Riffs_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>
   <!-- </div> -->
   
   <script>
@@ -88,10 +90,23 @@
       }            
       $("#sub-jammin-jammin-tools-riffs").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     })();
-    
-    
+        
     $('.homelinkbh').on('tap', function() { bgsoundJammin.pause(); bgsoundJammin.currentTime = 0; mainaudiobg.play(); });
     
+	$("#riffs_hear_me").on('tap', function() {
+        if(riffAudio.currentTime == 0){
+			riffAudio.play();
+			Riffsaudio.pause();
+			Riffsaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(riffAudio.currentTime > 0){
+			riffAudio.pause();
+			riffAudio.currentTime = 0;
+		}
+	});
+	
     $("#pol1").on('tap', function() {
       $.mobile.changePage("sub-jammin-jammin-tools-riffs-riff-jammer.html", {transition: "slide"});
     });

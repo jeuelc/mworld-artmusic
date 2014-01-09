@@ -27,6 +27,7 @@
             </div>
             <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Jammin/Whats_Your_Jam/Jam_Sessions/Jazz_Jammin_Reverse.png) no-repeat;">
               <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+			  <div id="jazz_hear_me" style="height: 59px;width: 60px;position: absolute;left: 152px;top: 173px;"></div>
             </div>
           </div><!--/f1+card-->
         </div><!--/f1_container-->
@@ -41,6 +42,7 @@
             </div>
             <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Jammin/Whats_Your_Jam/Jam_Sessions/Jazz_Solos_Reverse.png) no-repeat;">
               <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+			  <div id="quiz_hear_me" style="height: 59px;width: 60px;position: absolute;left: 152px;top: 173px;"></div>
               <div id="trueans" style="position:absolute;left: 58px;top: 156px;width: 97px;height: 30px;"></div>
               <div class="falseans" style="position:absolute;left: 214px;top: 156px;width: 97px;height: 30px;"></div>
 			  <div class="falseans" style="position:absolute;left: 58px;top: 195px;width: 97px;height: 30px;"></div>
@@ -81,7 +83,12 @@
     <div class="fJammin"><div class="fwJammin" id="JamSessionsaudiofbtn"></div></div>
     <div id="actualaudio-JamSessions" style="visibility:hidden;"></div>
   <!-- </div> -->
-  
+    <div id="actualaudio-quiz" style="display: none;">
+		<audio id="quizAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Jazz_Solos_Quiz.mp3" type="audio/mpeg"></audio>
+	</div>
+	<div id="actualaudio-jazz" style="display: none;">
+		<audio id="jazzAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Jazz_Jammin_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>
   <script>
   // sound setup is in home.html and index.js
     sound = new Audio(); // 'sound' is now an audio object
@@ -104,7 +111,33 @@
     
     
     $('.homelinkbh').on('tap', function() { bgsoundJammin.pause(); bgsoundJammin.currentTime = 0; mainaudiobg.play(); });
-    
+    $("#quiz_hear_me").on('tap', function() {
+        if(quizAudio.currentTime == 0){
+			quizAudio.play();
+			JamSessionsaudio.pause();
+			JamSessionsaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(quizAudio.currentTime > 0){
+			quizAudio.pause();
+			quizAudio.currentTime = 0;
+		}
+	});
+	
+	$("#jazz_hear_me").on('tap', function() {
+        if(jazzAudio.currentTime == 0){
+			jazzAudio.play();
+			JamSessionsaudio.pause();
+			JamSessionsaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(jazzAudio.currentTime > 0){
+			jazzAudio.pause();
+			jazzAudio.currentTime = 0;
+		}
+	});
 
     
     $(".returncard").on('tap', function() {

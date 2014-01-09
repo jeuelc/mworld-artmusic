@@ -27,6 +27,7 @@
             </div>
             <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Jammin/Whats_Your_Jam/Who_Can_Jam/Latin_Sounds_Reverse.png) no-repeat;">
               <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+			  <div id="lattin_hear_me" style="height: 59px;width: 60px;position: absolute;left: 152px;top: 173px;"></div>
             </div>
           </div><!--/f1+card-->
         </div><!--/f1_container-->
@@ -66,7 +67,9 @@
     <div class="fJammin"><div class="fwJammin" id="WhoCanJamaudiofbtn"></div></div>
     <div id="actualaudio-WhoCanJam" style="visibility:hidden;"></div>
   <!-- </div> -->
-  
+    <div id="actualaudio-lattin" style="display: none;">
+		<audio id="lattinAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Latin_Sounds_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>
   <script>
   // sound setup is in home.html and index.js
     sound = new Audio(); // 'sound' is now an audio object
@@ -89,7 +92,19 @@
     
     $('.homelinkbh').on('tap', function() { bgsoundJammin.pause(); bgsoundJammin.currentTime = 0; mainaudiobg.play(); });
     
-
+    $("#lattin_hear_me").on('tap', function() {
+        if(lattinAudio.currentTime == 0){
+			lattinAudio.play();
+			WhoCanJamaudio.pause();
+			WhoCanJamaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(lattinAudio.currentTime > 0){
+			lattinAudio.pause();
+			lattinAudio.currentTime = 0;
+		}
+	});
     
     $(".returncard").on('tap', function() {
       $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});

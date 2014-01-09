@@ -12,7 +12,15 @@
   <div class="infobtnholder"><div class="infobtnJammin"></div></div>
   <div class="credsbtnholder"><div class="credsbtnJammin"></div></div>
   <div class="menubtnholder"><div class="menubtnJammin"></div></div>
-  
+  <style>
+	#in_a_jam_hear_me{
+		height: 59px;
+		width: 60px;
+		position: absolute;
+		left: 152px;
+		top: 173px;
+	}
+  </style>
   <div class="bptitleholder" style="padding-top:14px;"><h1>What's Going on in a Jam?</h1></div>
   <div id="spacechar">&nbsp;
     <div data-role="content" class="kidzcontent">
@@ -26,6 +34,7 @@
             </div>
             <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Jammin/Whats_Your_Jam/Whats_Going_On_In_A_Jam/Rock_Melodies_Reverse.png) no-repeat;">
               <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+			  <div id="in_a_jam_hear_me"></div>
             </div>
           </div><!--/f1+card-->
         </div><!--/f1_container-->
@@ -38,6 +47,7 @@
             </div>
             <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Jammin/Whats_Your_Jam/Whats_Going_On_In_A_Jam/Jamming_Solos_Quiz_Reverse.png) no-repeat;">
               <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+			  <div id="quiz_hear_me" style="height: 59px;width: 60px;position: absolute;left: 152px;top: 173px;"></div>
               <div id="trueans" style="position:absolute;left: 58px;top: 156px;width: 97px;height: 30px;"></div>
               <div class="falseans" style="position:absolute;left: 214px;top: 156px;width: 97px;height: 30px;"></div>
 			  <div class="falseans" style="position:absolute;left: 58px;top: 195px;width: 97px;height: 30px;"></div>
@@ -82,6 +92,13 @@
     <div id="actualaudio-WhatsGoingOnInAJam" style="visibility:hidden;"></div>
   <!-- </div> -->
   
+    <div id="actualaudio-Rock" style="display: none;">
+		<audio id="RockAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Rock_Melodies_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>
+  
+    <div id="actualaudio-quiz" style="display: none;">
+		<audio id="quizAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Jammin_Solos_Quiz.mp3" type="audio/mpeg"></audio>
+	</div>
   <script>
   // sound setup is in home.html and index.js
     sound = new Audio(); // 'sound' is now an audio object
@@ -104,8 +121,33 @@
     
     
     $('.homelinkbh').on('tap', function() { bgsoundJammin.pause(); bgsoundJammin.currentTime = 0; mainaudiobg.play(); });
-    
 
+	$("#in_a_jam_hear_me").on('tap', function() {
+        if(RockAudio.currentTime == 0){
+			RockAudio.play();
+			WhatsGoingOnInAJamaudio.pause();
+			WhatsGoingOnInAJamaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(RockAudio.currentTime > 0){
+			RockAudio.pause();
+			RockAudio.currentTime = 0;
+		}
+	});
+	$("#quiz_hear_me").on('tap', function() {
+        if(quizAudio.currentTime == 0){
+			quizAudio.play();
+			WhatsGoingOnInAJamaudio.pause();
+			WhatsGoingOnInAJamaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(quizAudio.currentTime > 0){
+			quizAudio.pause();
+			quizAudio.currentTime = 0;
+		}
+	});
     
     $(".returncard").on('tap', function() {
       $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
@@ -211,6 +253,7 @@
     $("#WhatsGoingOnInAJamaudiopsbtn").on('tap', function() {
       WhatsGoingOnInAJamaudio.pause();
     });
+	
   </script>
   <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
 </div> <!--//home-->

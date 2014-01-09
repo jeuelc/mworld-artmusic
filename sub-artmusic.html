@@ -10,25 +10,35 @@
       <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Art_and_Music/chineseopbtn.png"></a></div>
       <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Art_and_Music/famouspaintsbtn.png"></a></div><br>
       <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Art_and_Music/paintlikemasbtn.png"></a></div>
-      <div class="aclink"><a href="sub-jammin.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/jazzjambtn.png"></a></div>
+      <div class="aclink"><a href="sub-jammin.html" data-transition="slide" id="jammin"><img src="css/images/9-12/Art_and_Music/jazzjambtn.png"></a></div>
       <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Art_and_Music/modernartbtn.png"></a></div>
       <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Art_and_Music/hiphopbtn.png"></a></div>
     </div>
     <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/bottomhome.png"></a></div>
   </div> <!-- end content -->  
     <script>
-				$(function() {
-					$("#artandmusic2").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-				});
-        
-    function goBack() {
-      $.mobile.changePage("home.html");
-      artmusicsoundbg.pause(); artmusicsoundbg.currentTime = 0;
-      mainaudiobg.play();
-    }
-    
-    $('.homelinkbh').on('tap', function() { 
-      mainaudiobg.play(); artmusicsoundbg.pause(); artmusicsoundbg.currentTime = 0;
-    });
-			</script>
+		$(function() {
+			$("#artandmusic2").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+		});
+			
+		function goBack() {
+		  $.mobile.changePage("home.html");
+		  artmusicsoundbg.pause(); artmusicsoundbg.currentTime = 0;
+		  mainaudiobg.play();
+		}
+		
+		$('.homelinkbh').on('tap', function() { 
+		  mainaudiobg.play(); artmusicsoundbg.pause(); artmusicsoundbg.currentTime = 0;
+		});
+		$(document).ready(function(e) {
+			$('.aclink>a').on('tap', function(event) {
+				var subjectId = $(this).attr("id");
+				if(subjectId == "jammin") {
+					bgsoundJammin.play();
+					artmusicsoundbg.pause();
+					artmusicsoundbg.currentTime = 0;
+				}
+			});
+		});		
+	</script>
 </div>
