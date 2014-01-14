@@ -834,3 +834,11 @@ bgsoundJammin.addEventListener('ended', function() { bgsoundJammin.play(); });
 
 function pauseJammin() { bgsoundJammin.pause() }
 function playsJammin() { bgsoundJammin.play(); $(".audiopanel").css({"backgroundPosition":"0px 0px"}); }
+
+/************************ World Beats *******************************/
+var bgsoundWorldBeats = new Audio();
+bgsoundWorldBeats.src = "audio/World_Beats/World_Beats_BG.mp3";
+bgsoundWorldBeats.addEventListener('ended', function() { bgsoundWorldBeats.play(); });
+
+function pauseWorldBeats() { bgsoundWorldBeats.pause() }
+function playsWorldBeats() { bgsoundWorldBeats.play(); $(".audiopanel").css({"backgroundPosition":"0px 0px"}); }

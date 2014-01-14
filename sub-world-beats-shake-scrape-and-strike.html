@@ -1,0 +1,144 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-world-beats-shake-scrape-and-strike">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_world_beats.js"></script>
+  <link rel="stylesheet" href="css/style_world_beats.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnWorldBeats"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnWorldBeats"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnWorldBeats"></div></div>
+  <div class="infobtnholder"><div class="infobtnWorldBeats"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnWorldBeats"></div></div>
+  <div class="menubtnholder"><div class="menubtnWorldBeats"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Shake, Scrape and Strike!</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navWorldBeats-content3">
+			<p>A percussion instrument can be anything that makes a sound by being struck, scraped or shaken by the hand, sticks or beaters. Drums and percussion can make you feel happy and excited, and can also help you to make music.</p>
+
+			<p>Music is made up of several parts, called the elements of music. These include melody, harmony, rhythm, timbre and dynamics. While drums and percussion can use all of these, the most important musical element they use is rhythm. Rhythm plays a special role in music; it provides a feeling of motion and movement  giving the sense that the song is moving forward. </p>
+
+			<p>In all styles of music and drumming around the world, drummers work together with other drummers and musicians to create beats.</p>
+      </div>
+<!-- 
+1 - Creating the Beat
+2 - The Rolllll of Drumming
+3 - Drumming Around the World
+
+-->
+
+	  
+      <div class="navbtn1" style="top:420px;">
+        <p><a href="sub-world-beats-shake-scrape-and-strike-tribal-beats-creating-the-beat.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/World_Beats/Shake_Scrape_And_Strike/Creating_The_Beat.png"></a></p>
+      </div>
+     <div class="navbtn2" style="left:400px;">
+        <p><a href="sub-world-beats-shake-scrape-and-strike-big-noise-the-rolllll-of-drumming.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/World_Beats/Shake_Scrape_And_Strike/The_Rolllll_Of_Drumming.png"></a></p>
+      </div>
+     <div class="navbtn3" style="top:420px;">
+        <p><a href="sub-world-beats-shake-scrape-and-strike-master-drummers-drumming-around-the-world.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/World_Beats/Shake_Scrape_And_Strike/Drumming_Around_The_World.png"></a></p>
+      </div>
+
+
+
+	  
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnWorldBeats" id="playstopShakeScrapeAndStrike"></div></div>
+    <div class="bWorldBeats"><div class="rwWorldBeats" id="ShakeScrapeAndStrikeaudiobbtn"></div></div>
+    <div class="plWorldBeats"><div class="plpsWorldBeats" id="ShakeScrapeAndStrikeaudioplbtn"></div></div>
+    <div class="fWorldBeats"><div class="fwWorldBeats" id="ShakeScrapeAndStrikeaudiofbtn"></div></div>
+    <div id="actualaudio-ShakeScrapeAndStrike" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-ShakeScrapeAndStrike').html('<audio id="ShakeScrapeAndStrikeaudio" controls preload onpause="playsWorldBeats()" onplay="pauseWorldBeats()"><source src="audio/World_Beats/Shake_Scrape_And_Strike.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-world-beats-shake-scrape-and-strike").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundWorldBeats.pause(); bgsoundWorldBeats.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-world-beats.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsWorldBeats() {
+         bgsoundWorldBeats.play();
+    }
+       
+    function pauseWorldBeats() {
+         bgsoundWorldBeats.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopShakeScrapeAndStrike").on('tap', function() {
+      if(!playing) {
+        ShakeScrapeAndStrikeaudio.play();
+        $('.micbtnWorldBeats').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        ShakeScrapeAndStrikeaudio.pause(); ShakeScrapeAndStrikeaudio.currentTime = 0;
+        $('.micbtnWorldBeats').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#ShakeScrapeAndStrikeaudioplbtn").on('tap', function() {
+      if(!paused) {
+        ShakeScrapeAndStrikeaudio.pause();
+        paused = true;
+      } else {
+        ShakeScrapeAndStrikeaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#ShakeScrapeAndStrikeaudiofbtn").on('tap', function() {
+      var ctime = ShakeScrapeAndStrikeaudio.currentTime;
+      ShakeScrapeAndStrikeaudio.currentTime = ctime + 10;
+    });
+    
+    $("#ShakeScrapeAndStrikeaudiobbtn").on('tap', function() {
+      var ctime = ShakeScrapeAndStrikeaudio.currentTime;
+      ShakeScrapeAndStrikeaudio.currentTime = ctime - 10;
+    });
+    
+    $("#WorldBeatsaudiopsbtn").on('tap', function() {
+      ShakeScrapeAndStrikeaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });
+  </script>
+</div> <!--//home-->

@@ -1,0 +1,142 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-world-beats">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_world_beats.js"></script>
+  <link rel="stylesheet" href="css/style_world_beats.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnWorldBeats"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnWorldBeats"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnWorldBeats"></div></div>
+  <div class="infobtnholder"><div class="infobtnWorldBeats"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnWorldBeats"></div></div>
+  <div class="menubtnholder"><div class="menubtnWorldBeats"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>World Beats</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navWorldBeats-content">
+		<p>Welcome to the world of drums and percussion, home to things that go "Bing", "Bang" and "BOOOM"! </p>
+
+			<p>Inside the world of percussion you will find an amazing collection of drums and percussion instruments from around the world. They come in many different shapes and sizes, and produce an incredible array of different sounds. </p>
+
+			<p>Let's go on an exciting journey around the world to find different types of amazing drums and see where they come from. You'll see lots of drummers playing together in tribes and on stage, as well as amazing solo masters. </p>
+
+			<p>We'll also look back through time to see where their traditions were born, and see how those same drums are played throughout the world today. Let's get playing!</p>
+      </div>
+        
+      <div class="navbtn1">
+        <p><a href="sub-world-beats-shake-scrape-and-strike.html" data-transition="slide"><img src="css/images/9-12/Art_And_Music/World_Beats/Shake_Scrape_And_Strike.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-world-beats-from-tribal-beats-to-master-drummers.html" data-transition="slide"><img src="css/images/9-12/Art_And_Music/World_Beats/From_Tribal_Beats_To_Master_Drummers.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-world-beats-weird-and-wonderful-beatmakers.html" data-transition="slide"><img src="css/images/9-12/Art_And_Music/World_Beats/Weired_And_Wonderful_Beatmakers.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-world-beats-make-some-noise.html" data-transition="slide"><img src="css/images/9-12/Art_And_Music/World_Beats/Make_Some_Noise.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnWorldBeats" id="playstopWorldBeats"></div></div>
+    <div class="bWorldBeats"><div class="rwWorldBeats" id="WorldBeatsaudiobbtn"></div></div>
+    <div class="plWorldBeats"><div class="plpsWorldBeats" id="WorldBeatsaudioplbtn"></div></div>
+    <div class="fWorldBeats"><div class="fwWorldBeats" id="WorldBeatsaudiofbtn"></div></div>
+    <div id="actualaudio-WorldBeats" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-WorldBeats').html('<audio id="WorldBeatsaudio" controls preload onpause="playsWorldBeats()" onplay="pauseWorldBeats()"><source src="audio/World_Beats/World_Beats.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-world-beats").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundWorldBeats.pause(); bgsoundWorldBeats.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-artmusic.html", {transition: "slide", reverse: true });
+      bgsoundWorldBeats.pause(); 
+      bgsoundWorldBeats.currentTime = 0;
+      artmusicsoundbg.play();
+    }
+    
+    function playsWorldBeats() {
+         bgsoundWorldBeats.play();
+    }
+       
+    function pauseWorldBeats() {
+         bgsoundWorldBeats.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopWorldBeats").on('tap', function() {
+      if(!playing) {
+        WorldBeatsaudio.play();
+        $('.micbtnWorldBeats').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        WorldBeatsaudio.pause(); WorldBeatsaudio.currentTime = 0;
+        $('.micbtnWorldBeats').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#WorldBeatsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        WorldBeatsaudio.pause();
+        paused = true;
+      } else {
+        WorldBeatsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#WorldBeatsaudiofbtn").on('tap', function() {
+      var ctime = WorldBeatsaudio.currentTime;
+      WorldBeatsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#WorldBeatsaudiobbtn").on('tap', function() {
+      var ctime = WorldBeatsaudio.currentTime;
+      WorldBeatsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#WorldBeatsaudiopsbtn").on('tap', function() {
+      WorldBeatsaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });
+  </script>
+</div> <!--//home-->
