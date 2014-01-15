@@ -1,0 +1,201 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-world-beats-shake-scrape-and-strike-creating-the-beat">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_world_beats.js"></script>
+  <link rel="stylesheet" href="css/style_world_beats.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnWorldBeats"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnWorldBeats"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnWorldBeats"></div></div>
+  <div class="infobtnholder"><div class="infobtnWorldBeats"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnWorldBeats"></div></div>
+  <div class="menubtnholder"><div class="menubtnWorldBeats"></div></div>
+
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Creating the Beat</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+	  
+		<div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="css/images/9-12/Art_and_Music/World_Beats/Shake_Scrape_And_Strike/Creating_The_Beat/Rhythms.png">
+            </div>
+            <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/World_Beats/Shake_Scrape_And_Strike/Creating_The_Beat/Rhythms_Reverse.png) no-repeat;">
+              <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+			  <div id="rhythms_hear_me" style="height: 59px;width: 60px;position: absolute;left: 152px;top: 173px;"></div>
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container-->
+		
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/Art_and_Music/World_Beats/Shake_Scrape_And_Strike/Creating_The_Beat/Rhythms.png" alt="" />
+          </div>
+         
+          
+          
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentWorldBeats">
+        <p>So, what is rhythm?</p>
+
+		<p>Rhythm is the division of time, or the ordering and arrangement of time. Just like a clock divides up time into hours, minutes and seconds, rhythm in music divides sound into smaller or larger chunks. </p>
+
+		<p>If you divide up the time into small pieces and play notes or beats closer together, the music will be fast and give you a feeling of rushing along. If you divide the time into large parts and play beats farther apart, the music will be slow and feel relaxed.</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+  <!-- <div class="audiopanel"> -->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnWorldBeats" id="playstopCreatingTheBeat"></div></div>
+    <div class="bWorldBeats"><div class="rwWorldBeats" id="CreatingTheBeataudiobbtn"></div></div>
+    <div class="plWorldBeats"><div class="plpsWorldBeats" id="CreatingTheBeataudioplbtn"></div></div>
+    <div class="fWorldBeats"><div class="fwWorldBeats" id="CreatingTheBeataudiofbtn"></div></div>
+    <div id="actualaudio-CreatingTheBeat" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+   <!-- Hear me sound -->
+    <div id="actualaudio-rhythms" style="display: none;">
+		<audio id="rhythmsAudio" controls preload onpause="playsWorldBeats()" onplay="pauseWorldBeats()" style="visibility:hidden;"><source src="audio\World_Beats\Rhythms_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>  
+  
+ 
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-CreatingTheBeat').html('<audio id="CreatingTheBeataudio" controls preload onpause="playsWorldBeats()" onplay="pauseWorldBeats()"><source src="audio/World_Beats/Creating_The_Beat.mp3" type="audio/mpeg"></audio>');
+      } 
+
+
+      $("#sub-world-beats-shake-scrape-and-strike-creating-the-beat").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundWorldBeats.pause(); bgsoundWorldBeats.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-world-beats-shake-scrape-and-strike.html", {transition: "slide", reverse: true });
+      // prev page plays the same bgmusic so comment this out
+      //bgsoundWorldBeats.pause(); 
+      //bgsoundWorldBeats.currentTime = 0;
+      //bgsoundWorldBeats.play(); 
+    }
+
+	 
+	
+	
+    
+   
+    /*$("#pol2").on('tap', function() {
+      $.mobile.changePage("", { transition: "slide" });
+    });*/
+   
+	
+    
+    $(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol1").css({"visibility":"visible", "z-index":4});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+    
+    $("#pol1").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
+ 
+
+
+ 
+    function playsWorldBeats() {
+         bgsoundWorldBeats.play();
+    }
+       
+    function pauseWorldBeats() {
+         bgsoundWorldBeats.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopCreatingTheBeat").on('tap', function() {
+      if(!playing) {
+        CreatingTheBeataudio.play();
+        $('.micbtnWorldBeats').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        CreatingTheBeataudio.pause(); CreatingTheBeataudio.currentTime = 0;
+        $('.micbtnWorldBeats').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#CreatingTheBeataudioplbtn").on('tap', function() {
+      if(!paused) {
+        CreatingTheBeataudio.pause();
+        paused = true;
+      } else {
+        CreatingTheBeataudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#CreatingTheBeataudiofbtn").on('tap', function() {
+      var ctime = CreatingTheBeataudio.currentTime;
+      CreatingTheBeataudio.currentTime = ctime + 10;
+    });
+    
+    $("#CreatingTheBeataudiobbtn").on('tap', function() {
+      var ctime = CreatingTheBeataudio.currentTime;
+      CreatingTheBeataudio.currentTime = ctime - 10;
+    });
+    
+    $("#CreatingTheBeataudiopsbtn").on('tap', function() {
+      CreatingTheBeataudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+	$("#rhythms_hear_me").on('tap', function() {
+        if(rhythmsAudio.currentTime == 0){
+			rhythmsAudio.play();
+			CreatingTheBeataudio.pause();
+			CreatingTheBeataudio.currentTime = 0;
+			bgsoundWorldBeats.pause();
+			bgsoundWorldBeats.currentTime = 0;
+		}
+		if(rhythmsAudio.currentTime > 0){
+			rhythmsAudio.pause();
+			rhythmsAudio.currentTime = 0;
+		}
+	});		
+  </script>
+  <script src="js/onecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

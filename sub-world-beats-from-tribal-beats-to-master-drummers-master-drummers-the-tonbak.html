@@ -1,0 +1,139 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-world-beats-from-tribal-beats-to-master-drummers-master-drummers-the-tonbak">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_world_beats.js"></script>
+  <link rel="stylesheet" href="css/style_world_beats.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnWorldBeats"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnWorldBeats"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnWorldBeats"></div></div>
+  <div class="infobtnholder"><div class="infobtnWorldBeats"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnWorldBeats"></div></div>
+  <div class="menubtnholder"><div class="menubtnWorldBeats"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>The Tonbak</h1></div>
+  <div data-role="content" class="kidzcontent">
+	<div class="navWorldBeats-thetonbak">
+		<p>The Tonbak, also called a Zarb, is a wooden goblet drum that has origins in the ancient Persian music of the Middle East. It has a single animal skin that is tuned by heating, cooling or applying moisture to it.</p>	
+
+			<p>Tonbak players can make many different sounds on the skin by using different finger and hand strokes including clicking, tapping, beating and even changing the pitch by pressing with the fingers. Some people say that the Tonbak gets its name from the two main sounds played on the drum: ton in the middle, and bak on the edge.</p>	
+
+			<p>The tonbak is often played in small Persian art music ensembles, which are common in Iran. It was originally used only as an accompanying instrument, but later become known as one of the worlds most intricate virtuosic drumming traditions. </p>	
+	</div>
+	<div id="tonbak_video_btn">
+	
+	</div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnWorldBeats" id="playstopTheTonbak"></div></div>
+    <div class="bWorldBeats"><div class="rwWorldBeats" id="TheTonbakaudiobbtn"></div></div>
+    <div class="plWorldBeats"><div class="plpsWorldBeats" id="TheTonbakaudioplbtn"></div></div>
+    <div class="fWorldBeats"><div class="fwWorldBeats" id="TheTonbakaudiofbtn"></div></div>
+    <div id="actualaudio-TheTonbak" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <!-- ----------------------- Video embedding --------------------------- -->
+  
+	<div id="watchTonbakVideoholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+    <video id="watchTonbakVideo" width="1024" height="748" preload>
+      <source src="css/images/9-12/Art_and_Music/World_Beats/From_Tribal_Beats_to_Master_Drummers/Master_Drummers/The_Tonbak/Darabuka_Video.mp4" type="video/mp4">
+    </video>
+  </div>
+  
+  <!-- ------------------------------------------------------------------ -->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-TheTonbak').html('<audio id="TheTonbakaudio" controls preload onpause="playsWorldBeats()" onplay="pauseWorldBeats()"><source src="audio/World_Beats/The_Tonbak.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-world-beats-from-tribal-beats-to-master-drummers-master-drummers-the-tonbak").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundWorldBeats.pause(); bgsoundWorldBeats.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-world-beats-from-tribal-beats-to-master-drummers-master-drummers.html", {transition: "slide", reverse: true });
+    }
+
+    function playsWorldBeats() {
+         bgsoundWorldBeats.play();
+    }
+       
+    function pauseWorldBeats() {
+         bgsoundWorldBeats.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopTheTonbak").on('tap', function() {
+      if(!playing) {
+        TheTonbakaudio.play();
+        $('.micbtnWorldBeats').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        TheTonbakaudio.pause(); TheTonbakaudio.currentTime = 0;
+        $('.micbtnWorldBeats').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#TheTonbakaudioplbtn").on('tap', function() {
+      if(!paused) {
+        TheTonbakaudio.pause();
+        paused = true;
+      } else {
+        TheTonbakaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#TheTonbakaudiofbtn").on('tap', function() {
+      var ctime = TheTonbakaudio.currentTime;
+      TheTonbakaudio.currentTime = ctime + 10;
+    });
+    
+    $("#TheTonbakaudiobbtn").on('tap', function() {
+      var ctime = TheTonbakaudio.currentTime;
+      TheTonbakaudio.currentTime = ctime - 10;
+    });
+    
+    $("#TheTonbakaudiopsbtn").on('tap', function() {
+      TheTonbakaudio.pause();
+    });
+
+	watchTonbakVideo.addEventListener('ended', function() { 
+		$("#watchTonbakVideoholder").css({"visibility":"hidden", "z-index":-1});
+		$("#watchTonbakVideo").css({"z-index":-1});
+		bgsoundWorldBeats.play(); 
+	});
+
+	$("#watchTonbakVideo").on('tap', function() {
+		$("#watchTonbakVideoholder").css({"visibility":"hidden", "z-index":-1});
+		$("#watchTonbakVideo").css({"z-index":-1});
+		bgsoundWorldBeats.play();
+		watchTonbakVideo.pause();
+		watchTonbakVideo.currentTime = 0;
+	});	
+    $("#tonbak_video_btn").on('tap', function() {
+      $("#watchTonbakVideoholder").css({"visibility":"visible", "z-index":10});
+      $("#watchTonbakVideo").css({"z-index":9});
+      bgsoundWorldBeats.pause();
+      watchTonbakVideo.play();
+    }); 	
+  </script>
+</div> <!--//home-->

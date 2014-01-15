@@ -1,5 +1,5 @@
 /* Main common basic pages */
-#sub-world-beats, #sub-world-beats-from-tribal-beats-to-master-drummers, #sub-world-beats-shake-scrape-and-strike{
+#sub-world-beats, #sub-world-beats-from-tribal-beats-to-master-drummers, #sub-world-beats-shake-scrape-and-strike,#sub-world-beats-from-tribal-beats-to-master-drummers-big-noise,#sub-world-beats-from-tribal-beats-to-master-drummers-big-noise, #sub-world-beats-from-tribal-beats-to-master-drummers-master-drummers,#sub-world-beats-from-tribal-beats-to-master-drummers-tribal-beats,#sub-world-beats-shake-scrape-and-strike-creating-the-beat,#sub-world-beats-shake-scrape-and-strike-the-rolllll-of-drumming{
   background:url('images/9-12/Art_and_Music/World_Beats/World_Beats_BG.jpg') no-repeat;
   height:748px !important;
   overflow:hidden !important;
@@ -7,8 +7,28 @@
 }
 
 /* Custom Pages Style */
-#sub-jammin-jammin-in-the-style-of-classical {
-  background:url('images/9-12/Art_and_Music/World_Beats/') no-repeat;
+#sub-world-beats-from-tribal-beats-to-master-drummers-big-noise-indonesian-gamelan {
+  background:url('images/9-12/Art_and_Music/World_Beats/From_Tribal_Beats_to_Master_Drummers/Big_Noise/Indonesian_Gamelan/Indonesian_Gamelan_BG.png') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+#sub-world-beats-from-tribal-beats-to-master-drummers-electro-beats{
+  background:url('images/9-12/Art_and_Music/World_Beats/From_Tribal_Beats_to_Master_Drummers/Electro_Beats/Electro_Beats_BG.png') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+
+#sub-world-beats-from-tribal-beats-to-master-drummers-master-drummers-the-tabla{
+  background:url('images/9-12/Art_and_Music/World_Beats/From_Tribal_Beats_to_Master_Drummers/Master_Drummers/The_Tabla/Tabla_BG.png') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+
+#sub-world-beats-from-tribal-beats-to-master-drummers-master-drummers-the-tonbak{
+  background:url('images/9-12/Art_and_Music/World_Beats/From_Tribal_Beats_to_Master_Drummers/Master_Drummers/The_Tonbak/Tonbak_BG.png') no-repeat;
   height:748px !important;
   overflow:hidden !important;
   width:1024px !important;
@@ -117,6 +137,20 @@
 	color: #000000;
 }
 
+.navWorldBeats-indonesiangamelan{
+	position: absolute;
+	left: 305px;
+	top: 79px;
+	width: 410px;
+	height: 496px;
+	overflow: auto;
+	text-align: left;
+	font-family: "comic sans ms";
+	font-size: 18px;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+
 
 .navWorldBeatsbtn1{
 	left: 134px;
@@ -139,7 +173,7 @@
 
 
 /* Common Header Div Design */
-#sub-world-beats .bptitleholder, #sub-world-beats-from-tribal-beats-to-master-drummers .bptitleholder, #sub-world-beats-shake-scrape-and-strike .bptitleholder{
+#sub-world-beats .bptitleholder, #sub-world-beats-from-tribal-beats-to-master-drummers .bptitleholder, #sub-world-beats-shake-scrape-and-strike .bptitleholder, #sub-world-beats-from-tribal-beats-to-master-drummers-big-noise .bptitleholder, #sub-world-beats-from-tribal-beats-to-master-drummers-master-drummers .bptitleholder,#sub-world-beats-from-tribal-beats-to-master-drummers-tribal-beats .bptitleholder,#sub-world-beats-shake-scrape-and-strike-creating-the-beat .bptitleholder,#sub-world-beats-shake-scrape-and-strike-the-rolllll-of-drumming .bptitleholder{
 	width: 627px;
 	height: 68px;
 	text-align: center;
@@ -159,9 +193,47 @@
 	top: 44px;
 	left: 563px;
 }
+#sub-world-beats-from-tribal-beats-to-master-drummers-big-noise-indonesian-gamelan .bptitleholder{
+	width: 450px;
+	height: 68px;
+	text-align: center;
+	line-height: 28px;
+	position: absolute;
+	top: 44px;
+	left: 297px;
+}
+
+#sub-world-beats-from-tribal-beats-to-master-drummers-electro-beats .bptitleholder{
+	width: 391px;
+	height: 68px;
+	text-align: center;
+	line-height: 28px;
+	position: absolute;
+	top: 52px;
+	left: 20px;
+}
+#sub-world-beats-from-tribal-beats-to-master-drummers-master-drummers-the-tabla .bptitleholder{
+	width: 391px;
+	height: 68px;
+	text-align: center;
+	line-height: 28px;
+	position: absolute;
+	top: 52px;
+	left: 306px;
+}
+
+#sub-world-beats-from-tribal-beats-to-master-drummers-master-drummers-the-tonbak .bptitleholder{
+	width: 391px;
+	height: 68px;
+	text-align: center;
+	line-height: 28px;
+	position: absolute;
+	top: 52px;
+	left: 306px;
+}
 
 /* Common Header Design h1 */
-#sub-world-beats .bptitleholder h1,#sub-world-beats-from-tribal-beats-to-master-drummers .bptitleholder h1, #sub-world-beats-shake-scrape-and-strike .bptitleholder h1{
+#sub-world-beats .bptitleholder h1,#sub-world-beats-from-tribal-beats-to-master-drummers .bptitleholder h1, #sub-world-beats-shake-scrape-and-strike .bptitleholder h1, #sub-world-beats-from-tribal-beats-to-master-drummers-big-noise .bptitleholder h1, #sub-world-beats-from-tribal-beats-to-master-drummers-master-drummers .bptitleholder h1,#sub-world-beats-from-tribal-beats-to-master-drummers-tribal-beats .bptitleholder h1,#sub-world-beats-shake-scrape-and-strike-creating-the-beat .bptitleholder h1,#sub-world-beats-shake-scrape-and-strike-the-rolllll-of-drumming .bptitleholder h1{
 	text-transform: uppercase;
 	color: #FFFFFF !important;
 	font-family: "comic sans ms" !important;
@@ -171,7 +243,7 @@
 }
 
 /* Custom Page Header Design h1 */
-#sub-jammin-jammin-in-the-style-of-classical .bptitleholder h1{
+#sub-jammin-jammin-in-the-style-of-classical .bptitleholder h1, #sub-world-beats-from-tribal-beats-to-master-drummers-big-noise-indonesian-gamelan .bptitleholder h1, #sub-world-beats-from-tribal-beats-to-master-drummers-electro-beats .bptitleholder h1, #sub-world-beats-from-tribal-beats-to-master-drummers-master-drummers-the-tabla .bptitleholder h1, #sub-world-beats-from-tribal-beats-to-master-drummers-master-drummers-the-tonbak .bptitleholder h1{
 	text-transform: uppercase;
 	color: #FFFFFF !important;
 	font-family: "comic sans ms" !important;
@@ -226,17 +298,73 @@
 
 
 
-.navWorldBeats-jammintools{
+.navWorldBeats-electrobeats{
 	position: absolute;
-	left: 564px;
+	left: 26px;
 	top: 100px;
-	width: 450px;
-	height: 518px;
+	width: 392px;
+	height: 327px;
 	overflow: auto;
 	text-align: left;
 	font-family: comic sans ms;
 	font-size: 18px;
 	font-weight: normal;
-	color: #FFFFFF;	
+	color: #FFFFFF;
+}
+.navWorldBeats-thetabla{
+	position: absolute;
+	left: 318px;
+	top: 100px;
+	width: 392px;
+	height: 392px;
+	overflow: auto;
+	text-align: left;
+	font-family: comic sans ms;
+	font-size: 18px;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+.navWorldBeats-thetonbak{
+	position: absolute;
+	left: 318px;
+	top: 100px;
+	width: 392px;
+	height: 392px;
+	overflow: auto;
+	text-align: left;
+	font-family: comic sans ms;
+	font-size: 18px;
+	font-weight: normal;
+	color: #FFFFFF;
 }
 
+
+#indo_play_vid{
+	height: 50px;
+	width: 100px;
+	top: 631px;
+	left: 452px;
+	position: absolute;	
+}
+#drum_sampler{
+	height: 242px;
+	width: 202px;
+	top: 440px;
+	left: 66px;
+	position: absolute;	
+}
+#tabla_video_btn{
+	height: 62px;
+	width: 117px;
+	position: absolute;
+	top: 620px;
+	left: 446px;
+}
+
+#tonbak_video_btn{
+	height: 62px;
+	width: 117px;
+	position: absolute;
+	top: 620px;
+	left: 446px;
+}

@@ -1,0 +1,114 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-world-beats-from-tribal-beats-to-master-drummers-electro-beats">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_world_beats.js"></script>
+  <link rel="stylesheet" href="css/style_world_beats.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnWorldBeats"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnWorldBeats"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnWorldBeats"></div></div>
+  <div class="infobtnholder"><div class="infobtnWorldBeats"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnWorldBeats"></div></div>
+  <div class="menubtnholder"><div class="menubtnWorldBeats"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Electro Beats</h1></div>
+  <div data-role="content" class="kidzcontent">
+	<div class="navWorldBeats-electrobeats">
+		<p>Can you imagine a type of drumming where you do not hit a skin or use sticks, and there is no drum to hit? Welcome to the world of Electro Beats, where computers and electronic instruments play any percussion sound electronically!</p>	
+
+			<p>Electronic percussion instruments trigger (or activate) short recordings of real drums, known as samples. They include electronic drums, drum machines, samplers, MIDI devices and almost every computer music program. Some devices alter the original drum sound in slight to extreme ways, while some electronic musicians and producers have created new percussion sounds altogether. </p>	
+
+			<p>Can you think of any songs that use electronic drum samples? You may be surprised to know that they are used in many types of recorded music, including dance and techno music as well as hip-hop, R&B, pop music and many more  in fact probably many of your current favourite songs!</p>	
+	</div>
+	<div id="drum_sampler">
+	
+	</div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnWorldBeats" id="playstopElectroBeats"></div></div>
+    <div class="bWorldBeats"><div class="rwWorldBeats" id="ElectroBeatsaudiobbtn"></div></div>
+    <div class="plWorldBeats"><div class="plpsWorldBeats" id="ElectroBeatsaudioplbtn"></div></div>
+    <div class="fWorldBeats"><div class="fwWorldBeats" id="ElectroBeatsaudiofbtn"></div></div>
+    <div id="actualaudio-ElectroBeats" style="visibility:hidden;"></div>
+  <!--</div>-->
+
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-ElectroBeats').html('<audio id="ElectroBeatsaudio" controls preload onpause="playsWorldBeats()" onplay="pauseWorldBeats()"><source src="audio/World_Beats/Electro_Beats.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-world-beats-from-tribal-beats-to-master-drummers-electro-beats").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundWorldBeats.pause(); bgsoundWorldBeats.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-world-beats-from-tribal-beats-to-master-drummers.html", {transition: "slide", reverse: true });
+    }
+    $('#drum_sampler').on('tap',function(){
+		$.mobile.changePage("sub-world-beats-from-tribal-beats-to-master-drummers-electro-beats-drum-sampler.html", {transition: "slide"});
+	});
+    function playsWorldBeats() {
+         bgsoundWorldBeats.play();
+    }
+       
+    function pauseWorldBeats() {
+         bgsoundWorldBeats.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopElectroBeats").on('tap', function() {
+      if(!playing) {
+        ElectroBeatsaudio.play();
+        $('.micbtnWorldBeats').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        ElectroBeatsaudio.pause(); ElectroBeatsaudio.currentTime = 0;
+        $('.micbtnWorldBeats').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#ElectroBeatsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        ElectroBeatsaudio.pause();
+        paused = true;
+      } else {
+        ElectroBeatsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#ElectroBeatsaudiofbtn").on('tap', function() {
+      var ctime = ElectroBeatsaudio.currentTime;
+      ElectroBeatsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#ElectroBeatsaudiobbtn").on('tap', function() {
+      var ctime = ElectroBeatsaudio.currentTime;
+      ElectroBeatsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#ElectroBeatsaudiopsbtn").on('tap', function() {
+      ElectroBeatsaudio.pause();
+    });
+
+  </script>
+</div> <!--//home-->

@@ -1,0 +1,140 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-world-beats-from-tribal-beats-to-master-drummers-big-noise-indonesian-gamelan">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_world_beats.js"></script>
+  <link rel="stylesheet" href="css/style_world_beats.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnWorldBeats"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnWorldBeats"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnWorldBeats"></div></div>
+  <div class="infobtnholder"><div class="infobtnWorldBeats"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnWorldBeats"></div></div>
+  <div class="menubtnholder"><div class="menubtnWorldBeats"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Indonesian Gamelan</h1></div>
+  <div data-role="content" class="kidzcontent">
+	<div class="navWorldBeats-indonesiangamelan">
+		<p>In Indonesia there are orchestras made up entirely of percussion instruments, called a Gamelan Orchestra. Gamelan is the main form of traditional music in Indonesia, and there are different types throughout the country. The two main types of gamelan are Javanese, from Java, and Balinese, from Bali. </p>
+
+		<p>In a gamelan orchestra musicians play a wide variety of tuned metal instruments and gongs, with interesting names like bonang, gender, slentham and kempul. The entire orchestra is led by a drummer playing the kendang, a two-headed drum, and the music is regularly punctuated by pounding big gongs! </p>
+
+		<p>Gamelan orchestras are often used to accompany wonderful theatre shows of shadow puppetry called wayang.	</p>	
+	</div>
+	<div id="indo_play_vid">
+	
+	</div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnWorldBeats" id="playstopIndonesianGamelan"></div></div>
+    <div class="bWorldBeats"><div class="rwWorldBeats" id="IndonesianGamelanaudiobbtn"></div></div>
+    <div class="plWorldBeats"><div class="plpsWorldBeats" id="IndonesianGamelanaudioplbtn"></div></div>
+    <div class="fWorldBeats"><div class="fwWorldBeats" id="IndonesianGamelanaudiofbtn"></div></div>
+    <div id="actualaudio-IndonesianGamelan" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <!-- ----------------------- Video embedding --------------------------- -->
+  
+	<div id="watchIndonesianGamelanholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+    <video id="watchIndonesianGamelan" width="1024" height="748" preload>
+      <source src="css/images/9-12/Art_and_Music/World_Beats/From_Tribal_Beats_to_Master_Drummers/Big_Noise/Indonesian_Gamelan/Gamelan.mp4" type="video/mp4">
+    </video>
+  </div>
+  
+  <!-- ------------------------------------------------------------------ -->  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-IndonesianGamelan').html('<audio id="IndonesianGamelanaudio" controls preload onpause="playsWorldBeats()" onplay="pauseWorldBeats()"><source src="audio/World_Beats/Indonesian_Gamelan.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-world-beats-from-tribal-beats-to-master-drummers-big-noise-indonesian-gamelan").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundWorldBeats.pause(); bgsoundWorldBeats.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-world-beats-from-tribal-beats-to-master-drummers-big-noise.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsWorldBeats() {
+         bgsoundWorldBeats.play();
+    }
+       
+    function pauseWorldBeats() {
+         bgsoundWorldBeats.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopIndonesianGamelan").on('tap', function() {
+      if(!playing) {
+        IndonesianGamelanaudio.play();
+        $('.micbtnWorldBeats').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        IndonesianGamelanaudio.pause(); IndonesianGamelanaudio.currentTime = 0;
+        $('.micbtnWorldBeats').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#IndonesianGamelanaudioplbtn").on('tap', function() {
+      if(!paused) {
+        IndonesianGamelanaudio.pause();
+        paused = true;
+      } else {
+        IndonesianGamelanaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#IndonesianGamelanaudiofbtn").on('tap', function() {
+      var ctime = IndonesianGamelanaudio.currentTime;
+      IndonesianGamelanaudio.currentTime = ctime + 10;
+    });
+    
+    $("#IndonesianGamelanaudiobbtn").on('tap', function() {
+      var ctime = IndonesianGamelanaudio.currentTime;
+      IndonesianGamelanaudio.currentTime = ctime - 10;
+    });
+    
+    $("#IndonesianGamelanaudiopsbtn").on('tap', function() {
+      IndonesianGamelanaudio.pause();
+    });
+	
+	  watchIndonesianGamelan.addEventListener('ended', function() { 
+        $("#watchIndonesianGamelanholder").css({"visibility":"hidden", "z-index":-1});
+        $("#watchIndonesianGamelan").css({"z-index":-1});
+        bgsoundWorldBeats.play(); 
+      });
+    
+      $("#watchIndonesianGamelan").on('tap', function() {
+        $("#watchIndonesianGamelanholder").css({"visibility":"hidden", "z-index":-1});
+        $("#watchIndonesianGamelan").css({"z-index":-1});
+        bgsoundWorldBeats.play();
+        watchIndonesianGamelan.pause();
+        watchIndonesianGamelan.currentTime = 0;
+      });
+    $("#indo_play_vid").on('tap', function() {
+      $("#watchIndonesianGamelanholder").css({"visibility":"visible", "z-index":10});
+      $("#watchIndonesianGamelan").css({"z-index":9});
+      bgsoundWorldBeats.pause();
+      watchIndonesianGamelan.play();
+    }); 
+			
+  </script>
+</div> <!--//home-->

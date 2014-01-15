@@ -1,0 +1,139 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-world-beats-from-tribal-beats-to-master-drummers-master-drummers-the-tabla">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_world_beats.js"></script>
+  <link rel="stylesheet" href="css/style_world_beats.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnWorldBeats"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnWorldBeats"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnWorldBeats"></div></div>
+  <div class="infobtnholder"><div class="infobtnWorldBeats"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnWorldBeats"></div></div>
+  <div class="menubtnholder"><div class="menubtnWorldBeats"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>The Tabla</h1></div>
+  <div data-role="content" class="kidzcontent">
+	<div class="navWorldBeats-thetabla">
+		<p>Tabla is a set of two drums played with a dazzling array of fast-moving finger strokes, handed down through a percussion tradition in India that is thousands of years old. Today you will find the highly complex repertoire of the tabla being taught and performed throughout the world.</p>	
+	
+		<p>Using an amazing range of finger strokes, tabla players produce more than 50 sounds on a set of tabla. Each of these sounds has a special syllable that is spoken by tabla players (like DHA TEREKETETHAKA). </p>	
+
+		<p>A secret mixture of rice and iron filings forms a black dot on its skin, allowing the tabla to be tuned to a particular sustained note that rings out after its been hit. The pitch of the low bass note can even be changed using the palm of the hand this gives tabla a very distinctive sound!</p>	
+	</div>
+	<div id="tabla_video_btn">
+	
+	</div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnWorldBeats" id="playstopTheTabla"></div></div>
+    <div class="bWorldBeats"><div class="rwWorldBeats" id="TheTablaaudiobbtn"></div></div>
+    <div class="plWorldBeats"><div class="plpsWorldBeats" id="TheTablaaudioplbtn"></div></div>
+    <div class="fWorldBeats"><div class="fwWorldBeats" id="TheTablaaudiofbtn"></div></div>
+    <div id="actualaudio-TheTabla" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <!-- ----------------------- Video embedding --------------------------- -->
+  
+	<div id="watchTablaVideoholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+    <video id="watchTablaVideo" width="1024" height="748" preload>
+      <source src="css/images/9-12/Art_and_Music/World_Beats/From_Tribal_Beats_to_Master_Drummers/Master_Drummers/The_Tabla/Tabla_Video.mp4" type="video/mp4">
+    </video>
+  </div>
+  
+  <!-- ------------------------------------------------------------------ -->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-TheTabla').html('<audio id="TheTablaaudio" controls preload onpause="playsWorldBeats()" onplay="pauseWorldBeats()"><source src="audio/World_Beats/The_Tabla.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-world-beats-from-tribal-beats-to-master-drummers-master-drummers-the-tabla").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundWorldBeats.pause(); bgsoundWorldBeats.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-world-beats-from-tribal-beats-to-master-drummers-master-drummers.html", {transition: "slide", reverse: true });
+    }
+
+    function playsWorldBeats() {
+         bgsoundWorldBeats.play();
+    }
+       
+    function pauseWorldBeats() {
+         bgsoundWorldBeats.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopTheTabla").on('tap', function() {
+      if(!playing) {
+        TheTablaaudio.play();
+        $('.micbtnWorldBeats').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        TheTablaaudio.pause(); TheTablaaudio.currentTime = 0;
+        $('.micbtnWorldBeats').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#TheTablaaudioplbtn").on('tap', function() {
+      if(!paused) {
+        TheTablaaudio.pause();
+        paused = true;
+      } else {
+        TheTablaaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#TheTablaaudiofbtn").on('tap', function() {
+      var ctime = TheTablaaudio.currentTime;
+      TheTablaaudio.currentTime = ctime + 10;
+    });
+    
+    $("#TheTablaaudiobbtn").on('tap', function() {
+      var ctime = TheTablaaudio.currentTime;
+      TheTablaaudio.currentTime = ctime - 10;
+    });
+    
+    $("#TheTablaaudiopsbtn").on('tap', function() {
+      TheTablaaudio.pause();
+    });
+
+	watchTablaVideo.addEventListener('ended', function() { 
+		$("#watchTablaVideoholder").css({"visibility":"hidden", "z-index":-1});
+		$("#watchTablaVideo").css({"z-index":-1});
+		bgsoundWorldBeats.play(); 
+	});
+
+	$("#watchTablaVideo").on('tap', function() {
+		$("#watchTablaVideoholder").css({"visibility":"hidden", "z-index":-1});
+		$("#watchTablaVideo").css({"z-index":-1});
+		bgsoundWorldBeats.play();
+		watchTablaVideo.pause();
+		watchTablaVideo.currentTime = 0;
+	});	
+    $("#tabla_video_btn").on('tap', function() {
+      $("#watchTablaVideoholder").css({"visibility":"visible", "z-index":10});
+      $("#watchTablaVideo").css({"z-index":9});
+      bgsoundWorldBeats.pause();
+      watchTablaVideo.play();
+    }); 	
+  </script>
+</div> <!--//home-->
