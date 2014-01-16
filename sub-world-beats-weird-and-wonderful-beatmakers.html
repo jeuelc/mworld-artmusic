@@ -1,0 +1,130 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-world-beats-weird-and-wonderful-beatmakers">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_world_beats.js"></script>
+  <link rel="stylesheet" href="css/style_world_beats.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnWorldBeats"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnWorldBeats"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnWorldBeats"></div></div>
+  <div class="infobtnholder"><div class="infobtnWorldBeats"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnWorldBeats"></div></div>
+  <div class="menubtnholder"><div class="menubtnWorldBeats"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"></div>
+  <div data-role="content" class="kidzcontent">
+	<div class="navWorldBeats-WeiredAndWonderfulBeatmakers">
+		<p>You probably know some of the more common drums, such as congas and snare drums. But the world of percussion is full of weird and wonderful instruments that you might not have heard of. Let's explore some of the lesser-known and more unusual percussion instruments. Can you guess what these might be?</p>	
+	</div>
+	<div class="drum_talk_btn">
+	</div>
+	<div class="how_huge_btn">
+	</div>
+	<div class="liondance_btn">
+	</div>
+	<div class="hear_the_world_btn">
+	</div>
+	<div class="drums_with_your_voice_btn">
+	</div>	
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnWorldBeats" id="playstopWeiredAndWonderfulBeatmakers"></div></div>
+    <div class="bWorldBeats"><div class="rwWorldBeats" id="WeiredAndWonderfulBeatmakersaudiobbtn"></div></div>
+    <div class="plWorldBeats"><div class="plpsWorldBeats" id="WeiredAndWonderfulBeatmakersaudioplbtn"></div></div>
+    <div class="fWorldBeats"><div class="fwWorldBeats" id="WeiredAndWonderfulBeatmakersaudiofbtn"></div></div>
+    <div id="actualaudio-WeiredAndWonderfulBeatmakers" style="visibility:hidden;"></div>
+  <!--</div>-->
+
+  <script>
+     $('.drum_talk_btn').on('tap',function(){
+		$.mobile.changePage("sub-world-beats-weird-and-wonderful-beatmakers-talking-drums.html", {transition: "slide"});
+	}); 
+     $('.how_huge_btn').on('tap',function(){
+		$.mobile.changePage("sub-world-beats-weird-and-wonderful-beatmakers-taiko.html", {transition: "slide"});
+	}); 
+     $('.liondance_btn').on('tap',function(){
+		$.mobile.changePage("sub-world-beats-weird-and-wonderful-beatmakers-lion-drums.html", {transition: "slide"});
+	}); 
+     $('.hear_the_world_btn').on('tap',function(){
+		$.mobile.changePage("sub-world-beats-weird-and-wonderful-beatmakers-gongs.html", {transition: "slide"});
+	}); 
+     $('.drums_with_your_voice_btn').on('tap',function(){
+		$.mobile.changePage("sub-world-beats-weird-and-wonderful-beatmakers-beatboxing.html", {transition: "slide"});
+	}); 	
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-WeiredAndWonderfulBeatmakers').html('<audio id="WeiredAndWonderfulBeatmakersaudio" controls preload onpause="playsWorldBeats()" onplay="pauseWorldBeats()"><source src="audio/World_Beats/Weired_And_Wonderful_Beatmakers.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-world-beats-weird-and-wonderful-beatmakers").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundWorldBeats.pause(); bgsoundWorldBeats.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-world-beats.html", {transition: "slide", reverse: true });
+    }
+
+    function playsWorldBeats() {
+         bgsoundWorldBeats.play();
+    }
+       
+    function pauseWorldBeats() {
+         bgsoundWorldBeats.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopWeiredAndWonderfulBeatmakers").on('tap', function() {
+      if(!playing) {
+        WeiredAndWonderfulBeatmakersaudio.play();
+        $('.micbtnWorldBeats').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        WeiredAndWonderfulBeatmakersaudio.pause(); WeiredAndWonderfulBeatmakersaudio.currentTime = 0;
+        $('.micbtnWorldBeats').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#WeiredAndWonderfulBeatmakersaudioplbtn").on('tap', function() {
+      if(!paused) {
+        WeiredAndWonderfulBeatmakersaudio.pause();
+        paused = true;
+      } else {
+        WeiredAndWonderfulBeatmakersaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#WeiredAndWonderfulBeatmakersaudiofbtn").on('tap', function() {
+      var ctime = WeiredAndWonderfulBeatmakersaudio.currentTime;
+      WeiredAndWonderfulBeatmakersaudio.currentTime = ctime + 10;
+    });
+    
+    $("#WeiredAndWonderfulBeatmakersaudiobbtn").on('tap', function() {
+      var ctime = WeiredAndWonderfulBeatmakersaudio.currentTime;
+      WeiredAndWonderfulBeatmakersaudio.currentTime = ctime - 10;
+    });
+    
+    $("#WeiredAndWonderfulBeatmakersaudiopsbtn").on('tap', function() {
+      WeiredAndWonderfulBeatmakersaudio.pause();
+    });
+
+  </script>
+</div> <!--//home-->

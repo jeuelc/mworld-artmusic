@@ -1,1 +1,142 @@
-a
+<!-- i-C-a -->
+<div data-role="page" id="sub-world-beats-from-tribal-beats-to-master-drummers-tribal-beats-west-african-tribal-drumming">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_world_beats.js"></script>
+  <link rel="stylesheet" href="css/style_world_beats.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnWorldBeats"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnWorldBeats"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnWorldBeats"></div></div>
+  <div class="infobtnholder"><div class="infobtnWorldBeats"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnWorldBeats"></div></div>
+  <div class="menubtnholder"><div class="menubtnWorldBeats"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>West African Tribal Drumming</h1></div>
+  <div data-role="content" class="kidzcontent">
+	<div class="navWorldBeats-westafricantribaldrumming">
+		<p>Throughout West Africa, which includes countries like Senegal, Ghana, Burkina Faso and Guinea, there are many cultures with tribal drumming groups.</p>	 
+
+			<p>Originally, tribal drumming was used in ancient ceremonies, sometimes for naming a child, or healing a sick person. In these traditions, lots of drummers play various repetitive interconnecting patterns. They use hand-carved drums made with animal skins, such as the djembe, dundun, bougarabou and kpanlogo. </p>	
+
+			<p>Tribal ceremonial music is incredible to see performed, and people fly from all over the world today to watch and learn about traditional tribal drumming. It is so popular that there are classes and performers in many cities all over the world.</p>	
+	</div>
+	<div id="tribal_drumming_video_btn">
+	
+	</div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnWorldBeats" id="playstopWestAfricanTribalDrumming"></div></div>
+    <div class="bWorldBeats"><div class="rwWorldBeats" id="WestAfricanTribalDrummingaudiobbtn"></div></div>
+    <div class="plWorldBeats"><div class="plpsWorldBeats" id="WestAfricanTribalDrummingaudioplbtn"></div></div>
+    <div class="fWorldBeats"><div class="fwWorldBeats" id="WestAfricanTribalDrummingaudiofbtn"></div></div>
+    <div id="actualaudio-WestAfricanTribalDrumming" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <!-- ----------------------- Video embedding --------------------------- -->
+  
+	<div id="watchTribalDrummingVideoholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+    <video id="watchTribalDrummingVideo" width="1024" height="748" preload>
+      <source src="css/images/9-12/Art_and_Music/World_Beats/From_Tribal_Beats_to_Master_Drummers/Tribal_Beats/West_African_Tribal_Drumming/Tribal_Drumming_Video.mp4" type="video/mp4">
+    </video>
+  </div>
+  
+  <!-- ------------------------------------------------------------------ -->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-WestAfricanTribalDrumming').html('<audio id="WestAfricanTribalDrummingaudio" controls preload onpause="playsWorldBeats()" onplay="pauseWorldBeats()"><source src="audio/World_Beats/West_African_Tribal_Drumming.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-world-beats-from-tribal-beats-to-master-drummers-tribal-beats-west-african-tribal-drumming").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundWorldBeats.pause(); bgsoundWorldBeats.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-world-beats-from-tribal-beats-to-master-drummers.html", {transition: "slide", reverse: true });
+    }
+    $('#drum_sampler').on('tap',function(){
+		$.mobile.changePage("sub-world-beats-from-tribal-beats-to-master-drummers-electro-beats-drum-sampler.html", {transition: "slide"});
+	});
+    function playsWorldBeats() {
+         bgsoundWorldBeats.play();
+    }
+       
+    function pauseWorldBeats() {
+         bgsoundWorldBeats.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopWestAfricanTribalDrumming").on('tap', function() {
+      if(!playing) {
+        WestAfricanTribalDrummingaudio.play();
+        $('.micbtnWorldBeats').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        WestAfricanTribalDrummingaudio.pause(); WestAfricanTribalDrummingaudio.currentTime = 0;
+        $('.micbtnWorldBeats').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#WestAfricanTribalDrummingaudioplbtn").on('tap', function() {
+      if(!paused) {
+        WestAfricanTribalDrummingaudio.pause();
+        paused = true;
+      } else {
+        WestAfricanTribalDrummingaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#WestAfricanTribalDrummingaudiofbtn").on('tap', function() {
+      var ctime = WestAfricanTribalDrummingaudio.currentTime;
+      WestAfricanTribalDrummingaudio.currentTime = ctime + 10;
+    });
+    
+    $("#WestAfricanTribalDrummingaudiobbtn").on('tap', function() {
+      var ctime = WestAfricanTribalDrummingaudio.currentTime;
+      WestAfricanTribalDrummingaudio.currentTime = ctime - 10;
+    });
+    
+    $("#WestAfricanTribalDrummingaudiopsbtn").on('tap', function() {
+      WestAfricanTribalDrummingaudio.pause();
+    });
+
+	watchTribalDrummingVideo.addEventListener('ended', function() { 
+		$("#watchTribalDrummingVideoholder").css({"visibility":"hidden", "z-index":-1});
+		$("#watchTribalDrummingVideo").css({"z-index":-1});
+		bgsoundWorldBeats.play(); 
+	});
+
+	$("#watchTribalDrummingVideo").on('tap', function() {
+		$("#watchTribalDrummingVideoholder").css({"visibility":"hidden", "z-index":-1});
+		$("#watchTribalDrummingVideo").css({"z-index":-1});
+		bgsoundWorldBeats.play();
+		watchTribalDrummingVideo.pause();
+		watchTribalDrummingVideo.currentTime = 0;
+	});	
+    $("#tribal_drumming_video_btn").on('tap', function() {
+      $("#watchTribalDrummingVideoholder").css({"visibility":"visible", "z-index":10});
+      $("#watchTribalDrummingVideo").css({"z-index":9});
+      bgsoundWorldBeats.pause();
+      watchTribalDrummingVideo.play();
+    }); 		
+	
+  </script>
+</div> <!--//home-->
