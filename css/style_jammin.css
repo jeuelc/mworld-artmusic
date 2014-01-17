@@ -316,9 +316,9 @@
 /* Custom content */
 .navJammin-classical,.navJammin-jazz,.navJammin-latin,.navJammin-rock{
 	position: absolute;
-	left: 564px;
-	top: 100px;
-	width: 450px;
+	left: 610px;
+	top: 175px;
+	width: 408px;
 	height: 518px;
 	overflow: auto;
 	text-align: left;
@@ -368,4 +368,12 @@
   -o-transition: all 1.0s linear;
   transform-style: preserve-3d;
   transition: all 1.0s linear;
+}
+
+.music_play_btn{
+	position:absolute;
+	height: 151px;
+	width: 151px;
+	left: 437px;
+	top: 308px;
 }

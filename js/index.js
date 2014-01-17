@@ -842,3 +842,11 @@ bgsoundWorldBeats.addEventListener('ended', function() { bgsoundWorldBeats.play(
 
 function pauseWorldBeats() { bgsoundWorldBeats.pause() }
 function playsWorldBeats() { bgsoundWorldBeats.play(); $(".audiopanel").css({"backgroundPosition":"0px 0px"}); }
+
+/************************ How To Write A Song *******************************/
+var bgsoundHowToWriteASong = new Audio();
+bgsoundHowToWriteASong.src = "audio/How_To_Write_A_Song/How_To_Write_A_Song_BG.mp3";
+bgsoundHowToWriteASong.addEventListener('ended', function() { bgsoundHowToWriteASong.play(); });
+
+function pauseHowToWriteASong() { bgsoundHowToWriteASong.pause() }
+function playsHowToWriteASong() { bgsoundHowToWriteASong.play(); $(".audiopanel").css({"backgroundPosition":"0px 0px"}); }

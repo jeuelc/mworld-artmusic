@@ -21,6 +21,7 @@
 
 		<p>Jazz songs have quite complicated chord progressions that can make them difficult to play if youre just starting, but anyone can sound 'jazzier' by playing bouncing, swinging rhythms.</p>
 	</div>
+		<div class="music_play_btn" style=""></div>
 		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
   </div> <!-- end content -->  
 
@@ -32,6 +33,10 @@
     <div class="fJammin"><div class="fwJammin" id="Jazzaudiofbtn"></div></div>
     <div id="actualaudio-Jazz" style="visibility:hidden;"></div>
   <!--</div>-->
+  <!-- Play music -->
+    <div id="actualaudio-Jazz" style="display: none;">
+		<audio id="JazzMusicAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Latin_Music.mp3" type="audio/mpeg"></audio>
+	</div>    
   <script>
   // sound setup is in home.html and index.js
     sound = new Audio(); // 'sound' is now an audio object
@@ -102,6 +107,18 @@
       Jazzaudio.pause();
       //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
     });
-
+	$(".music_play_btn").on('tap', function() {
+        if(JazzMusicAudio.currentTime == 0){
+			JazzMusicAudio.play();
+			Jazzaudio.pause();
+			Jazzaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(JazzMusicAudio.currentTime > 0){
+			JazzMusicAudio.pause();
+			JazzMusicAudio.currentTime = 0;
+		}
+	});
   </script>
 </div> <!--//home-->

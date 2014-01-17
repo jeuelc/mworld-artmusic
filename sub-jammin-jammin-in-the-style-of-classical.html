@@ -19,6 +19,7 @@
 
 		<p>Although this is changing, classical musicians dont really jam as often as people playing other styles.  But thats not to say that they cant!  Classical rhythms are steady and even, and melodies use notes from the same key groups as other styles.  Many classical musicians learn musical tools such as scales very carefully, and would have some excellent ideas for improvising!  Classical instruments often sound great underscoring pop songs.  These sounds might have been found by jamming!</p>	
 	</div>
+		<div class="music_play_btn" style=""></div>
 		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
   </div> <!-- end content -->  
 
@@ -30,6 +31,11 @@
     <div class="fJammin"><div class="fwJammin" id="Classicalaudiofbtn"></div></div>
     <div id="actualaudio-Classical" style="visibility:hidden;"></div>
   <!--</div>-->
+  
+  <!-- Play music -->
+    <div id="actualaudio-Classical" style="display: none;">
+		<audio id="ClassicalMusicAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Classical_Music.mp3" type="audio/mpeg"></audio>
+	</div>    
   <script>
   // sound setup is in home.html and index.js
     sound = new Audio(); // 'sound' is now an audio object
@@ -100,6 +106,18 @@
       Classicalaudio.pause();
       //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
     });
-
+	$(".music_play_btn").on('tap', function() {
+        if(ClassicalMusicAudio.currentTime == 0){
+			ClassicalMusicAudio.play();
+			Classicalaudio.pause();
+			Classicalaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(ClassicalMusicAudio.currentTime > 0){
+			ClassicalMusicAudio.pause();
+			ClassicalMusicAudio.currentTime = 0;
+		}
+	});
   </script>
 </div> <!--//home-->

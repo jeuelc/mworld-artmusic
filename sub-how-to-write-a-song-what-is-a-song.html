@@ -1,0 +1,137 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-how-to-write-a-song-what-is-a-song">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_how_to_write_a_song.js"></script>
+  <link rel="stylesheet" href="css/style_how_to_write_a_song.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnHowToWriteASong"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnHowToWriteASong"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnHowToWriteASong"></div></div>
+  <div class="infobtnholder"><div class="infobtnHowToWriteASong"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnHowToWriteASong"></div></div>
+  <div class="menubtnholder"><div class="menubtnHowToWriteASong"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>What is a Song?</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navHowToWriteASong-content3">
+			<p>Think of your favourite song.  What are the parts you can remember?  Is it the melody (or tune) you can sing, or the words?  Maybe you remember the catchy guitar line at the beginning, or perhaps just how it makes you feel?</p>
+
+				<p>A song is like a short story set to music. It can be as simple as just two chords with a very basic melody and lyric.  Songs often tell a story in a very short amount of time  popular songs are usually around three-and-a-half minutes long. </p>
+
+				<p>The songs you hear today are not structured very differently from songs that were sung 100 years ago, but that doesn't mean all songs have to sound the same.  Each song has unique, different characteristics.  So, what makes up a song?</p>
+      </div>
+<!-- 
+1 - Creating the Beat
+2 - The Rolllll of Drumming
+3 - Drumming Around the World
+
+-->
+
+	  
+      <div class="navbtn1" style="top:420px;">
+        <p><a href="sub-how-to-write-a-song-what-is-a-song-ingredients_of_a_song.html" data-transition="slide"><img src="css/images/9-12/Art_And_Music/How_To_Write_A_Song/What_Is_A_Song/Ingredients_Of_A_Song.png"></a></p>
+      </div>
+     <div class="navbtn2" style="left:400px;">
+        <p><a href="sub-how-to-write-a-song-what-is-a-song-what-do-songs-do.html" data-transition="slide"><img src="css/images/9-12/Art_And_Music/How_To_Write_A_Song/What_Is_A_Song/What_Do_Songs_Do.png"></a></p>
+      </div>
+     <div class="navbtn3" style="top:420px;">
+        <p><a href="sub-how-to-write-a-song-what-is-a-song-a_journey_through_a_song.html" data-transition="slide"><img src="css/images/9-12/Art_And_Music/How_To_Write_A_Song/What_Is_A_Song/A_Journey_Through_A_Song.png"></a></p>
+      </div>
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnHowToWriteASong" id="playstopWhatIsASong"></div></div>
+    <div class="bHowToWriteASong"><div class="rwHowToWriteASong" id="WhatIsASongaudiobbtn"></div></div>
+    <div class="plHowToWriteASong"><div class="plpsHowToWriteASong" id="WhatIsASongaudioplbtn"></div></div>
+    <div class="fHowToWriteASong"><div class="fwHowToWriteASong" id="WhatIsASongaudiofbtn"></div></div>
+    <div id="actualaudio-WhatIsASong" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-WhatIsASong').html('<audio id="WhatIsASongaudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()"><source src="audio/How_To_Write_A_Song/What_Is_A_Song.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-how-to-write-a-song-what-is-a-song").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundHowToWriteASong.pause(); bgsoundHowToWriteASong.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-how-to-write-a-song.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsHowToWriteASong() {
+         bgsoundHowToWriteASong.play();
+    }
+       
+    function pauseHowToWriteASong() {
+         bgsoundHowToWriteASong.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopWhatIsASong").on('tap', function() {
+      if(!playing) {
+        WhatIsASongaudio.play();
+        $('.micbtnHowToWriteASong').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        WhatIsASongaudio.pause(); WhatIsASongaudio.currentTime = 0;
+        $('.micbtnHowToWriteASong').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#WhatIsASongaudioplbtn").on('tap', function() {
+      if(!paused) {
+        WhatIsASongaudio.pause();
+        paused = true;
+      } else {
+        WhatIsASongaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#WhatIsASongaudiofbtn").on('tap', function() {
+      var ctime = WhatIsASongaudio.currentTime;
+      WhatIsASongaudio.currentTime = ctime + 10;
+    });
+    
+    $("#WhatIsASongaudiobbtn").on('tap', function() {
+      var ctime = WhatIsASongaudio.currentTime;
+      WhatIsASongaudio.currentTime = ctime - 10;
+    });
+    
+    $("#HowToWriteASongaudiopsbtn").on('tap', function() {
+      WhatIsASongaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+
+  </script>
+</div> <!--//home-->

@@ -5,7 +5,7 @@
     <div id="titleb-holder"><h1 style="margin-top:184px;">Art and Music</h1></div>
     
     <div style="width:90%;margin:auto;">
-      <div class="aclink"><a href="#" data-transition="slide" id="agmovielink"><img src="css/images/9-12/Art_and_Music/writeasongbtn.png"></a></div>
+      <div class="aclink"><a href="sub-how-to-write-a-song.html" data-transition="slide" id="how_to_write_a_song"><img src="css/images/9-12/Art_and_Music/writeasongbtn.png"></a></div>
       <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Art_and_Music/streetartbtn.png"></a></div>
       <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Art_and_Music/chineseopbtn.png"></a></div>
       <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Art_and_Music/famouspaintsbtn.png"></a></div><br>
@@ -38,11 +38,16 @@
 					artmusicsoundbg.pause();
 					artmusicsoundbg.currentTime = 0;
 				}
-				if(subjectId == "world_beats") {
+				else if(subjectId == "world_beats") {
 					bgsoundWorldBeats.play();
 					artmusicsoundbg.pause();
 					artmusicsoundbg.currentTime = 0;
-				}				
+				}
+				else if(subjectId == "how_to_write_a_song"){
+					bgsoundHowToWriteASong.play();
+					artmusicsoundbg.pause();
+					artmusicsoundbg.currentTime = 0;					
+				}
 			});
 		});		
 	</script>

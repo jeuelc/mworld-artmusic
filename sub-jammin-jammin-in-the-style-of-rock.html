@@ -11,7 +11,7 @@
   <div class="credsbtnholder"><div class="credsbtnJammin"></div></div>
   <div class="menubtnholder"><div class="menubtnJammin"></div></div>
   
-  <div class="bptitleholder" style="padding-top:14px;"><h1>Rock</h1></div>
+  <div class="bptitleholder" style="padding-top:14px;"></div>
 
   <div data-role="content" class="kidzcontent">
 	<div class="navJammin-rock">
@@ -21,6 +21,7 @@
 
 			<p>Rock music is often played with repeating chords that can make songs easy to learn and play along with. Rock musicians frequently use the 'pentatonic', or five-note scale to make their solos, which gives the melodies an iconic sound.</p>
 	</div>
+		<div class="music_play_btn" style=""></div>
 		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
   </div> <!-- end content -->  
 
@@ -32,6 +33,10 @@
     <div class="fJammin"><div class="fwJammin" id="Rockaudiofbtn"></div></div>
     <div id="actualaudio-Rock" style="visibility:hidden;"></div>
   <!--</div>-->
+  <!-- Play music -->
+    <div id="actualaudio-Rock" style="display: none;">
+		<audio id="RockMusicAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Rock_Music.mp3" type="audio/mpeg"></audio>
+	</div>  
   <script>
   // sound setup is in home.html and index.js
     sound = new Audio(); // 'sound' is now an audio object
@@ -102,6 +107,19 @@
       Rockaudio.pause();
       //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
     });
-
+	
+	$(".music_play_btn").on('tap', function() {
+        if(RockMusicAudio.currentTime == 0){
+			RockMusicAudio.play();
+			Rockaudio.pause();
+			Rockaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(RockMusicAudio.currentTime > 0){
+			RockMusicAudio.pause();
+			RockMusicAudio.currentTime = 0;
+		}
+	});
   </script>
 </div> <!--//home-->

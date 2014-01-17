@@ -1,0 +1,139 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-how-to-write-a-song-putting-a-song-together-finding-the-form-and-order">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>    
+  <script src="js/slidebar_how_to_write_a_song.js"></script>
+  <link rel="stylesheet" href="css/style_how_to_write_a_song.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnHowToWriteASong"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnHowToWriteASong"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnHowToWriteASong"></div></div>
+  <div class="infobtnholder"><div class="infobtnHowToWriteASong"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnHowToWriteASong"></div></div>
+  <div class="menubtnholder"><div class="menubtnHowToWriteASong"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Choosing a Style</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">		
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/How_To_Write_A_Song/Putting_A_Song_Together/Finding_The_Form_And_Order/Meadow_Hi_Res.jpg', 'What might this picture inspire you to write a song about?');">click here</a>
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/How_To_Write_A_Song/Putting_A_Song_Together/Finding_The_Form_And_Order/Umbrella_Hi_Res.jpg', 'What might this picture inspire you to write a song about?');">click here</a>
+
+		<div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/Art_and_Music/How_To_Write_A_Song/Putting_A_Song_Together/Finding_The_Form_And_Order/Meadow.jpg" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/Art_and_Music/How_To_Write_A_Song/Putting_A_Song_Together/Finding_The_Form_And_Order/Umbrella.jpg" alt="" />
+          </div>
+  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentHowToWriteASong">
+		<p>Happy songs can sometimes have bright, upbeat music, but they can also be slow and gentle.  Sad songs can also be fast and energetic, or they can be made from minor chords and sound very sorrowful.  Whatever you choose, the style can have a big impact on how the song is interpreted by your listener.</p>
+
+			<p>When you have an idea, think about the style of music that would suit it - fast, slow, energetic, bouncing, sad, quiet, noisy or loud  If you like a particular style of music, like blues or rock, you might like to write in that style.  Or you just might like to see what style the song sounds like in the end.  A style can be changed later  you could even try the same song in different styles to see which you like.  You might like more than one</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnHowToWriteASong" id="playstopFindingTheFormAndOrder"></div></div>
+    <div class="bHowToWriteASong"><div class="rwHowToWriteASong" id="FindingTheFormAndOrderaudiobbtn"></div></div>
+    <div class="plHowToWriteASong"><div class="plpsHowToWriteASong" id="FindingTheFormAndOrderaudioplbtn"></div></div>
+    <div class="fHowToWriteASong"><div class="fwHowToWriteASong" id="FindingTheFormAndOrderaudiofbtn"></div></div>
+    <div id="actualaudio-FindingTheFormAndOrder" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+    <div id="actualaudio-SongStyles" style="display: none;">
+		<audio id="SongStylesAudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()" style="visibility:hidden;"><source src="audio\How_To_Write_A_Song\Finding_The_Form_And_Order.mp3" type="audio/mpeg"></audio>
+	</div>
+
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-FindingTheFormAndOrder').html('<audio id="FindingTheFormAndOrderaudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()"><source src="audio/How_To_Write_A_Song/Finding_The_Form_And_Order.mp3" type="audio/mpeg"></audio>');
+      }            
+      $("#sub-how-to-write-a-song-putting-a-song-together-finding-the-form-and-order").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    
+    $('.homelinkbh').on('tap', function() { bgsoundHowToWriteASong.pause(); bgsoundHowToWriteASong.currentTime = 0; mainaudiobg.play(); });
+    $("#pol1").on('tap', function() {
+      $('#img1')[0].click();
+    });
+    $("#pol2").on('tap', function() {
+      $('#img2')[0].click();
+    }); 
+
+    function goBack() {
+      $.mobile.changePage("sub-how-to-write-a-song-putting-a-song-together.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsHowToWriteASong() {
+         bgsoundHowToWriteASong.play();
+    }
+       
+    function pauseHowToWriteASong() {
+         bgsoundHowToWriteASong.pause();
+    }	
+	
+	
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopFindingTheFormAndOrder").on('tap', function() {
+      if(!playing) {
+        FindingTheFormAndOrderaudio.play();
+        $('.micbtnHowToWriteASong').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        FindingTheFormAndOrderaudio.pause(); FindingTheFormAndOrderaudio.currentTime = 0;
+        $('.micbtnHowToWriteASong').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#FindingTheFormAndOrderaudioplbtn").on('tap', function() {
+      if(!paused) {
+        FindingTheFormAndOrderaudio.pause();
+        paused = true;
+      } else {
+        FindingTheFormAndOrderaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#FindingTheFormAndOrderaudiofbtn").on('tap', function() {
+      var ctime = FindingTheFormAndOrderaudio.currentTime;
+      FindingTheFormAndOrderaudio.currentTime = ctime + 10;
+    });
+    
+    $("#FindingTheFormAndOrderaudiobbtn").on('tap', function() {
+      var ctime = FindingTheFormAndOrderaudio.currentTime;
+      FindingTheFormAndOrderaudio.currentTime = ctime - 10;
+    });
+    
+    $("#FindingTheFormAndOrderaudiopsbtn").on('tap', function() {
+      FindingTheFormAndOrderaudio.pause();
+    });
+  </script>
+  <script src="js/twocardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

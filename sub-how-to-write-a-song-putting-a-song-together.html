@@ -1,0 +1,176 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-how-to-write-a-song-putting-a-song-together">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_how_to_write_a_song.js"></script>
+  <link rel="stylesheet" href="css/style_how_to_write_a_song.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnHowToWriteASong"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnHowToWriteASong"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnHowToWriteASong"></div></div>
+  <div class="infobtnholder"><div class="infobtnHowToWriteASong"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnHowToWriteASong"></div></div>
+  <div class="menubtnholder"><div class="menubtnHowToWriteASong"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"></div>
+  
+  <div data-role="content" class="kidzcontent">
+	<div class="navHowToWriteASong-puttingasongtogether">
+		People write songs in different ways.  Some people sit at a piano and start singing sounds or random words, and make songs out of what they create.  Other people have a very clear idea about the sort of song they want to write, and write lyrics based on a story of something that happened to them, a story they imagined, or just a feeling.  <br />
+		Some songs are written as lyrics first and then put to music.  Others start as chord progressions and melodies, and the lyrics are written to fit.  Sometimes whole lyrics and melodies appear almost magically in songwriters' heads  it's nice when that happens!<br />
+		Songs can be made in lots and lots of different ways.  Here are few tips to help you put a song together.<br />
+	</div>
+		<div class="where_to_start-btn"></div>
+		<div class="choosing_a_style-btn"></div>
+		<div class="writing_lyrics-btn"></div>
+		<div class="melodies-btn"></div>
+		<div class="order-btn"></div>
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnHowToWriteASong" id="playstopPuttingASongTogether"></div></div>
+    <div class="bHowToWriteASong"><div class="rwHowToWriteASong" id="PuttingASongTogetheraudiobbtn"></div></div>
+    <div class="plHowToWriteASong"><div class="plpsHowToWriteASong" id="PuttingASongTogetheraudioplbtn"></div></div>
+    <div class="fHowToWriteASong"><div class="fwHowToWriteASong" id="PuttingASongTogetheraudiofbtn"></div></div>
+    <div id="actualaudio-PuttingASongTogether" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+		<audio id="WhereToStartAudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()" style="visibility:hidden;"><source src="audio\How_To_Write_A_Song\Song_Together_Note_1.mp3" type="audio/mpeg"></audio> 
+		<audio id="ChoosigAStyleAudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()" style="visibility:hidden;"><source src="audio\How_To_Write_A_Song\Song_Together_Note_2.mp3" type="audio/mpeg"></audio> 
+
+		<audio id="WritingLyricsAudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()" style="visibility:hidden;"><source src="audio\How_To_Write_A_Song\Song_Together_Note_3.mp3" type="audio/mpeg"></audio> 
+		<audio id="MelodiesAudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()" style="visibility:hidden;"><source src="audio\How_To_Write_A_Song\Song_Together_Note_4.mp3" type="audio/mpeg"></audio> 	
+		<audio id="OrderAudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()" style="visibility:hidden;"><source src="audio\How_To_Write_A_Song\Song_Together_Note_5.mp3" type="audio/mpeg"></audio> 		
+		
+
+ 
+  <script> 
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-PuttingASongTogether').html('<audio id="PuttingASongTogetheraudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()"><source src="audio/How_To_Write_A_Song/Putting_A_Song_Together.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-how-to-write-a-song-putting-a-song-together").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundHowToWriteASong.pause(); bgsoundHowToWriteASong.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-how-to-write-a-song.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsHowToWriteASong() {
+         bgsoundHowToWriteASong.play();
+    }
+       
+    function pauseHowToWriteASong() {
+         bgsoundHowToWriteASong.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopPuttingASongTogether").on('tap', function() {
+      if(!playing) {
+        PuttingASongTogetheraudio.play();
+        $('.micbtnHowToWriteASong').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        PuttingASongTogetheraudio.pause(); PuttingASongTogetheraudio.currentTime = 0;
+        $('.micbtnHowToWriteASong').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#PuttingASongTogetheraudioplbtn").on('tap', function() {
+      if(!paused) {
+        PuttingASongTogetheraudio.pause();
+        paused = true;
+      } else {
+        PuttingASongTogetheraudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#PuttingASongTogetheraudiofbtn").on('tap', function() {
+      var ctime = PuttingASongTogetheraudio.currentTime;
+      PuttingASongTogetheraudio.currentTime = ctime + 10;
+    });
+    
+    $("#PuttingASongTogetheraudiobbtn").on('tap', function() {
+      var ctime = PuttingASongTogetheraudio.currentTime;
+      PuttingASongTogetheraudio.currentTime = ctime - 10;
+    });
+    
+    $("#HowToWriteASongaudiopsbtn").on('tap', function() {
+      PuttingASongTogetheraudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+
+	$(".where_to_start-btn").on('tap', function() {
+			WhereToStartAudio.play();
+			/*
+			PuttingASongTogetheraudio.pause();
+			PuttingASongTogetheraudio.currentTime = 0;
+			*/
+			bgsoundHowToWriteASong.pause();
+			bgsoundHowToWriteASong.currentTime = 0;
+			$.mobile.changePage("sub-how-to-write-a-song-putting-a-song-together-where-to-start.html", {transition: "slide"});			
+
+	});
+	$(".choosing_a_style-btn").on('tap', function() {
+			ChoosigAStyleAudio.play();
+			/*
+			PuttingASongTogetheraudio.pause();
+			PuttingASongTogetheraudio.currentTime = 0;
+			*/
+			bgsoundHowToWriteASong.pause();
+			bgsoundHowToWriteASong.currentTime = 0;
+			$.mobile.changePage("sub-how-to-write-a-song-putting-a-song-together-choosing-a-style.html", {transition: "slide"});	
+	});	
+	$(".writing_lyrics-btn").on('tap', function() {
+        if(WritingLyricsAudio.currentTime == 0){
+			WritingLyricsAudio.play();
+			/*
+			PuttingASongTogetheraudio.pause();
+			PuttingASongTogetheraudio.currentTime = 0;
+			*/
+			bgsoundHowToWriteASong.pause();
+			bgsoundHowToWriteASong.currentTime = 0;
+			$.mobile.changePage("sub-how-to-write-a-song-putting-a-song-together-writing-lyrics.html", {transition: "slide"});	
+		}
+	});	
+	$(".melodies-btn").on('tap', function() {
+        if(MelodiesAudio.currentTime == 0){
+			MelodiesAudio.play();
+			/*
+			PuttingASongTogetheraudio.pause();
+			PuttingASongTogetheraudio.currentTime = 0;
+			*/
+			bgsoundHowToWriteASong.pause();
+			bgsoundHowToWriteASong.currentTime = 0;
+			$.mobile.changePage("sub-how-to-write-a-song-putting-a-song-together-making-lyrics-into-melodies.html", {transition: "slide"});	
+		}
+	});	
+	$(".order-btn").on('tap', function() {
+        if(OrderAudio.currentTime == 0){
+			OrderAudio.play();
+			/*
+			PuttingASongTogetheraudio.pause();
+			PuttingASongTogetheraudio.currentTime = 0;
+			*/
+			bgsoundHowToWriteASong.pause();
+			bgsoundHowToWriteASong.currentTime = 0;
+			$.mobile.changePage("sub-how-to-write-a-song-putting-a-song-together-finding-the-form-and-order.html", {transition: "slide"});	
+		}
+	});		
+  </script>
+</div> <!--//home-->

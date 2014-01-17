@@ -19,6 +19,7 @@
 
 		<p>Latin bands often feature instruments such as guitar, piano, trumpets and lots of percussion players, and feature a lot of jamming.  Bands play melodies and rhythms that are quite complex, but are all connected to the clave pattern.  Latin styles are so popular that lots of jazz and rock bands use these rhythms in their songs and jams.</p>
 	</div>
+		<div class="music_play_btn" style=""></div>
 		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
   </div> <!-- end content -->  
 
@@ -30,6 +31,10 @@
     <div class="fJammin"><div class="fwJammin" id="Latinaudiofbtn"></div></div>
     <div id="actualaudio-Latin" style="visibility:hidden;"></div>
   <!--</div>-->
+  <!-- Play music -->
+    <div id="actualaudio-Latin" style="display: none;">
+		<audio id="LatinMusicAudio" controls preload onpause="playsJammin()" onplay="pauseJammin()" style="visibility:hidden;"><source src="audio\Jammin\Latin_Music.mp3" type="audio/mpeg"></audio>
+	</div>    
   <script>
   // sound setup is in home.html and index.js
     sound = new Audio(); // 'sound' is now an audio object
@@ -100,6 +105,18 @@
       Latinaudio.pause();
       //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
     });
-
+	$(".music_play_btn").on('tap', function() {
+        if(LatinMusicAudio.currentTime == 0){
+			LatinMusicAudio.play();
+			Latinaudio.pause();
+			Latinaudio.currentTime = 0;
+			bgsoundJammin.pause();
+			bgsoundJammin.currentTime = 0;
+		}
+		if(LatinMusicAudio.currentTime > 0){
+			LatinMusicAudio.pause();
+			LatinMusicAudio.currentTime = 0;
+		}
+	});
   </script>
 </div> <!--//home-->
