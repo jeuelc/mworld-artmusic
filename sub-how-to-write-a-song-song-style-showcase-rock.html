@@ -1,0 +1,131 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-how-to-write-a-song-song-style-showcase-rock">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_how_to_write_a_song.js"></script>
+  <link rel="stylesheet" href="css/style_how_to_write_a_song.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnHowToWriteASong"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnHowToWriteASong"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnHowToWriteASong"></div></div>
+  <div class="infobtnholder"><div class="infobtnHowToWriteASong"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnHowToWriteASong"></div></div>
+  <div class="menubtnholder"><div class="menubtnHowToWriteASong"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1></h1></div>
+  
+  <div data-role="content" class="kidzcontent">
+	<div class="navHowToWriteASong-Rock">
+	</div>
+		<div class="play_music-btn">
+		</div>
+		<div class="page_info-btn">
+			<a href="#infopopup" data-rel="popup" style="height: 30px; width: 30px; text-decoration: none;display: block;">
+				&nbsp;
+			</a>
+		</div>
+		<div data-role="popup" id="infopopup" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+			<div id="node-pop">
+				<p>Rock 'n' Roll music appeared in the 1940s and 1950s and electrified the song!  It evolved from blues and folk music.  Using electric guitars and drums, it focused on heavy rhythms that made you want to stamp your feet.  Rock and roll music was cutting edge when it started, being played louder, faster and less traditionally than other styles.  Early songs described events and conflicts that teenagers and young adults could relate to, like relationships, school, cars, clothes and being 'cool'. </p>
+
+					<p>Rock and roll made people want to dance and was filled with energy.  Today, it's more commonly just called Rock music, with lot of smaller, variation styles or 'sub genres'.  It's still loud, and has even more energy than before!  There are so many different styles, but some famous artists include Elvis Presley, The Beatles, and ACDC.</p>
+			</div>
+		</div>		
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnHowToWriteASong" id="playstopRock"></div></div>
+    <div class="bHowToWriteASong"><div class="rwHowToWriteASong" id="Rockaudiobbtn"></div></div>
+    <div class="plHowToWriteASong"><div class="plpsHowToWriteASong" id="Rockaudioplbtn"></div></div>
+    <div class="fHowToWriteASong"><div class="fwHowToWriteASong" id="Rockaudiofbtn"></div></div>
+    <div id="actualaudio-Rock" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+    <div id="actualaudio-PlayRock" style="display: none;">
+		<audio id="PlayRockAudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()" style="visibility:hidden;"><source src="audio\How_To_Write_A_Song\Rock_Play_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>  
+  <script> 
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Rock').html('<audio id="Rockaudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()"><source src="audio/How_To_Write_A_Song/Rock.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-how-to-write-a-song-song-style-showcase-rock").swipe( { swipeRight:goBack,allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundHowToWriteASong.pause(); bgsoundHowToWriteASong.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-how-to-write-a-song-song-style-showcase-punk.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsHowToWriteASong() {
+         bgsoundHowToWriteASong.play();
+    }
+       
+    function pauseHowToWriteASong() {
+         bgsoundHowToWriteASong.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopRock").on('tap', function() {
+      if(!playing) {
+        Rockaudio.play();
+        $('.micbtnHowToWriteASong').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Rockaudio.pause(); Rockaudio.currentTime = 0;
+        $('.micbtnHowToWriteASong').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Rockaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Rockaudio.pause();
+        paused = true;
+      } else {
+        Rockaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Rockaudiofbtn").on('tap', function() {
+      var ctime = Rockaudio.currentTime;
+      Rockaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Rockaudiobbtn").on('tap', function() {
+      var ctime = Rockaudio.currentTime;
+      Rockaudio.currentTime = ctime - 10;
+    });
+    
+    $("#HowToWriteASongaudiopsbtn").on('tap', function() {
+      Rockaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    $(".play_music-btn").on('tap', function() {
+        if(PlayRockAudio.currentTime == 0){
+			PlayRockAudio.play();
+			Rockaudio.pause();
+			Rockaudio.currentTime = 0;
+			bgsoundHowToWriteASong.pause();
+			bgsoundHowToWriteASong.currentTime = 0;
+		}
+		if(PlayRockAudio.currentTime > 0){
+			PlayRockAudio.pause();
+			PlayRockAudio.currentTime = 0;
+		}
+	});	
+  </script>
+</div> <!--//home-->

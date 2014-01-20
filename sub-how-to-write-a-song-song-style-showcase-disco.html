@@ -1,0 +1,134 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-how-to-write-a-song-song-style-showcase-disco">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_how_to_write_a_song.js"></script>
+  <link rel="stylesheet" href="css/style_how_to_write_a_song.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnHowToWriteASong"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnHowToWriteASong"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnHowToWriteASong"></div></div>
+  <div class="infobtnholder"><div class="infobtnHowToWriteASong"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnHowToWriteASong"></div></div>
+  <div class="menubtnholder"><div class="menubtnHowToWriteASong"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1></h1></div>
+  
+  <div data-role="content" class="kidzcontent">
+	<div class="navHowToWriteASong-Disco">
+	</div>
+		<div class="play_music-btn">
+		</div>
+		<div class="page_info-btn">
+			<a href="#infopopup" data-rel="popup" style="height: 30px; width: 30px; text-decoration: none;display: block;">
+				&nbsp;
+			</a>
+		</div>
+		<div data-role="popup" id="infopopup" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+			<div id="node-pop">
+				<p>Big hair, bright colours and dancing all night long  disco is a style of dance music from the 1970s!  It originated in America, but its name comes from the French word discothque, meaning 'dance club'.  Disco blended soulful music with irresistible dance beats, including jangling guitars, funky keyboards and driving drums.  Some funky disco bands include The Village People, Chic, and The Jacksons.</p>
+
+				<p>Disco gave music fans an alternative style to the huge rock music culture, providing another world of infectious rhythms and catchy hooks that was a bit less aggressive.  Following "Disco Demolition Night" on July 12, 1979 the style suffered a sharp demise.  Many artists have often revived it, the most notable today being Daft Punk.  Disco led the way to a lot of styles of music around today, and is still played by many musicians and singers. </p>
+			</div>
+		</div>		
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnHowToWriteASong" id="playstopDisco"></div></div>
+    <div class="bHowToWriteASong"><div class="rwHowToWriteASong" id="Discoaudiobbtn"></div></div>
+    <div class="plHowToWriteASong"><div class="plpsHowToWriteASong" id="Discoaudioplbtn"></div></div>
+    <div class="fHowToWriteASong"><div class="fwHowToWriteASong" id="Discoaudiofbtn"></div></div>
+    <div id="actualaudio-Disco" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+    <div id="actualaudio-PlayDisco" style="display: none;">
+		<audio id="PlayDiscoAudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()" style="visibility:hidden;"><source src="audio\How_To_Write_A_Song\Disco_Play_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>  
+  <script> 
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Disco').html('<audio id="Discoaudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()"><source src="audio/How_To_Write_A_Song/Disco.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-how-to-write-a-song-song-style-showcase-disco").swipe( { swipeRight:goBack,swipeLeft:goNext, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundHowToWriteASong.pause(); bgsoundHowToWriteASong.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-how-to-write-a-song-song-style-showcase-country.html", {transition: "slide", reverse: true });
+    }
+	function goNext(){
+		$.mobile.changePage("sub-how-to-write-a-song-song-style-showcase-electro-dance.html", {transition: "slide", reverse: false });
+	}
+    
+    function playsHowToWriteASong() {
+         bgsoundHowToWriteASong.play();
+    }
+       
+    function pauseHowToWriteASong() {
+         bgsoundHowToWriteASong.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopDisco").on('tap', function() {
+      if(!playing) {
+        Discoaudio.play();
+        $('.micbtnHowToWriteASong').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Discoaudio.pause(); Discoaudio.currentTime = 0;
+        $('.micbtnHowToWriteASong').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Discoaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Discoaudio.pause();
+        paused = true;
+      } else {
+        Discoaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Discoaudiofbtn").on('tap', function() {
+      var ctime = Discoaudio.currentTime;
+      Discoaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Discoaudiobbtn").on('tap', function() {
+      var ctime = Discoaudio.currentTime;
+      Discoaudio.currentTime = ctime - 10;
+    });
+    
+    $("#HowToWriteASongaudiopsbtn").on('tap', function() {
+      Discoaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    $(".play_music-btn").on('tap', function() {
+        if(PlayDiscoAudio.currentTime == 0){
+			PlayDiscoAudio.play();
+			Discoaudio.pause();
+			Discoaudio.currentTime = 0;
+			bgsoundHowToWriteASong.pause();
+			bgsoundHowToWriteASong.currentTime = 0;
+		}
+		if(PlayDiscoAudio.currentTime > 0){
+			PlayDiscoAudio.pause();
+			PlayDiscoAudio.currentTime = 0;
+		}
+	});	
+  </script>
+</div> <!--//home-->

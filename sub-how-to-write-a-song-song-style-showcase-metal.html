@@ -1,0 +1,134 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-how-to-write-a-song-song-style-showcase-metal">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_how_to_write_a_song.js"></script>
+  <link rel="stylesheet" href="css/style_how_to_write_a_song.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnHowToWriteASong"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnHowToWriteASong"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnHowToWriteASong"></div></div>
+  <div class="infobtnholder"><div class="infobtnHowToWriteASong"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnHowToWriteASong"></div></div>
+  <div class="menubtnholder"><div class="menubtnHowToWriteASong"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1></h1></div>
+  
+  <div data-role="content" class="kidzcontent">
+	<div class="navHowToWriteASong-Metal">
+	</div>
+		<div class="play_music-btn">
+		</div>
+		<div class="page_info-btn">
+			<a href="#infopopup" data-rel="popup" style="height: 30px; width: 30px; text-decoration: none;display: block;">
+				&nbsp;
+			</a>
+		</div>
+		<div data-role="popup" id="infopopup" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+			<div id="node-pop">
+				<p>Metal music, also called heavy metal, is one of the many 'sub-genres' of rock music, made up of extreme rhythms and aggressive energy.  It's usually louder, faster and 'harder' than other styles of rock. </p>
+
+				<p>Metal is dominated by heavy beats, massive and loud sounds from instruments like electric guitars and drums, and singing styles that focus more on power than melody  and even lyrics.  Metal songs are often written with very high, shrill singing styles.  It is often a dark style of music, with songs that share angry or frustrated feelings, or tell fantasy-type stories.  Some different metal bands to listen to are Metallica, Van Halen, and Lacuna Coil.</p>
+			</div>
+		</div>		
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnHowToWriteASong" id="playstopMetal"></div></div>
+    <div class="bHowToWriteASong"><div class="rwHowToWriteASong" id="Metalaudiobbtn"></div></div>
+    <div class="plHowToWriteASong"><div class="plpsHowToWriteASong" id="Metalaudioplbtn"></div></div>
+    <div class="fHowToWriteASong"><div class="fwHowToWriteASong" id="Metalaudiofbtn"></div></div>
+    <div id="actualaudio-Metal" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+    <div id="actualaudio-PlayMetal" style="display: none;">
+		<audio id="PlayMetalAudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()" style="visibility:hidden;"><source src="audio\How_To_Write_A_Song\Metal_Play_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>  
+  <script> 
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Metal').html('<audio id="Metalaudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()"><source src="audio/How_To_Write_A_Song/Metal.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-how-to-write-a-song-song-style-showcase-metal").swipe( { swipeRight:goBack,swipeLeft:goNext, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundHowToWriteASong.pause(); bgsoundHowToWriteASong.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-how-to-write-a-song-song-style-showcase-hip-hop.html", {transition: "slide", reverse: true });
+    }
+	function goNext(){
+		$.mobile.changePage("sub-how-to-write-a-song-song-style-showcase-punk.html", {transition: "slide", reverse: false });
+	}
+    
+    function playsHowToWriteASong() {
+         bgsoundHowToWriteASong.play();
+    }
+       
+    function pauseHowToWriteASong() {
+         bgsoundHowToWriteASong.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopMetal").on('tap', function() {
+      if(!playing) {
+        Metalaudio.play();
+        $('.micbtnHowToWriteASong').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Metalaudio.pause(); Metalaudio.currentTime = 0;
+        $('.micbtnHowToWriteASong').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Metalaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Metalaudio.pause();
+        paused = true;
+      } else {
+        Metalaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Metalaudiofbtn").on('tap', function() {
+      var ctime = Metalaudio.currentTime;
+      Metalaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Metalaudiobbtn").on('tap', function() {
+      var ctime = Metalaudio.currentTime;
+      Metalaudio.currentTime = ctime - 10;
+    });
+    
+    $("#HowToWriteASongaudiopsbtn").on('tap', function() {
+      Metalaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    $(".play_music-btn").on('tap', function() {
+        if(PlayMetalAudio.currentTime == 0){
+			PlayMetalAudio.play();
+			Metalaudio.pause();
+			Metalaudio.currentTime = 0;
+			bgsoundHowToWriteASong.pause();
+			bgsoundHowToWriteASong.currentTime = 0;
+		}
+		if(PlayMetalAudio.currentTime > 0){
+			PlayMetalAudio.pause();
+			PlayMetalAudio.currentTime = 0;
+		}
+	});	
+  </script>
+</div> <!--//home-->

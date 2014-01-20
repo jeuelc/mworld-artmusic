@@ -1,0 +1,134 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-how-to-write-a-song-song-style-showcase-electro-dance">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_how_to_write_a_song.js"></script>
+  <link rel="stylesheet" href="css/style_how_to_write_a_song.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnHowToWriteASong"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnHowToWriteASong"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnHowToWriteASong"></div></div>
+  <div class="infobtnholder"><div class="infobtnHowToWriteASong"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnHowToWriteASong"></div></div>
+  <div class="menubtnholder"><div class="menubtnHowToWriteASong"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1></h1></div>
+  
+  <div data-role="content" class="kidzcontent">
+	<div class="navHowToWriteASong-ElectroDance">
+	</div>
+		<div class="play_music-btn">
+		</div>
+		<div class="page_info-btn">
+			<a href="#infopopup" data-rel="popup" style="height: 30px; width: 30px; text-decoration: none;display: block;">
+				&nbsp;
+			</a>
+		</div>
+		<div data-role="popup" id="infopopup" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+			<div id="node-pop">
+				<p>Electronic dance music is the fastest-growing style today.  Dance music is usually made of electronic beats and instruments, such as synthesizers, and is often made completely on a computer, but can feature recordings of live instruments too.  The style emerged from dance club environments and is often performed by DJs playing one song into another, and mixing sounds together like a collage, or one long song called a set.</p>
+
+				<p>Music producers often make dance songs by making pumping rhythmic music beds, and recording a singer on top.  The songs themselves often have very simple structures, such as verse-chorus, and use a rhythm called 'four to the floor' that uses a heavy bass drum hit on each beat  1, 2, 3, 4! Electronic dance songs are often about partying, relationships and having a good time.  Some dance artists include Flume, Chemical Brothers, LCD Sound System and David Guetta.</p>
+			</div>
+		</div>		
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnHowToWriteASong" id="playstopElectroDance"></div></div>
+    <div class="bHowToWriteASong"><div class="rwHowToWriteASong" id="ElectroDanceaudiobbtn"></div></div>
+    <div class="plHowToWriteASong"><div class="plpsHowToWriteASong" id="ElectroDanceaudioplbtn"></div></div>
+    <div class="fHowToWriteASong"><div class="fwHowToWriteASong" id="ElectroDanceaudiofbtn"></div></div>
+    <div id="actualaudio-ElectroDance" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+    <div id="actualaudio-PlayElectroDance" style="display: none;">
+		<audio id="PlayElectroDanceAudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()" style="visibility:hidden;"><source src="audio\How_To_Write_A_Song\Electro_Dance_Play_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>  
+  <script> 
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-ElectroDance').html('<audio id="ElectroDanceaudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()"><source src="audio/How_To_Write_A_Song/Electro_Dance.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-how-to-write-a-song-song-style-showcase-electro-dance").swipe( { swipeRight:goBack,swipeLeft:goNext, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundHowToWriteASong.pause(); bgsoundHowToWriteASong.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-how-to-write-a-song-song-style-showcase-disco.html", {transition: "slide", reverse: true });
+    }
+	function goNext(){
+		$.mobile.changePage("sub-how-to-write-a-song-song-style-showcase-folk.html", {transition: "slide", reverse: false });
+	}
+    
+    function playsHowToWriteASong() {
+         bgsoundHowToWriteASong.play();
+    }
+       
+    function pauseHowToWriteASong() {
+         bgsoundHowToWriteASong.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopElectroDance").on('tap', function() {
+      if(!playing) {
+        ElectroDanceaudio.play();
+        $('.micbtnHowToWriteASong').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        ElectroDanceaudio.pause(); ElectroDanceaudio.currentTime = 0;
+        $('.micbtnHowToWriteASong').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#ElectroDanceaudioplbtn").on('tap', function() {
+      if(!paused) {
+        ElectroDanceaudio.pause();
+        paused = true;
+      } else {
+        ElectroDanceaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#ElectroDanceaudiofbtn").on('tap', function() {
+      var ctime = ElectroDanceaudio.currentTime;
+      ElectroDanceaudio.currentTime = ctime + 10;
+    });
+    
+    $("#ElectroDanceaudiobbtn").on('tap', function() {
+      var ctime = ElectroDanceaudio.currentTime;
+      ElectroDanceaudio.currentTime = ctime - 10;
+    });
+    
+    $("#HowToWriteASongaudiopsbtn").on('tap', function() {
+      ElectroDanceaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    $(".play_music-btn").on('tap', function() {
+        if(PlayElectroDanceAudio.currentTime == 0){
+			PlayElectroDanceAudio.play();
+			ElectroDanceaudio.pause();
+			ElectroDanceaudio.currentTime = 0;
+			bgsoundHowToWriteASong.pause();
+			bgsoundHowToWriteASong.currentTime = 0;
+		}
+		if(PlayElectroDanceAudio.currentTime > 0){
+			PlayElectroDanceAudio.pause();
+			PlayElectroDanceAudio.currentTime = 0;
+		}
+	});	
+  </script>
+</div> <!--//home-->

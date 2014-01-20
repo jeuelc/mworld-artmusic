@@ -1,0 +1,134 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-how-to-write-a-song-song-style-showcase-folk">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_how_to_write_a_song.js"></script>
+  <link rel="stylesheet" href="css/style_how_to_write_a_song.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnHowToWriteASong"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnHowToWriteASong"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnHowToWriteASong"></div></div>
+  <div class="infobtnholder"><div class="infobtnHowToWriteASong"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnHowToWriteASong"></div></div>
+  <div class="menubtnholder"><div class="menubtnHowToWriteASong"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1></h1></div>
+  
+  <div data-role="content" class="kidzcontent">
+	<div class="navHowToWriteASong-Folk">
+	</div>
+		<div class="play_music-btn">
+		</div>
+		<div class="page_info-btn">
+			<a href="#infopopup" data-rel="popup" style="height: 30px; width: 30px; text-decoration: none;display: block;">
+				&nbsp;
+			</a>
+		</div>
+		<div data-role="popup" id="infopopup" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+			<div id="node-pop">
+				<p>Contemporary folk music is famous as a style of protest music, which typically fused traditional European song styles with early blues songs.  It became popular in the 1960s because there were songwriters with acoustic guitars and a lot of stories to tell, including artists like Pete Seeger, Joni Mitchell, and Bob Dylan.  Some folk music was about telling stories about being sad or lonely, just like blues, but often songs were about protesting against wars, political views and human rights.</p>
+
+				<p>Folk music is definitely a style that is more about the message than the music.  Songs are often made with simple chords and basic repeating melodies.  Some songs barely have a chorus that is more than a few words long, and instead tell a detailed story using lots of lyrical and poetic verses.</p>
+			</div>
+		</div>		
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnHowToWriteASong" id="playstopFolk"></div></div>
+    <div class="bHowToWriteASong"><div class="rwHowToWriteASong" id="Folkaudiobbtn"></div></div>
+    <div class="plHowToWriteASong"><div class="plpsHowToWriteASong" id="Folkaudioplbtn"></div></div>
+    <div class="fHowToWriteASong"><div class="fwHowToWriteASong" id="Folkaudiofbtn"></div></div>
+    <div id="actualaudio-Folk" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+    <div id="actualaudio-PlayFolk" style="display: none;">
+		<audio id="PlayFolkAudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()" style="visibility:hidden;"><source src="audio\How_To_Write_A_Song\Folk_Play_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>  
+  <script> 
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Folk').html('<audio id="Folkaudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()"><source src="audio/How_To_Write_A_Song/Folk.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-how-to-write-a-song-song-style-showcase-folk").swipe( { swipeRight:goBack,swipeLeft:goNext, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundHowToWriteASong.pause(); bgsoundHowToWriteASong.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-how-to-write-a-song-song-style-showcase-electro-dance.html", {transition: "slide", reverse: true });
+    }
+	function goNext(){
+		$.mobile.changePage("sub-how-to-write-a-song-song-style-showcase-hip-hop.html", {transition: "slide", reverse: false });
+	}
+    
+    function playsHowToWriteASong() {
+         bgsoundHowToWriteASong.play();
+    }
+       
+    function pauseHowToWriteASong() {
+         bgsoundHowToWriteASong.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopFolk").on('tap', function() {
+      if(!playing) {
+        Folkaudio.play();
+        $('.micbtnHowToWriteASong').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Folkaudio.pause(); Folkaudio.currentTime = 0;
+        $('.micbtnHowToWriteASong').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Folkaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Folkaudio.pause();
+        paused = true;
+      } else {
+        Folkaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Folkaudiofbtn").on('tap', function() {
+      var ctime = Folkaudio.currentTime;
+      Folkaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Folkaudiobbtn").on('tap', function() {
+      var ctime = Folkaudio.currentTime;
+      Folkaudio.currentTime = ctime - 10;
+    });
+    
+    $("#HowToWriteASongaudiopsbtn").on('tap', function() {
+      Folkaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    $(".play_music-btn").on('tap', function() {
+        if(PlayFolkAudio.currentTime == 0){
+			PlayFolkAudio.play();
+			Folkaudio.pause();
+			Folkaudio.currentTime = 0;
+			bgsoundHowToWriteASong.pause();
+			bgsoundHowToWriteASong.currentTime = 0;
+		}
+		if(PlayFolkAudio.currentTime > 0){
+			PlayFolkAudio.pause();
+			PlayFolkAudio.currentTime = 0;
+		}
+	});	
+  </script>
+</div> <!--//home-->

@@ -1,5 +1,5 @@
 /* Main common basic pages */
-#sub-how-to-write-a-song, #sub-how-to-write-a-song-what-is-a-song, #sub-how-to-write-a-song-putting-a-song-together-choosing-a-style, #sub-how-to-write-a-song-putting-a-song-together-finding-the-form-and-order, #sub-how-to-write-a-song-putting-a-song-together-making-lyrics-into-melodies, #sub-how-to-write-a-song-putting-a-song-together-where-to-start, #sub-how-to-write-a-song-putting-a-song-together-writing-lyrics{
+#sub-how-to-write-a-song, #sub-how-to-write-a-song-what-is-a-song, #sub-how-to-write-a-song-putting-a-song-together-choosing-a-style, #sub-how-to-write-a-song-putting-a-song-together-finding-the-form-and-order, #sub-how-to-write-a-song-putting-a-song-together-making-lyrics-into-melodies, #sub-how-to-write-a-song-putting-a-song-together-where-to-start, #sub-how-to-write-a-song-putting-a-song-together-writing-lyrics, #sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-lyrics, #sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-beat, #sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-melody, #sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-melody, #sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-chords{
   background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/How_To_Write_A_Song_BG.jpg') no-repeat;
   height:748px !important;
   overflow:hidden !important;
@@ -9,6 +9,83 @@
 /* Custom Pages Style */
 #sub-how-to-write-a-song-putting-a-song-together{
   background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/Putting_A_Song_Together/Putting_A_Song_Together_BG.png') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+#sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song{
+  background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/Ingredients_Of_A_Song/Ingredients_Of_A_Song.jpg') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+#sub-how-to-write-a-song-song-style-showcase{
+  background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/Song_Styles_Showcase/Song_Styles_Showcase_BG.png') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+#sub-how-to-write-a-song-song-style-showcase-blues{
+  background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/Song_Styles_Showcase/Blues/Blues_BG.png') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+
+#sub-how-to-write-a-song-song-style-showcase-jazz{
+  background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/Song_Styles_Showcase/Jazz/Jazz_BG.png') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+
+#sub-how-to-write-a-song-song-style-showcase-country{
+  background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/Song_Styles_Showcase/Country/Country_BG.png') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+
+#sub-how-to-write-a-song-song-style-showcase-disco{
+  background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/Song_Styles_Showcase/Disco/Disco_BG.png') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+
+#sub-how-to-write-a-song-song-style-showcase-electro-dance{
+  background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/Song_Styles_Showcase/Electro_Dance/Electro_Dance_BG.png') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+
+#sub-how-to-write-a-song-song-style-showcase-folk{
+  background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/Song_Styles_Showcase/Folk/Folk_BG.png') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+#sub-how-to-write-a-song-song-style-showcase-hip-hop{
+  background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/Song_Styles_Showcase/Hip_Hop/Hip_Hop_BG.png') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+#sub-how-to-write-a-song-song-style-showcase-metal{
+  background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/Song_Styles_Showcase/Metal/Metal_BG.png') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+#sub-how-to-write-a-song-song-style-showcase-punk{
+  background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/Song_Styles_Showcase/Punk/Punk_BG.png') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+#sub-how-to-write-a-song-song-style-showcase-rock{
+  background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/Song_Styles_Showcase/Rock/Rock_BG.png') no-repeat;
   height:748px !important;
   overflow:hidden !important;
   width:1024px !important;
@@ -161,7 +238,7 @@
 }
 
 /* Common Header Div Design */
-#sub-how-to-write-a-song .bptitleholder, #sub-how-to-write-a-song-what-is-a-song .bptitleholder, #sub-how-to-write-a-song-putting-a-song-together-choosing-a-style .bptitleholder, #sub-how-to-write-a-song-putting-a-song-together-finding-the-form-and-order .bptitleholder, #sub-how-to-write-a-song-putting-a-song-together-making-lyrics-into-melodies .bptitleholder, #sub-how-to-write-a-song-putting-a-song-together-where-to-start .bptitleholder, #sub-how-to-write-a-song-putting-a-song-together-writing-lyrics .bptitleholder{
+#sub-how-to-write-a-song .bptitleholder, #sub-how-to-write-a-song-what-is-a-song .bptitleholder, #sub-how-to-write-a-song-putting-a-song-together-choosing-a-style .bptitleholder, #sub-how-to-write-a-song-putting-a-song-together-finding-the-form-and-order .bptitleholder, #sub-how-to-write-a-song-putting-a-song-together-making-lyrics-into-melodies .bptitleholder, #sub-how-to-write-a-song-putting-a-song-together-where-to-start .bptitleholder, #sub-how-to-write-a-song-putting-a-song-together-writing-lyrics .bptitleholder, #sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-lyrics .bptitleholder, #sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-beat .bptitleholder, #sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-melody .bptitleholder, #sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-melody .bptitleholder, #sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-chords .bptitleholder{
 	width: 627px;
 	height: 68px;
 	text-align: center;
@@ -181,8 +258,17 @@
 	top: 44px;
 	left: 563px;
 }
+#sub-how-to-write-a-song-song-style-showcase .bptitleholder{
+	width: 627px;
+	height: 68px;
+	text-align: center;
+	line-height: 28px;
+	position: absolute;
+	top: 123px;
+	left: 194px;
+}
 /* Common Header Design h1 */
-#sub-how-to-write-a-song .bptitleholder h1, #sub-how-to-write-a-song-what-is-a-song .bptitleholder h1, #sub-how-to-write-a-song-putting-a-song-together-choosing-a-style .bptitleholder h1, #sub-how-to-write-a-song-putting-a-song-together-finding-the-form-and-order .bptitleholder h1, #sub-how-to-write-a-song-putting-a-song-together-making-lyrics-into-melodies .bptitleholder h1, #sub-how-to-write-a-song-putting-a-song-together-where-to-start .bptitleholder h1, #sub-how-to-write-a-song-putting-a-song-together-writing-lyrics .bptitleholder h1{
+#sub-how-to-write-a-song .bptitleholder h1, #sub-how-to-write-a-song-what-is-a-song .bptitleholder h1, #sub-how-to-write-a-song-putting-a-song-together-choosing-a-style .bptitleholder h1, #sub-how-to-write-a-song-putting-a-song-together-finding-the-form-and-order .bptitleholder h1, #sub-how-to-write-a-song-putting-a-song-together-making-lyrics-into-melodies .bptitleholder h1, #sub-how-to-write-a-song-putting-a-song-together-where-to-start .bptitleholder h1, #sub-how-to-write-a-song-putting-a-song-together-writing-lyrics .bptitleholder h1, #sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-lyrics .bptitleholder h1, #sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-beat .bptitleholder h1, #sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-melody .bptitleholder h1, #sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-melody .bptitleholder h1, #sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-chords .bptitleholder h1{
 	text-transform: uppercase;
 	color: #FFFFFF !important;
 	font-family: "comic sans ms" !important;
@@ -199,6 +285,16 @@
 	font-weight: bold;
 	padding: 0;
 	margin: 0;	
+}
+
+#sub-how-to-write-a-song-song-style-showcase .bptitleholder h1{
+	text-transform: uppercase;
+	color: #000000 !important;
+	font-family: "comic sans ms" !important;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;	
+	font-size: 28px;
 }
 
 .bpcontentHowToWriteASong{
@@ -250,6 +346,20 @@
 	color: #000000;
 }
 
+.navHowToWriteASong-SongStyleShowcase{
+	position: absolute;
+	left: 298px;
+	top: 163px;
+	width: 426px;
+	height: 417px;
+	overflow: auto;
+	text-align: center;
+	font-family: comic sans ms;
+	font-size: 18px;
+	font-weight: normal;
+	color: #000000;
+}
+
 .where_to_start-btn{
 	position: absolute;
 	width: 33px;
@@ -286,3 +396,17 @@
 	left: 652px;
 }
 
+.play_music-btn{
+	height: 100px;
+	width: 111px;
+	position: absolute;
+	left: 458px;
+	top: 200px;
+}
+.page_info-btn{
+	height: 30px;
+	width: 29px;
+	position: absolute;
+	left: 509px;
+	top: 523px;
+}

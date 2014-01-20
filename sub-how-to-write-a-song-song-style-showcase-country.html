@@ -1,0 +1,134 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-how-to-write-a-song-song-style-showcase-country">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_how_to_write_a_song.js"></script>
+  <link rel="stylesheet" href="css/style_how_to_write_a_song.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnHowToWriteASong"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnHowToWriteASong"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnHowToWriteASong"></div></div>
+  <div class="infobtnholder"><div class="infobtnHowToWriteASong"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnHowToWriteASong"></div></div>
+  <div class="menubtnholder"><div class="menubtnHowToWriteASong"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1></h1></div>
+  
+  <div data-role="content" class="kidzcontent">
+	<div class="navHowToWriteASong-Country">
+	</div>
+		<div class="play_music-btn">
+		</div>
+		<div class="page_info-btn">
+			<a href="#infopopup" data-rel="popup" style="height: 30px; width: 30px; text-decoration: none;display: block;">
+				&nbsp;
+			</a>
+		</div>
+		<div data-role="popup" id="infopopup" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+			<div id="node-pop">
+				<p>Country music came from a fusion of blues and folk, and is an enormously popular song style.  It originated in Nashville, Tennessee, and is celebrated in many countries around the world. But despite how widespread the style has become, country songs are often about small, rural life in country towns.  Some popular country songwriters include Garth Brooks, Adam Brand, Kasey Chambers, Dolly Parton and Keith Urban.</p>
+
+				<p>Country music is often played in slow lamenting ballads, or faster, sassy dance styles.  Songs feature folk-style stories, and often showcase fast, impressive playing on instruments such as the fiddle, banjo, guitar and harmonica.  The lyrics in country music tell stories of loss and life revelations and of real-life experiences at home and at work. </p>
+			</div>
+		</div>		
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnHowToWriteASong" id="playstopCountry"></div></div>
+    <div class="bHowToWriteASong"><div class="rwHowToWriteASong" id="Countryaudiobbtn"></div></div>
+    <div class="plHowToWriteASong"><div class="plpsHowToWriteASong" id="Countryaudioplbtn"></div></div>
+    <div class="fHowToWriteASong"><div class="fwHowToWriteASong" id="Countryaudiofbtn"></div></div>
+    <div id="actualaudio-Country" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+    <div id="actualaudio-PlayCountry" style="display: none;">
+		<audio id="PlayCountryAudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()" style="visibility:hidden;"><source src="audio\How_To_Write_A_Song\Country_Play_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>  
+  <script> 
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Country').html('<audio id="Countryaudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()"><source src="audio/How_To_Write_A_Song/Country.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-how-to-write-a-song-song-style-showcase-country").swipe( { swipeRight:goBack,swipeLeft:goNext, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundHowToWriteASong.pause(); bgsoundHowToWriteASong.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-how-to-write-a-song-song-style-showcase-jazz.html", {transition: "slide", reverse: true });
+    }
+	function goNext(){
+		$.mobile.changePage("sub-how-to-write-a-song-song-style-showcase-disco.html", {transition: "slide", reverse: false });
+	}
+    
+    function playsHowToWriteASong() {
+         bgsoundHowToWriteASong.play();
+    }
+       
+    function pauseHowToWriteASong() {
+         bgsoundHowToWriteASong.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopCountry").on('tap', function() {
+      if(!playing) {
+        Countryaudio.play();
+        $('.micbtnHowToWriteASong').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Countryaudio.pause(); Countryaudio.currentTime = 0;
+        $('.micbtnHowToWriteASong').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Countryaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Countryaudio.pause();
+        paused = true;
+      } else {
+        Countryaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Countryaudiofbtn").on('tap', function() {
+      var ctime = Countryaudio.currentTime;
+      Countryaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Countryaudiobbtn").on('tap', function() {
+      var ctime = Countryaudio.currentTime;
+      Countryaudio.currentTime = ctime - 10;
+    });
+    
+    $("#HowToWriteASongaudiopsbtn").on('tap', function() {
+      Countryaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    $(".play_music-btn").on('tap', function() {
+        if(PlayCountryAudio.currentTime == 0){
+			PlayCountryAudio.play();
+			Countryaudio.pause();
+			Countryaudio.currentTime = 0;
+			bgsoundHowToWriteASong.pause();
+			bgsoundHowToWriteASong.currentTime = 0;
+		}
+		if(PlayCountryAudio.currentTime > 0){
+			PlayCountryAudio.pause();
+			PlayCountryAudio.currentTime = 0;
+		}
+	});	
+  </script>
+</div> <!--//home-->

@@ -1,0 +1,193 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-lyrics">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>    
+  <script src="js/slidebar_how_to_write_a_song.js"></script>
+  <link rel="stylesheet" href="css/style_how_to_write_a_song.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnHowToWriteASong"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnHowToWriteASong"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnHowToWriteASong"></div></div>
+  <div class="infobtnholder"><div class="infobtnHowToWriteASong"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnHowToWriteASong"></div></div>
+  <div class="menubtnholder"><div class="menubtnHowToWriteASong"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Lyrics</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">		
+		<!-- hear me -->
+        <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="css/images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/Ingredients_Of_A_Song/Lyrics/Poetry_As_Lyrics.png">
+            </div>
+            <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/Ingredients_Of_A_Song/Lyrics/Poetry_As_Lyrics_Reverse.png) no-repeat;">
+              <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height: 100px;"></div>
+			  <div id="poetry_of_lyrics" style="height: 50px;width: 48px;position: absolute;left: 152px;top: 99px;"></div>
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container-->
+
+		<!-- Read me -->
+		<a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/Ingredients_Of_A_Song/Lyrics/Feelings_From_Lyrics_Hi_Res.png', '');">click here</a>
+
+		<div id="zoomwrapper">
+			<!-- hear me -->
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/Ingredients_Of_A_Song/Lyrics/Poetry_As_Lyrics.png" alt="" />
+          </div>
+		  
+		  <!-- Read me -->
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/Ingredients_Of_A_Song/Lyrics/Feelings_From_Lyrics.png" alt="" />
+          </div>
+  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentHowToWriteASong">
+		<p>Lyrics are poems set to music.  They often rhyme, tell a story, and sometimes are a bit cryptic.  The big difference is they are written so they can be sung.  They really need musical accompaniment to help them come alive.</p> 
+
+		<p>Lyrics are very important in songs that have them  and most do!  They help to tell the story, and often reflect what is happening in the music.  Soft, slow songs may have sad lyrics, and happy lyrics may accompany fast, upbeat music.  Sometimes though, songwriters might put happy lyrics to a slow, sad-sounding song to make it more complex for the listener.</p> 
+
+		<p>Good lyrics tell a story regardless of the music though.  The meaning of lyrics might be very obvious, such as retelling a story, or it might be more ambiguous.  The best songs are always about something, but sometimes its up to the listener to decide what they think that is.</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnHowToWriteASong" id="playstopLyrics"></div></div>
+    <div class="bHowToWriteASong"><div class="rwHowToWriteASong" id="Lyricsaudiobbtn"></div></div>
+    <div class="plHowToWriteASong"><div class="plpsHowToWriteASong" id="Lyricsaudioplbtn"></div></div>
+    <div class="fHowToWriteASong"><div class="fwHowToWriteASong" id="Lyricsaudiofbtn"></div></div>
+    <div id="actualaudio-Lyrics" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+    <div id="actualaudio-PoetryOfLyrics" style="display: none;">
+		<audio id="PoetryOfLyricsAudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()" style="visibility:hidden;"><source src="audio\How_To_Write_A_Song\Poetry_As_Lyrics_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>
+
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Lyrics').html('<audio id="Lyricsaudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()"><source src="audio/How_To_Write_A_Song/Choosing_A_Style.mp3" type="audio/mpeg"></audio>');
+      }            
+      $("#sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-lyrics").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    
+    $('.homelinkbh').on('tap', function() { bgsoundHowToWriteASong.pause(); bgsoundHowToWriteASong.currentTime = 0; mainaudiobg.play(); });
+
+
+       // hear me flip
+    $(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol1").css({"visibility":"visible", "z-index":4});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+    
+    $("#pol1").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
+	
+	// try me flip
+	$('#pol2').on('tap',function(){
+		$('#img1')[0].click();
+	});
+
+
+    function goBack() {
+      $.mobile.changePage("sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsHowToWriteASong() {
+         bgsoundHowToWriteASong.play();
+    }
+       
+    function pauseHowToWriteASong() {
+         bgsoundHowToWriteASong.pause();
+    }	
+	
+	
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopLyrics").on('tap', function() {
+      if(!playing) {
+        Lyricsaudio.play();
+        $('.micbtnHowToWriteASong').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Lyricsaudio.pause(); Lyricsaudio.currentTime = 0;
+        $('.micbtnHowToWriteASong').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Lyricsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Lyricsaudio.pause();
+        paused = true;
+      } else {
+        Lyricsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Lyricsaudiofbtn").on('tap', function() {
+      var ctime = Lyricsaudio.currentTime;
+      Lyricsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Lyricsaudiobbtn").on('tap', function() {
+      var ctime = Lyricsaudio.currentTime;
+      Lyricsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#Lyricsaudiopsbtn").on('tap', function() {
+      Lyricsaudio.pause();
+    });
+	
+    $("#poetry_of_lyrics").on('tap', function() {
+        if(PoetryOfLyricsAudio.currentTime == 0){
+			PoetryOfLyricsAudio.play();
+			Lyricsaudio.pause();
+			Lyricsaudio.currentTime = 0;
+			bgsoundHowToWriteASong.pause();
+			bgsoundHowToWriteASong.currentTime = 0;
+		}
+		if(PoetryOfLyricsAudio.currentTime > 0){
+			PoetryOfLyricsAudio.pause();
+			PoetryOfLyricsAudio.currentTime = 0;
+		}
+	});	
+  </script>
+  <script src="js/twocardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

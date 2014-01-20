@@ -1,0 +1,108 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-how-to-write-a-song-song-style-showcase">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_how_to_write_a_song.js"></script>
+  <link rel="stylesheet" href="css/style_how_to_write_a_song.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnHowToWriteASong"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnHowToWriteASong"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnHowToWriteASong"></div></div>
+  <div class="infobtnholder"><div class="infobtnHowToWriteASong"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnHowToWriteASong"></div></div>
+  <div class="menubtnholder"><div class="menubtnHowToWriteASong"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Song Styles Showcase</h1></div>
+  
+  <div data-role="content" class="kidzcontent">
+	<div class="navHowToWriteASong-SongStyleShowcase">
+		<p>There are countless different styles of music in the world of song writing, from loud and fast to gentle and slow.  Songwriters like to fuse different styles to make new ones, which is why there are so many!  Sometimes a style is so important that it changes everything in the world of song writing.</p>
+
+		<p>Some song styles are all about different sounds, but some are also about the meaning behind the style.  While a good song can be played in any style, the one chosen can contribute a lot to a songs feel and emotional impact.</p>
+
+		<p>Most song styles are based on a number of broader, 'grandparent' styles.  Lets explore some of them.  Are any of the styles new to you?</p>
+	</div>
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnHowToWriteASong" id="playstopSongStyleShowcase"></div></div>
+    <div class="bHowToWriteASong"><div class="rwHowToWriteASong" id="SongStyleShowcaseaudiobbtn"></div></div>
+    <div class="plHowToWriteASong"><div class="plpsHowToWriteASong" id="SongStyleShowcaseaudioplbtn"></div></div>
+    <div class="fHowToWriteASong"><div class="fwHowToWriteASong" id="SongStyleShowcaseaudiofbtn"></div></div>
+    <div id="actualaudio-SongStyleShowcase" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script> 
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-SongStyleShowcase').html('<audio id="SongStyleShowcaseaudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()"><source src="audio/How_To_Write_A_Song/Song_Style_Showcase.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-how-to-write-a-song-song-style-showcase").swipe( { swipeRight:goBack, swipeLeft:goNext, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundHowToWriteASong.pause(); bgsoundHowToWriteASong.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-how-to-write-a-song.html", {transition: "slide", reverse: true });
+    }
+ 	function goNext(){
+		$.mobile.changePage("sub-how-to-write-a-song-song-style-showcase-blues.html", {transition: "slide", reverse: true });
+	}   
+    function playsHowToWriteASong() {
+         bgsoundHowToWriteASong.play();
+    }
+       
+    function pauseHowToWriteASong() {
+         bgsoundHowToWriteASong.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopSongStyleShowcase").on('tap', function() {
+      if(!playing) {
+        SongStyleShowcaseaudio.play();
+        $('.micbtnHowToWriteASong').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        SongStyleShowcaseaudio.pause(); SongStyleShowcaseaudio.currentTime = 0;
+        $('.micbtnHowToWriteASong').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#SongStyleShowcaseaudioplbtn").on('tap', function() {
+      if(!paused) {
+        SongStyleShowcaseaudio.pause();
+        paused = true;
+      } else {
+        SongStyleShowcaseaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#SongStyleShowcaseaudiofbtn").on('tap', function() {
+      var ctime = SongStyleShowcaseaudio.currentTime;
+      SongStyleShowcaseaudio.currentTime = ctime + 10;
+    });
+    
+    $("#SongStyleShowcaseaudiobbtn").on('tap', function() {
+      var ctime = SongStyleShowcaseaudio.currentTime;
+      SongStyleShowcaseaudio.currentTime = ctime - 10;
+    });
+    
+    $("#HowToWriteASongaudiopsbtn").on('tap', function() {
+      SongStyleShowcaseaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+
+  </script>
+</div> <!--//home-->

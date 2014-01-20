@@ -1,0 +1,141 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-how-to-write-a-song-song-style-showcase-blues">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_how_to_write_a_song.js"></script>
+  <link rel="stylesheet" href="css/style_how_to_write_a_song.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnHowToWriteASong"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnHowToWriteASong"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnHowToWriteASong"></div></div>
+  <div class="infobtnholder"><div class="infobtnHowToWriteASong"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnHowToWriteASong"></div></div>
+  <div class="menubtnholder"><div class="menubtnHowToWriteASong"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1></h1></div>
+  
+  <div data-role="content" class="kidzcontent">
+	<div class="navHowToWriteASong-Blues">
+		<!-- 
+		<p>Blues music evolved from African-American communities in the southern parts of the U.S.A. as a response to slavery and its aftermath.  It traditionally was mournful and emotional, and provided a way to express the sorrows of a very hard life.  The phrase 'the blues' has come to mean a feeling of sadness, but also a strong musical style. Some great blues artists are Muddy Waters (yes, that's really a person!), Robert Johnson and B. B. King.</p>
+
+		<p>Blues has a 'shuffle' rhythm, which feels a bit like a horse galloping, and gives the music a bouncing feel.  It has its own special form  the 12-bar blues.  The most common blues songs have three lines of lyrics.  The first two are almost the same, with slight melody changes to match the changing chords, and tell of a problem or sad event.  The third line moves the story along by explaining the story more, or by finding a solution to the problem.</p> -->
+	</div>
+		<style>
+
+		</style>
+		<div class="play_music-btn">
+		</div>
+		<div class="page_info-btn">
+			<a href="#infopopup" data-rel="popup" style="height: 30px; width: 30px; text-decoration: none;display: block;">
+				&nbsp;
+			</a>
+		</div>
+		<div data-role="popup" id="infopopup" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+			<div id="node-pop">
+				<p>Blues music evolved from African-American communities in the southern parts of the U.S.A. as a response to slavery and its aftermath.  It traditionally was mournful and emotional, and provided a way to express the sorrows of a very hard life.  The phrase 'the blues' has come to mean a feeling of sadness, but also a strong musical style. Some great blues artists are Muddy Waters (yes, that's really a person!), Robert Johnson and B. B. King.</p>
+
+				<p>Blues has a 'shuffle' rhythm, which feels a bit like a horse galloping, and gives the music a bouncing feel.  It has its own special form  the 12-bar blues.  The most common blues songs have three lines of lyrics.  The first two are almost the same, with slight melody changes to match the changing chords, and tell of a problem or sad event.  The third line moves the story along by explaining the story more, or by finding a solution to the problem.</p>
+			</div>
+		</div>		
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnHowToWriteASong" id="playstopBlues"></div></div>
+    <div class="bHowToWriteASong"><div class="rwHowToWriteASong" id="Bluesaudiobbtn"></div></div>
+    <div class="plHowToWriteASong"><div class="plpsHowToWriteASong" id="Bluesaudioplbtn"></div></div>
+    <div class="fHowToWriteASong"><div class="fwHowToWriteASong" id="Bluesaudiofbtn"></div></div>
+    <div id="actualaudio-Blues" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+    <div id="actualaudio-PlayBlues" style="display: none;">
+		<audio id="PlayBluesAudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()" style="visibility:hidden;"><source src="audio\How_To_Write_A_Song\Blues_Play_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>  
+  <script> 
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Blues').html('<audio id="Bluesaudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()"><source src="audio/How_To_Write_A_Song/Blues.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-how-to-write-a-song-song-style-showcase-blues").swipe( { swipeRight:goBack,swipeLeft:goNext, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundHowToWriteASong.pause(); bgsoundHowToWriteASong.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-how-to-write-a-song-song-style-showcase.html", {transition: "slide", reverse: true });
+    }
+	function goNext(){
+		$.mobile.changePage("sub-how-to-write-a-song-song-style-showcase-jazz.html", {transition: "slide", reverse: false });
+	}
+    
+    function playsHowToWriteASong() {
+         bgsoundHowToWriteASong.play();
+    }
+       
+    function pauseHowToWriteASong() {
+         bgsoundHowToWriteASong.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopBlues").on('tap', function() {
+      if(!playing) {
+        Bluesaudio.play();
+        $('.micbtnHowToWriteASong').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Bluesaudio.pause(); Bluesaudio.currentTime = 0;
+        $('.micbtnHowToWriteASong').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Bluesaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Bluesaudio.pause();
+        paused = true;
+      } else {
+        Bluesaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Bluesaudiofbtn").on('tap', function() {
+      var ctime = Bluesaudio.currentTime;
+      Bluesaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Bluesaudiobbtn").on('tap', function() {
+      var ctime = Bluesaudio.currentTime;
+      Bluesaudio.currentTime = ctime - 10;
+    });
+    
+    $("#HowToWriteASongaudiopsbtn").on('tap', function() {
+      Bluesaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    $(".play_music-btn").on('tap', function() {
+        if(PlayBluesAudio.currentTime == 0){
+			PlayBluesAudio.play();
+			Bluesaudio.pause();
+			Bluesaudio.currentTime = 0;
+			bgsoundHowToWriteASong.pause();
+			bgsoundHowToWriteASong.currentTime = 0;
+		}
+		if(PlayBluesAudio.currentTime > 0){
+			PlayBluesAudio.pause();
+			PlayBluesAudio.currentTime = 0;
+		}
+	});	
+  </script>
+</div> <!--//home-->

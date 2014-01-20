@@ -1,0 +1,156 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_how_to_write_a_song.js"></script>
+  <link rel="stylesheet" href="css/style_how_to_write_a_song.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnHowToWriteASong"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnHowToWriteASong"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnHowToWriteASong"></div></div>
+  <div class="infobtnholder"><div class="infobtnHowToWriteASong"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnHowToWriteASong"></div></div>
+  <div class="menubtnholder"><div class="menubtnHowToWriteASong"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1><!-- Ingredients of a Song --></h1></div>
+  
+  <div data-role="content" class="kidzcontent">
+	<div class="navHowToWriteASong-IngredientsOfASong">
+		<!--
+		A song is made of several parts: a set of lyrics, or words, sung as a melody, over a 'bed' of chords.  They all combine with the beat, or rhythm, of the music to tell a story, share an idea, or deliver a message  in the form of a catchy, memorable or moving song. 
+		Songs can be made up of lots of different instruments playing, or even just a singer singing the lyrics and melody by themselves.  There are also songs that are instrumental, where an instrument like a violin takes the role of the voice and plays the tune.  But whatever the characteristics and style of a particular song, a great song can also be played simply by just one singer and one acoustic guitar around a campfire.
+		Do you have all the ingredients to write a song?  Read more about each one! 
+		-->
+	</div>
+		<style>
+		.lyrics-btn{
+			position: absolute;
+			width: 140px;
+			height: 45px;
+			top: 389px;
+			left: 59px;		
+		}
+		.melody-btn{
+			position: absolute;
+			width: 140px;
+			height: 45px;
+			top: 456px;
+			left: 64px;	
+		}
+		.beat-btn{
+			position: absolute;
+			width: 140px;
+			height: 52px;
+			top: 523px;
+			left: 82px;		
+		}
+		.chords-btn{
+			position: absolute;
+			width: 140px;
+			height: 52px;
+			top: 597px;
+			left: 92px;		
+		}
+		
+		</style>
+	
+		<div class="lyrics-btn"></div>
+		<div class="melody-btn"></div>
+		<div class="beat-btn"></div>
+		<div class="chords-btn"></div>
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnHowToWriteASong" id="playstopIngredientsOfASong"></div></div>
+    <div class="bHowToWriteASong"><div class="rwHowToWriteASong" id="IngredientsOfASongaudiobbtn"></div></div>
+    <div class="plHowToWriteASong"><div class="plpsHowToWriteASong" id="IngredientsOfASongaudioplbtn"></div></div>
+    <div class="fHowToWriteASong"><div class="fwHowToWriteASong" id="IngredientsOfASongaudiofbtn"></div></div>
+    <div id="actualaudio-IngredientsOfASong" style="visibility:hidden;"></div>
+  <!--</div>-->
+
+  <script> 
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-IngredientsOfASong').html('<audio id="IngredientsOfASongaudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()"><source src="audio/How_To_Write_A_Song/Ingredients_Of_A_Song.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundHowToWriteASong.pause(); bgsoundHowToWriteASong.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-how-to-write-a-song-what-is-a-song.html", {transition: "slide", reverse: true });
+    }
+
+    function playsHowToWriteASong() {
+         bgsoundHowToWriteASong.play();
+    }
+       
+    function pauseHowToWriteASong() {
+         bgsoundHowToWriteASong.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopIngredientsOfASong").on('tap', function() {
+      if(!playing) {
+        IngredientsOfASongaudio.play();
+        $('.micbtnHowToWriteASong').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        IngredientsOfASongaudio.pause(); IngredientsOfASongaudio.currentTime = 0;
+        $('.micbtnHowToWriteASong').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#IngredientsOfASongaudioplbtn").on('tap', function() {
+      if(!paused) {
+        IngredientsOfASongaudio.pause();
+        paused = true;
+      } else {
+        IngredientsOfASongaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#IngredientsOfASongaudiofbtn").on('tap', function() {
+      var ctime = IngredientsOfASongaudio.currentTime;
+      IngredientsOfASongaudio.currentTime = ctime + 10;
+    });
+    
+    $("#IngredientsOfASongaudiobbtn").on('tap', function() {
+      var ctime = IngredientsOfASongaudio.currentTime;
+      IngredientsOfASongaudio.currentTime = ctime - 10;
+    });
+    
+    $("#HowToWriteASongaudiopsbtn").on('tap', function() {
+      IngredientsOfASongaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+	
+	$('.lyrics-btn').on('tap',function(){
+		$.mobile.changePage('sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-lyrics.html',{transition:"slide"});
+	});	
+	$('.melody-btn').on('tap',function(){
+		$.mobile.changePage('sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-melody.html',{transition:"slide"});
+	});
+
+	$('.beat-btn').on('tap',function(){
+		$.mobile.changePage('sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-beat.html',{transition:"slide"});
+	});	
+	$('.chords-btn').on('tap',function(){
+		$.mobile.changePage('sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-chords.html',{transition:"slide"});
+	});	
+  </script>
+</div> <!--//home-->

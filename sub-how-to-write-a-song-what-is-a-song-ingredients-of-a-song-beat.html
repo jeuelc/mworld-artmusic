@@ -1,0 +1,185 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-beat">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>    
+  <script src="js/slidebar_how_to_write_a_song.js"></script>
+  <link rel="stylesheet" href="css/style_how_to_write_a_song.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnHowToWriteASong"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnHowToWriteASong"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnHowToWriteASong"></div></div>
+  <div class="infobtnholder"><div class="infobtnHowToWriteASong"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnHowToWriteASong"></div></div>
+  <div class="menubtnholder"><div class="menubtnHowToWriteASong"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Beat</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">		
+		<!-- hear me -->
+        <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="css/images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/Ingredients_Of_A_Song/Beat/Rhythms.png">
+            </div>
+            <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/Ingredients_Of_A_Song/Beat/Rhythms_Reverse.png) no-repeat;">
+              <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height: 172px;"></div>
+			  <div id="rhythms" style="height: 60px;width: 59px;position: absolute;left: 152px;top: 173px;"></div>
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container-->
+
+		<div id="zoomwrapper">
+			<!-- hear me -->
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/Ingredients_Of_A_Song/Beat/Rhythms.png" alt="" />
+          </div>
+  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentHowToWriteASong">
+		<p>The beat is a very important part of a song.  It helps to give the song rhythm and forward motion, gives a shape to how slowly or quickly the lyrics and melody are sung, and unites them to work together with the chords.  The beat dramatically defines the feel of the song too, whether it's light and fast, or heavy and slow.</p>
+
+		<p>Rhythm is a bit like a heart beat. A slow rhythm might help you feel at rest, while a faster beat might mimic your heart after exercising or dancing.  Think of the difference between a fast hip hop song, a gentle love ballad, and a bouncing jazz song.  They feel excited, relaxed or playful because of the beat. </p>
+
+		<p>The beat doesn't always have to be played by drums, either.  It can be provided by a variety of instruments played percussively or providing a rhythmic bass line. </p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnHowToWriteASong" id="playstopBeat"></div></div>
+    <div class="bHowToWriteASong"><div class="rwHowToWriteASong" id="Beataudiobbtn"></div></div>
+    <div class="plHowToWriteASong"><div class="plpsHowToWriteASong" id="Beataudioplbtn"></div></div>
+    <div class="fHowToWriteASong"><div class="fwHowToWriteASong" id="Beataudiofbtn"></div></div>
+    <div id="actualaudio-Beat" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+    <div id="actualaudio-Rhythms" style="display: none;">
+		<audio id="RhythmsAudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()" style="visibility:hidden;"><source src="audio\How_To_Write_A_Song\Rhythms_Hear_Me.mp3" type="audio/mpeg"></audio>
+	</div>
+
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Beat').html('<audio id="Beataudio" controls preload onpause="playsHowToWriteASong()" onplay="pauseHowToWriteASong()"><source src="audio/How_To_Write_A_Song/Choosing_A_Style.mp3" type="audio/mpeg"></audio>');
+      }            
+      $("#sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song-beat").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    
+    $('.homelinkbh').on('tap', function() { bgsoundHowToWriteASong.pause(); bgsoundHowToWriteASong.currentTime = 0; mainaudiobg.play(); });
+
+
+       // hear me flip
+    $(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol1").css({"visibility":"visible", "z-index":4});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+    
+    $("#pol1").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
+	
+	// try me flip
+	$('#pol2').on('tap',function(){
+		$('#img1')[0].click();
+	});
+
+
+    function goBack() {
+      $.mobile.changePage("sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsHowToWriteASong() {
+         bgsoundHowToWriteASong.play();
+    }
+       
+    function pauseHowToWriteASong() {
+         bgsoundHowToWriteASong.pause();
+    }	
+	
+	
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopBeat").on('tap', function() {
+      if(!playing) {
+        Beataudio.play();
+        $('.micbtnHowToWriteASong').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Beataudio.pause(); Beataudio.currentTime = 0;
+        $('.micbtnHowToWriteASong').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Beataudioplbtn").on('tap', function() {
+      if(!paused) {
+        Beataudio.pause();
+        paused = true;
+      } else {
+        Beataudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Beataudiofbtn").on('tap', function() {
+      var ctime = Beataudio.currentTime;
+      Beataudio.currentTime = ctime + 10;
+    });
+    
+    $("#Beataudiobbtn").on('tap', function() {
+      var ctime = Beataudio.currentTime;
+      Beataudio.currentTime = ctime - 10;
+    });
+    
+    $("#Beataudiopsbtn").on('tap', function() {
+      Beataudio.pause();
+    });
+	
+    $("#rhythms").on('tap', function() {
+        if(RhythmsAudio.currentTime == 0){
+			RhythmsAudio.play();
+			Beataudio.pause();
+			Beataudio.currentTime = 0;
+			bgsoundHowToWriteASong.pause();
+			bgsoundHowToWriteASong.currentTime = 0;
+		}
+		if(RhythmsAudio.currentTime > 0){
+			RhythmsAudio.pause();
+			RhythmsAudio.currentTime = 0;
+		}
+	});	
+  </script>
+  <script src="js/onecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->
