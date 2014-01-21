@@ -115,3 +115,16 @@ $('.fwHowToWriteASong').on('tap', function() {
       $('.fwHowToWriteASong').css('background-position-y', '-73px');
     }, 300);
 });
+
+if(typeof window.lyrics_checked == 'undefined'){
+	window.lyrics_checked		=	0;
+}
+if(typeof window.melody_checked == 'undefined'){
+	window.melody_checked		=	0;
+}
+if(typeof window.beat_checked == 'undefined'){
+	window.beat_checked		=	0;
+}
+if(typeof window.chords_checked == 'undefined'){
+	window.chords_checked		=	0;
+}

@@ -14,7 +14,7 @@
   width:1024px !important;
 }
 #sub-how-to-write-a-song-what-is-a-song-ingredients-of-a-song{
-  background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/Ingredients_Of_A_Song/Ingredients_Of_A_Song.jpg') no-repeat;
+  background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/Ingredients_Of_A_Song/Ingredients_Of_A_Song_BG.png') no-repeat;
   height:748px !important;
   overflow:hidden !important;
   width:1024px !important;
@@ -409,4 +409,60 @@
 	position: absolute;
 	left: 509px;
 	top: 523px;
+}
+
+.lyrics-btn{
+	position: absolute;
+	width: 140px;
+	height: 45px;
+	top: 389px;
+	left: 59px;		
+}
+.melody-btn{
+	position: absolute;
+	width: 140px;
+	height: 45px;
+	top: 456px;
+	left: 64px;	
+}
+.beat-btn{
+	position: absolute;
+	width: 140px;
+	height: 52px;
+	top: 523px;
+	left: 82px;		
+}
+.chords-btn{
+	position: absolute;
+	width: 140px;
+	height: 52px;
+	top: 597px;
+	left: 92px;		
+}
+
+.checkbox-divs{
+	position:absolute;
+	height:50px;
+	width:30px;
+	background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/Ingredients_Of_A_Song/checked.png') no-repeat;
+}
+.lyrics_checked-bx{
+	left: 158px;
+	top: 360px;
+	display:none;
+}
+.melody_checked-bx{
+	left: 174px;
+	top: 434px;	
+	display:none;				
+}
+.beat_checked-bx{
+	left: 186px;
+	top: 498px;				
+	display:none;
+}
+.chords_checked-bx{
+	left: 204px;
+	top: 569px;	
+	display:none;				
 }
