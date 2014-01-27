@@ -477,16 +477,16 @@
 
 /* Journey through a song page custom css */
 #animCont{
-    float:left;
+	top:0px;
+	left:0px;
     clear:both;
     position: absolute;
-    border:1px green solid;
 }
 
 #drawCanvas{
-    position: relative;
-    border:1px red solid;
-    float: left;
+    position: absolute;
+    left:0px;
+	top:0px;
 }
 #canvasPopup {
 /*    border: 1px solid #FF0000;*/
