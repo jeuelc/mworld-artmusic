@@ -2,6 +2,7 @@
 <div data-role="page" id="sub-how-to-write-a-song-what-is-a-song-a-journey-through-a-song">
   <!-- <script src="js/slidebarnat.js"></script> -->
   <script src="js/slidebar_how_to_write_a_song.js"></script>
+  <script src="js/how_to_write_a_song_custom.js"></script>
   <link rel="stylesheet" href="css/style_how_to_write_a_song.css" />
   <div class="menuhousing"></div>
   <div class="homebtnholder"><div class="homebtnHowToWriteASong"></div></div>
@@ -13,56 +14,41 @@
   
   <div class="bptitleholder" style="padding-top:14px;"><h1></h1></div>
   
-  <div data-role="content" class="kidzcontent">
+  <div data-role="content" class="kidzcontent1">
 	<div class="navHowToWriteASong-JourneyThroughASong">
+		<div id="animCont">
+			<canvas id="drawCanvas" width="1024" height="768" >
+				Your browser does not support HTML5 Canvas.
+			</canvas>    			
+		</div>
+		<div id="canvasPopup">
+			<a class="close"></a>
+			<div class="title">A Journey Through a Song</div>
+			<div class="details">Each song has a structure called a 'form'.  The form makes up the order of the different sections in a song.  Structure can vary between songs and styles, but many follow a standard form: a combination of verses and choruses.  When arranged in the most effective way, they help to set up and release tension in the song, either in the story of the lyrics or in the music.  Let's explore the journey of a typical song.  Touch the music notes to start the song playing from that part, and touch the words of each section to read about it.  Press play to hear the song from beginning to end!</div>
+
+		</div>	
+		<div class="song_play_btn">
+		</div>		
+		<div class="song_pause_btn">
+		</div>		
 	</div>
-	<style>
-		.music_map_intro{
-			position:absolute;
-			top:100px;
-			height:50px;
-			width:50px;
-			border:1px solid white;
-		}
-		.music_map_verse1{
-			
-		}
-		.music_map_chorus1{
-			
-		}
-		.music_map_verse2{
-			
-		}
-		.music_map_chorus2{
-			
-		}
-		.music_map_bridge{
-			
-		}
-		.music_map_chorus3{
-			
-		}
-		.music_map_end{
-			
-		}
-	</style>
-		<div class="music_map_intro"></div>
+<!-- 	<div class="music_map_intro"></div>
 		<div class="music_map_verse1"></div>
 		<div class="music_map_chorus1"></div>
 		<div class="music_map_verse2"></div>
 		<div class="music_map_chorus2"></div>
 		<div class="music_map_bridge"></div>
 		<div class="music_map_chorus3"></div>
-		<div class="music_map_end"></div>
+		<div class="music_map_end"></div> -->
 		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
   </div> <!-- end content -->  
   <!--<div class="audiopanel">-->
     <!-- images are in slidebarnat.js -->
-    <div class="micbtnholder"><div class="micbtnHowToWriteASong" id="playstopJourneyThroughASong"></div></div>
+<!--     <div class="micbtnholder"><div class="micbtnHowToWriteASong" id="playstopJourneyThroughASong"></div></div>
     <div class="bHowToWriteASong"><div class="rwHowToWriteASong" id="JourneyThroughASongaudiobbtn"></div></div>
     <div class="plHowToWriteASong"><div class="plpsHowToWriteASong" id="JourneyThroughASongaudioplbtn"></div></div>
     <div class="fHowToWriteASong"><div class="fwHowToWriteASong" id="JourneyThroughASongaudiofbtn"></div></div>
-    <div id="actualaudio-JourneyThroughASong" style="visibility:hidden;"></div>
+    <div id="actualaudio-JourneyThroughASong" style="visibility:hidden;"></div> -->
   <!--</div>-->
   <script> 
   // sound setup is in home.html and index.js
@@ -134,5 +120,8 @@
       JourneyThroughASongaudio.pause();
       //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
     });
+
+    $(window).load(init());
+
   </script>
 </div> <!--//home-->

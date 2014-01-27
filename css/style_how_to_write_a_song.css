@@ -92,10 +92,10 @@
 }
 
 #sub-how-to-write-a-song-what-is-a-song-a-journey-through-a-song{
-  background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/A_Journey_Through_A_Song/A_Journey_Through_A_Song_BG.png') no-repeat;
+/*   background:url('images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/A_Journey_Through_A_Song/A_Journey_Map_Plain.png') no-repeat;
   height:748px !important;
   overflow:hidden !important;
-  width:1024px !important;
+  width:1024px !important; */
 }
 
 /* Custom Pages Style Ends here */
@@ -473,3 +473,82 @@
 	top: 569px;	
 	display:none;				
 }
+
+
+/* Journey through a song page custom css */
+#animCont{
+    float:left;
+    clear:both;
+    position: absolute;
+    border:1px green solid;
+}
+
+#drawCanvas{
+    position: relative;
+    border:1px red solid;
+    float: left;
+}
+#canvasPopup {
+/*    border: 1px solid #FF0000;*/
+	border: 1px solid rgba(0, 0, 0, 0);
+	height: 600px;	
+	position: absolute;
+	width: 400px;
+	z-index: 9;
+	background-color: rgba(0, 0, 0, 0.5);	
+	left: 306px;
+	top: 55px;	
+    display:none;
+}
+#canvasPopup .close{
+    background: url(images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/A_Journey_Through_A_Song/icon_close.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+/*    border: 1px solid #008000;*/
+    float: right;
+    height: 50px;
+    width: 50px;
+}
+#canvasPopup .close:hover {
+    transform: scale(1.1);
+}
+
+#canvasPopup .title {
+	position: relative;
+	width: 200px;
+	text-align: center;
+	margin: 7px auto;
+	font-size: 26px;
+	font-weight: 700;
+	color: #FFFFFF;
+	font-family: comic sans ms;
+}
+#canvasPopup .details {
+	position: relative;
+	width: 375px;
+	text-align: center;
+	margin: 0 auto;
+	font-size: 19px;
+	font-weight: normal;
+	color: white;
+	font-family: comic sans ms;
+}
+.song_play_btn{
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	top: 550px;
+	left: 464px;
+	z-index:10;
+	background: url(images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/A_Journey_Through_A_Song/play.png) no-repeat;
+}
+
+.song_pause_btn{
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	top: 550px;
+	left: 464px;
+	background: url(images/9-12/Art_and_Music/How_To_Write_A_Song/What_Is_A_Song/A_Journey_Through_A_Song/pause.png) no-repeat;
+	display:none;
+	z-index:10;
+}
+/* Journey through a song css ends here  */
