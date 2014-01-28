@@ -850,3 +850,11 @@ bgsoundHowToWriteASong.addEventListener('ended', function() { bgsoundHowToWriteA
 
 function pauseHowToWriteASong() { bgsoundHowToWriteASong.pause() }
 function playsHowToWriteASong() { bgsoundHowToWriteASong.play(); $(".audiopanel").css({"backgroundPosition":"0px 0px"}); }
+
+/************************ Secrets Of Art Drawing *******************************/
+var bgsoundSecretsOfArtDrawing = new Audio();
+bgsoundSecretsOfArtDrawing.src = "audio/Secrets_Of_Art_Drawing/Secrets_Of_Art_Drawing_BG.mp3";
+bgsoundSecretsOfArtDrawing.addEventListener('ended', function() { bgsoundSecretsOfArtDrawing.play(); });
+
+function pauseSecretsOfArtDrawing() { bgsoundSecretsOfArtDrawing.pause() }
+function playsSecretsOfArtDrawing() { bgsoundSecretsOfArtDrawing.play(); $(".audiopanel").css({"backgroundPosition":"0px 0px"}); }
