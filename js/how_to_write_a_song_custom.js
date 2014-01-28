@@ -13,7 +13,7 @@ var popup_isVisible= false;
 var load_interval; 
 var flag_audioLoaded=false,flag_videoLoaded = false;
 var bgPathColor = '#52280B';
-var fgPathColor = '#FFFFFF';
+var fgPathColor = '#e74500';
 var context;
 var globalCoordinatesCount = 0;
 var inter;
