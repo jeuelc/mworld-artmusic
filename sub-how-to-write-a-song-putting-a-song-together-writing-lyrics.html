@@ -18,15 +18,21 @@
     <div data-role="content" class="kidzcontent">
       <div class="v-spacer"></div>
       <div class="sidebarleft-half">		
+	  <a id="quiz_lightbox_1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/How_To_Write_A_Song/Putting_A_Song_Together/Writing_Lyrics/Cliches_Light_Box.png', '');">click here</a>
 	  
-		<!-- Try this -->
+	  <a id="quiz_lightbox_2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/How_To_Write_A_Song/Putting_A_Song_Together/Writing_Lyrics/Finding_Rhymes_Light_Box.png', '');">click here</a>
+	  
+	  <a id="quiz_lightbox_3" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/How_To_Write_A_Song/Putting_A_Song_Together/Writing_Lyrics/Painting_Pictures_Lightbox.png', '');">click here</a>
+	  
+	  <!-- Try this -->
         <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
           <div id="f1_card">
             <div class="front face">
               <img id="dopple" src="css/images/9-12/Art_and_Music/How_To_Write_A_Song/Putting_A_Song_Together/Writing_Lyrics/Cliches.png">
             </div>
             <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/How_To_Write_A_Song/Putting_A_Song_Together/Writing_Lyrics/Cliches_Reverse.png) no-repeat;">
-              <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+              <div class="returncard" style="position:absolute;left: 327px;top: 7px;width: 25px;height: 25px;"></div>
+			  <div id="Light_Box_Image1" style="position:absolute;left: 19px;top: 10px;width: 305px;height: 255px;"></div>
             </div>
           </div><!--/f1+card-->
         </div><!--/f1_container-->
@@ -38,7 +44,8 @@
               <img id="dopple" src="css/images/9-12/Art_and_Music/How_To_Write_A_Song/Putting_A_Song_Together/Writing_Lyrics/Finding_Rhymes.png">
             </div>
             <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/How_To_Write_A_Song/Putting_A_Song_Together/Writing_Lyrics/Finding_Rhymes_Reverse.png) no-repeat;">
-              <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+              <div class="returncard" style="position:absolute;left: 327px;top: 7px;width: 25px;height: 25px;"></div>
+			  <div id="Light_Box_Image2" style="position:absolute;left: 19px;top: 10px;width: 305px;height: 255px;"></div>
             </div>
           </div><!--/f1+card-->
         </div><!--/f2_container-->
@@ -74,7 +81,8 @@
               <img id="dopple" src="css/images/9-12/Art_and_Music/How_To_Write_A_Song/Putting_A_Song_Together/Writing_Lyrics/Painting_Pictures.png">
             </div>
             <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/How_To_Write_A_Song/Putting_A_Song_Together/Writing_Lyrics/Painting_Pictures_Reverse.png) no-repeat;">
-              <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+              <div class="returncard" style="position:absolute;left: 327px;top: 7px;width: 25px;height: 25px;"></div>
+			  <div id="Light_Box_Image3" style="position:absolute;left: 19px;top: 10px;width: 305px;height: 255px;"></div>
             </div>
           </div><!--/f1+card-->
         </div><!--/f5_container-->		
@@ -256,7 +264,21 @@
       $('#f5_card').css({"-moz-transform": "rotateY(180deg)"});
       $('#f5_card').css({"-o-transform": "rotateY(180deg)"});
       $('#f5_card').css({"transform": "rotateY(180deg)"});
-    });		
+    });
+
+	$("#Light_Box_Image1").on('tap', function() {
+      $('#quiz_lightbox_1')[0].click();
+    });
+
+	$("#Light_Box_Image2").on('tap', function() {
+      $('#quiz_lightbox_2')[0].click();
+    });
+	
+	$("#Light_Box_Image3").on('tap', function() {
+      $('#quiz_lightbox_3')[0].click();
+    });
+	
+	
 
     function goBack() {
       $.mobile.changePage("sub-how-to-write-a-song-putting-a-song-together.html", {transition: "slide", reverse: true });
