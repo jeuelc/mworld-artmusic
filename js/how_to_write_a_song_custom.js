@@ -97,7 +97,7 @@ var block_7 = {
 }
 var block_8 = {
     name : 'end',
-    fire  : 'popup_3',
+    fire  : 'popup_5',
     startTime: 154, //in seconds
     endTime: 178,// in seconds   
     coordinates : [[549,475],
@@ -124,8 +124,8 @@ var popupEvents = {
                 details :{}
             },
             content :{
-                title :'A Journey Through a Song',
-                details :'Each song has a structure called a \'form\'.  The form makes up the order of the different sections in a song.  Structure can vary between songs and styles, but many follow a standard form: a combination of verses and choruses.  When arranged in the most effective way, they help to set up and release tension in the song, either in the story of the lyrics or in the music.  Let\'s explore the journey of a typical song.  Touch the music notes to start the song playing from that part, and touch the words of each section to read about it.  Press play to hear the song from beginning to end!'
+                title :'Introduction',
+                details :'Each song has to start somewhere!  Often songs are introduced with a musical phrase or section of chords that set the mood of the song and give you a hint of what story is to come.  Not all songs have an introduction though  some start right at the first verse.'
             }
         }
     },
@@ -167,7 +167,20 @@ var popupEvents = {
                 details :'Bridges are different sections of music that are used to break up the verse and chorus and give the listener a moment to reflect on what is happening.  They might have a different melody or chord style, or might be an instrumental solo.  They are like a cool change in the weather, and help to keep you interested in the journey of the song.'
             }
         }        
-    }
+    },
+    popup_5 : function(){
+        return properties = {
+            css : {
+                div:{},
+                title :{},
+                details :{}
+            },
+            content :{
+                title :'End',
+                details :'Songs might finish with one big last chord, or slowly fade away.  They might repeat the main line from the chorus, or pose a final thought or question.  All of these components vary a lot in song writing.  How they are used and in which order is up to the songwriter!'
+            }
+        }        
+    }	
 }
     
 var points = {
