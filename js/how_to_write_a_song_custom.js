@@ -29,7 +29,7 @@ var block_1 = {
     coordinates : [[392,115],[392,123],[400,128],[400,135],[401,137],[402,139],[403,141],[403,144],[402,147],[403,150]]
 };
 var block_2 = {
-    name : 'verse',
+    name : 'intro',
     fire  : 'popup_2',
     startTime: 1, //in seconds
     endTime: 7,// in seconds
@@ -52,7 +52,7 @@ var block_3 = {
     ]
 };    
 var block_4 = {
-    name : 'verse',
+    name : 'chorus->pop-verse',
     fire  : 'popup_2',
     startTime: 37, //in seconds
     endTime: 57,// in seconds
@@ -65,7 +65,7 @@ var block_4 = {
     ]
 };   
 var block_5 = {
-    name : 'chorus',
+    name : 'verse-->chorus-pop',
     fire  : 'popup_3',
     startTime: 57, //in seconds
     endTime: 87,// 1.27 in seconds
@@ -77,7 +77,7 @@ var block_5 = {
     ]
 };
 var block_6 = {
-    name : 'bridge',
+    name : 'chorus->bridge-pop',
     fire  : 'popup_4',
     startTime: 87, //in seconds
     endTime: 122,// in seconds
@@ -87,16 +87,16 @@ var block_6 = {
     ]
 };
 var block_7 = {
-    name : 'chorus',
+    name : 'bridge->chorus-pop',
     fire  : 'popup_3',
     startTime: 122, //in seconds
     endTime: 154,// in seconds   
     coordinates : [[569,385],  
     [566,395],[564,400],[563,410],[559,418],[557,426],[551,436],[552,444],[551,450],[550,457],[549,460],[548,467],[549,475]
     ]
-}
+};
 var block_8 = {
-    name : 'end',
+    name : 'chorus->end-pop',
     fire  : 'popup_5',
     startTime: 154, //in seconds
     endTime: 178,// in seconds   
@@ -109,10 +109,16 @@ var block_8 = {
     [710,572],[714,571],[718,570],[723,570],[728,569],[735,568],[740,567],[745,566],[749,566],[751,568],[753,570],
     [758,572],[761,573],[765,575],[767,579],[769,583],[769,588],[769,595]
     ]
-}
-    
+};
+var block_9 = {
+    name : 'end-finish',
+    fire  : 'popup_5',
+    startTime: 178, //in seconds
+    endTime: 185,// in seconds   
+    coordinates : [[769,595],[769,600],[769,610],[769,620],[769,630],[769,635]]
+}    
 var registeredBlocks =( function(){
-    return [block_1,block_2,block_3,block_4,block_5,block_6,block_7,block_8];
+    return [block_1,block_2,block_3,block_4,block_5,block_6,block_7,block_8,block_9];
 })();
     
 var popupEvents = {
@@ -273,7 +279,7 @@ function drawPathTimeCalculator(block){
     var pPoints =  block.coordinates.length;
     var secs = block.endTime - block.startTime ,milis = secs* 1000 ,time =milis/pPoints;
         
-    //        time = 20;
+           //time = 50;
         
     inter = setInterval("__drawFollowUp()",time);
     de('calculating time for ' +  block.name + " secs- " +secs +' milis- '+milis +' points-' +pPoints + " time-  " + time,1);
