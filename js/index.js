@@ -853,8 +853,16 @@ function playsHowToWriteASong() { bgsoundHowToWriteASong.play(); $(".audiopanel"
 
 /************************ Secrets Of Art Drawing *******************************/
 var bgsoundSecretsOfArtDrawing = new Audio();
-bgsoundSecretsOfArtDrawing.src = "audio/Secrets_Of_Art_Drawing/Secrets_Of_Art_Drawing_BG.mp3";
+bgsoundSecretsOfArtDrawing.src = "audio/Secrets_Of_Art_Drawing/Secrets_Of_Art_Drawing_New_BG.mp3";
 bgsoundSecretsOfArtDrawing.addEventListener('ended', function() { bgsoundSecretsOfArtDrawing.play(); });
 
 function pauseSecretsOfArtDrawing() { bgsoundSecretsOfArtDrawing.pause() }
 function playsSecretsOfArtDrawing() { bgsoundSecretsOfArtDrawing.play(); $(".audiopanel").css({"backgroundPosition":"0px 0px"}); }
+
+/************************ Art Today *******************************/
+var bgsoundArtToday = new Audio();
+bgsoundArtToday.src = "audio/Art_Today/Art_Today.mp3";
+bgsoundArtToday.addEventListener('ended', function() { bgsoundArtToday.play(); });
+
+function pauseArtToday() { bgsoundArtToday.pause() }
+function playsArtToday() { bgsoundArtToday.play(); $(".audiopanel").css({"backgroundPosition":"0px 0px"}); }

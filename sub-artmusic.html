@@ -1,12 +1,10 @@
 <!-- i-C-a -->
 <div data-role="page" id="artandmusic2">
   <div data-role="content" style="overflow:hidden !important;">
-    
     <div id="titleb-holder"><h1 style="margin-top:184px;">Art and Music</h1></div>
-    
     <div style="width:90%;margin:auto;">
       <div class="aclink"><a href="sub-how-to-write-a-song.html" data-transition="slide" id="how_to_write_a_song"><img src="css/images/9-12/Art_and_Music/writeasongbtn.png"></a></div>
-      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Art_and_Music/streetartbtn.png"></a></div>
+      <div class="aclink"><a href="sub-art-today.html" data-transition="slide" id="art_today"><img src="css/images/9-12/Art_and_Music/streetartbtn.png"></a></div>
       <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Art_and_Music/chineseopbtn.png"></a></div>
       <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Art_and_Music/famouspaintsbtn.png"></a></div><br>
       <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Art_and_Music/paintlikemasbtn.png"></a></div>
@@ -49,6 +47,11 @@
 					artmusicsoundbg.currentTime = 0;					
 				}
 				else if(subjectId == "secrets_of_art_drawing"){
+					bgsoundSecretsOfArtDrawing.play();
+					artmusicsoundbg.pause();
+					artmusicsoundbg.currentTime = 0;
+				}
+				else if(subjectId == "art_today"){
 					bgsoundSecretsOfArtDrawing.play();
 					artmusicsoundbg.pause();
 					artmusicsoundbg.currentTime = 0;
