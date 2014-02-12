@@ -861,7 +861,7 @@ function playsSecretsOfArtDrawing() { bgsoundSecretsOfArtDrawing.play(); $(".aud
 
 /************************ Art Today *******************************/
 var bgsoundArtToday = new Audio();
-bgsoundArtToday.src = "audio/Art_Today/Art_Today.mp3";
+bgsoundArtToday.src = "audio/Art_Today/Art_Today_BG.mp3";
 bgsoundArtToday.addEventListener('ended', function() { bgsoundArtToday.play(); });
 
 function pauseArtToday() { bgsoundArtToday.pause() }

@@ -1,0 +1,132 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-art-today-new-forms-new-ideas">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_art_today.js"></script>
+  <link rel="stylesheet" href="css/style_art_today.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnArtToday"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnArtToday"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnArtToday"></div></div>
+  <div class="infobtnholder"><div class="infobtnArtToday"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnArtToday"></div></div>
+  <div class="menubtnholder"><div class="menubtnArtToday"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>New Forms, New Ideas</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navArtToday-content3">
+		<p>Over the past hundred years artists have turned the world of art on its head!  Contemporary artists have revolutionised the forms and ideas of art to reflect - and influence - your changing world.</p>
+		<p>Art isn't just drawing, painting and sculpture any more, although these are still the beginning points for many young artists.  Part of the reason for the change is that artists are always questioning why the world is the way it is.  Some of their ideas might work better using different materials or styles. Sometimes, though, these new ways can make people feel uncomfortable.</p>
+		<p>Contemporary artists have opened up whole new ways of looking at the world by inventing new approaches to the materials they use.  They ask much more of the person looking at art.  They want to draw them in, seek their involvement.</p>
+		<p>Art today is also often what we call 'conceptual art', which means the artist is focusing more on the idea behind the art than what the art looks like.  Let's look at three examples of conceptual art.</p>
+      </div>
+        
+      <div class="navbtn1" style="top:420px;">
+        <p><a href="sub-art-today-new-forms-new-ideas-Damien-Hirst.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Art_Today/New_Forms_New_Ideas/Damein.png"></a></p>
+      </div>
+      <div class="navbtn2" style="left:400px;">
+        <p><a href="sub-art-today-new-forms-new-ideas-Marcel-Duchamp.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Art_Today/New_Forms_New_Ideas/Marcel.png"></a></p>
+      </div>
+      <div class="navbtn3" style="top:420px;">
+        <p><a href="sub-art-today-new-forms-new-ideas-Simon-Starling.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Art_Today/New_Forms_New_Ideas/Simon.png"></a></p>
+      </div>
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnArtToday" id="playstopNewForms"></div></div>
+    <div class="bArtToday"><div class="rwArtToday" id="NewFormsaudiobbtn"></div></div>
+    <div class="plArtToday"><div class="plpsArtToday" id="NewFormsaudioplbtn"></div></div>
+    <div class="fArtToday"><div class="fwArtToday" id="NewFormsaudiofbtn"></div></div>
+    <div id="actualaudio-NewForms" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-NewForms').html('<audio id="NewFormsaudio" controls preload onpause="playsArtToday()" onplay="pauseArtToday()"><source src="audio/Art_Today/New_Forms_New_Ideas.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-art-today-new-forms-new-ideas").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundArtToday.pause(); bgsoundArtToday.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-art-today.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsArtToday() {
+         bgsoundArtToday.play();
+    }
+       
+    function pauseArtToday() {
+         bgsoundArtToday.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopNewForms").on('tap', function() {
+      if(!playing) {
+        NewFormsaudio.play();
+        $('.micbtnArtToday').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        NewFormsaudio.pause(); NewFormsaudio.currentTime = 0;
+        $('.micbtnArtToday').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#NewFormsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        NewFormsaudio.pause();
+        paused = true;
+      } else {
+        NewFormsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#NewFormsaudiofbtn").on('tap', function() {
+      var ctime = NewFormsaudio.currentTime;
+      NewFormsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#NewFormsaudiobbtn").on('tap', function() {
+      var ctime = NewFormsaudio.currentTime;
+      NewFormsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#NewFormsaudiopsbtn").on('tap', function() {
+      NewFormsaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });
+  </script>
+</div> <!--//home-->

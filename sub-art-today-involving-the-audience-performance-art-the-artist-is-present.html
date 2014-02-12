@@ -1,0 +1,149 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-art-today-involving-the-audience-performance-art-the-artist-is-present">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_art_today.js"></script>
+  <link rel="stylesheet" href="css/style_art_today.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnArtToday"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnArtToday"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnArtToday"></div></div>
+  <div class="infobtnholder"><div class="infobtnArtToday"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnArtToday"></div></div>
+  <div class="menubtnholder"><div class="menubtnArtToday"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>The Artist is Present</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+		
+		<div id="zoomwrapper">
+          <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/Art_and_Music/Art_Today/Involving_The_Audience/Performance_Art/Artist_Is_Present/Artist_Present.png" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+		
+      </div>
+      
+      <div class="bpcontentArtToday">
+        <p>In 2010, Marina Abramovic performed a very unusual piece of performance art, at the Museum of Modern Art in New York.  The work, called 'The Artist is Present', was a silent piece over 736 hours and 30 minutes, in which Abramovic sat immobile while spectators were invited to take turns sitting opposite her.  Could you imagine doing something like this?</p>
+		<p>Sitting silently across from strangers one at a time for 736 hours sounds like a lot  a whole lot!  Why don't you try sitting motionless and silently across from each person at your home for a short period of time?  You may get a glimpse of what Abramovic's work felt like. This really is an extreme example of performance art!</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnArtToday" id="playstopArtistIsPresent"></div></div>
+    <div class="bArtToday"><div class="rwArtToday" id="ArtistIsPresentaudiobbtn"></div></div>
+    <div class="plArtToday"><div class="plpsArtToday" id="ArtistIsPresentaudioplbtn"></div></div>
+    <div class="fArtToday"><div class="fwArtToday" id="ArtistIsPresentaudiofbtn"></div></div>
+    <div id="actualaudio-ArtistIsPresent" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  <!-- ----------------------- Video embedding --------------------------- -->
+  
+	<div id="watchArtistPresentVideo" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+		<video id="watchArtistPresent" width="1024" height="748" preload>
+		  <source src="css/images/9-12/Art_and_Music/Art_Today/Involving_The_Audience/Performance_Art/Artist_Is_Present/Artist_Present.mp4" type="video/mp4">
+		</video>
+    </div>
+  
+  <!-- ------------------------------------------------------------------ -->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#polb1').css("z-index", 1);
+      $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
+	  $('#watchArtistPresentVideo').css({"visibility":"hidden", "z-index":-10});
+      
+	  if(sound.canPlayType('audio/mpeg')) {
+			$('#actualaudio-ArtistIsPresent').html('<audio id="ArtistIsPresentaudio" controls preload onpause="playsArtToday()" onplay="pauseArtToday()"><source src="audio/Art_Today/Artist_Is_Present.mp3" type="audio/mpeg"></audio>');
+		  }             
+	  $("#sub-art-today-involving-the-audience-performance-art-the-artist-is-present").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+	})();
+    
+	$('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundArtToday.pause(); bgsoundArtToday.currentTime = 0;});
+    
+	watchArtistPresent.addEventListener('ended', function() { 
+        $("#watchArtistPresentVideo").css({"visibility":"hidden", "z-index":-1});
+        $("#watchArtistPresent").css({"z-index":-1});
+        bgsoundSecretsOfArtDrawing.play(); 
+    });
+    
+    $("#watchArtistPresent").on('tap', function() {
+        $("#watchArtistPresentVideo").css({"visibility":"hidden", "z-index":-1});
+        $("#watchArtistPresent").css({"z-index":-1});
+        bgsoundSecretsOfArtDrawing.play();
+        watchArtistPresent.pause();
+        watchArtistPresent.currentTime = 0;
+    });
+	  
+	
+	$("#polb1").on('tap', function() {
+      $("#watchArtistPresentVideo").css({"visibility":"visible", "z-index":10});
+      $("#watchArtistPresent").css({"z-index":9});
+      bgsoundSecretsOfArtDrawing.pause();
+      watchArtistPresent.play();
+    });
+	
+	function goBack() {
+      $.mobile.changePage("sub-art-today-involving-the-audience-performance-art.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsArtToday() {
+         bgsoundArtToday.play();
+    }
+       
+    function pauseArtToday() {
+         bgsoundArtToday.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopArtistIsPresent").on('tap', function() {
+      if(!playing) {
+        ArtistIsPresentaudio.play();
+        $('.micbtnArtToday').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        ArtistIsPresentaudio.pause(); ArtistIsPresentaudio.currentTime = 0;
+        $('.micbtnArtToday').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#ArtistIsPresentaudioplbtn").on('tap', function() {
+      if(!paused) {
+        ArtistIsPresentaudio.pause();
+        paused = true;
+      } else {
+        ArtistIsPresentaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#ArtistIsPresentaudiofbtn").on('tap', function() {
+      var ctime = ArtistIsPresentaudio.currentTime;
+      ArtistIsPresentaudio.currentTime = ctime + 10;
+    });
+    
+    $("#ArtistIsPresentaudiobbtn").on('tap', function() {
+      var ctime = ArtistIsPresentaudio.currentTime;
+      ArtistIsPresentaudio.currentTime = ctime - 10;
+    });
+    
+    $("#ArtistIsPresentaudiopsbtn").on('tap', function() {
+      ArtistIsPresentaudio.pause();
+    });
+  </script>
+  <script src="js/onecardLogicb.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

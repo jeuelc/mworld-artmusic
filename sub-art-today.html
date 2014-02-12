@@ -1,0 +1,138 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-art-today">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_art_today.js"></script>
+  <link rel="stylesheet" href="css/style_art_today.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnArtToday"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnArtToday"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnArtToday"></div></div>
+  <div class="infobtnholder"><div class="infobtnArtToday"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnArtToday"></div></div>
+  <div class="menubtnholder"><div class="menubtnArtToday"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Art Today</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navArtToday-content">
+		<p>The world of art has changed dramatically over the last hundred years.  Artists have developed many new forms of art and explored many new ideas about the world.  Art today might sometimes seem strange, but it is almost always thought provoking!</p>
+		<p>Art is constantly changing as artists grapple with new technologies, new ideas, and changes in culture, society, politics, the environment and more.  Many artists today seek to involve the audience in their art, even by getting them to eat the art!</p>
+		<p>No one knows what art will be like in the future - it might look, taste, smell, feel and sound very different to art today.  Perhaps you will be one of the people who help to shape the future of art!</p>
+      </div>
+        
+      <div class="navbtn1">
+        <p><a href="sub-art-today-investigating-our-world.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Art_Today/Investigation_Our_World.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-art-today-involving-the-audience.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Art_Today/Involving_The_Audience.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-art-today-new-forms-new-ideas.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Art_Today/New_Forms_New_Ideas.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-art-today-the-future-of-art.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Art_Today/The_Future_Of_Art.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnArtToday" id="playstopArtTodays"></div></div>
+    <div class="bArtToday"><div class="rwArtToday" id="ArtTodaysaudiobbtn"></div></div>
+    <div class="plArtToday"><div class="plpsArtToday" id="ArtTodaysaudioplbtn"></div></div>
+    <div class="fArtToday"><div class="fwArtToday" id="ArtTodaysaudiofbtn"></div></div>
+    <div id="actualaudio-ArtTodays" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-ArtTodays').html('<audio id="ArtTodaysaudio" controls preload onpause="playsArtToday()" onplay="pauseArtToday()"><source src="audio/Art_Today/Art_Today.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-art-today").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundArtToday.pause(); bgsoundArtToday.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-artmusic.html", {transition: "slide", reverse: true });
+      bgsoundArtToday.pause(); 
+      bgsoundArtToday.currentTime = 0;
+      artmusicsoundbg.play();
+    }
+    
+    function playsArtToday() {
+         bgsoundArtToday.play();
+    }
+       
+    function pauseArtToday() {
+         bgsoundArtToday.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopArtTodays").on('tap', function() {
+      if(!playing) {
+        ArtTodaysaudio.play();
+        $('.micbtnArtToday').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        ArtTodaysaudio.pause(); ArtTodaysaudio.currentTime = 0;
+        $('.micbtnArtToday').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#ArtTodaysaudioplbtn").on('tap', function() {
+      if(!paused) {
+        ArtTodaysaudio.pause();
+        paused = true;
+      } else {
+        ArtTodaysaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#ArtTodaysaudiofbtn").on('tap', function() {
+      var ctime = ArtTodaysaudio.currentTime;
+      ArtTodaysaudio.currentTime = ctime + 10;
+    });
+    
+    $("#ArtTodaysaudiobbtn").on('tap', function() {
+      var ctime = ArtTodaysaudio.currentTime;
+      ArtTodaysaudio.currentTime = ctime - 10;
+    });
+    
+    $("#ArtTodaysaudiopsbtn").on('tap', function() {
+      ArtTodaysaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });
+  </script>
+</div> <!--//home-->

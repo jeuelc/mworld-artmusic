@@ -1,0 +1,125 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-art-today-new-forms-new-ideas-Simon-Starling">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_art_today.js"></script>
+  <link rel="stylesheet" href="css/style_art_today.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnArtToday"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnArtToday"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnArtToday"></div></div>
+  <div class="infobtnholder"><div class="infobtnArtToday"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnArtToday"></div></div>
+  <div class="menubtnholder"><div class="menubtnArtToday"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Simon Starling</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+		
+		<a id="simonlink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Art_Today/New_Forms_New_Ideas/Simon_Starling/Shedboatshed_Hi_Res.jpg', 'Simon Starling, \'Shedboatshed\', 2005.  (Courtesy: Rosie Greenway/Getty Images Entertainment/Getty Images)');">click here</a>
+		
+		<div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/Art_and_Music/Art_Today/New_Forms_New_Ideas/Simon_Starling/Shedboatshed.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+		
+      </div>
+      
+      <div class="bpcontentArtToday">
+        <p>A good example of conceptual art is English artist Simon Starling's 'Shedboatshed'.  Starling's creation was originally a wooden shack in a Swiss town.  In 2005 he took the shed apart, turned it into a boat, paddled it down the Rhine River to Basel then rebuilt it back into a shed!</p>
+		<p>What do you think the idea behind this work was?  To take something and turn it into something else and then turn it back again sounds magical, doesn't it?  Perhaps the idea behind the work is about the artist as magician?  Or maybe 'Shedboatshed' is talking about transformation and how all things can be seen and used in different ways.</p>
+		<p>Starling said 'Shedboatshed' was a bit of mobile architecture.  "It's an attempt to make an artwork which is very ergonomic and easy on the environment.  It's a very simple idea."</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnArtToday" id="playstopSimonStarling"></div></div>
+    <div class="bArtToday"><div class="rwArtToday" id="SimonStarlingaudiobbtn"></div></div>
+    <div class="plArtToday"><div class="plpsArtToday" id="SimonStarlingaudioplbtn"></div></div>
+    <div class="fArtToday"><div class="fwArtToday" id="SimonStarlingaudiofbtn"></div></div>
+    <div id="actualaudio-SimonStarling" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+	  
+	  if(sound.canPlayType('audio/mpeg')) {
+			$('#actualaudio-SimonStarling').html('<audio id="SimonStarlingaudio" controls preload onpause="playsArtToday()" onplay="pauseArtToday()"><source src="audio/Art_Today/Simon_Starling.mp3" type="audio/mpeg"></audio>');
+		  }             
+	  $("#sub-art-today-new-forms-new-ideas-Simon-Starling").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+	})();
+    
+	$('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundArtToday.pause(); bgsoundArtToday.currentTime = 0;});
+    
+	$("#pol1").on('tap', function() {
+      $('#simonlink')[0].click();
+    });
+	
+	function goBack() {
+      $.mobile.changePage("sub-art-today-new-forms-new-ideas.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsArtToday() {
+         bgsoundArtToday.play();
+    }
+       
+    function pauseArtToday() {
+         bgsoundArtToday.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopSimonStarling").on('tap', function() {
+      if(!playing) {
+        SimonStarlingaudio.play();
+        $('.micbtnArtToday').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        SimonStarlingaudio.pause(); SimonStarlingaudio.currentTime = 0;
+        $('.micbtnArtToday').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#SimonStarlingaudioplbtn").on('tap', function() {
+      if(!paused) {
+        SimonStarlingaudio.pause();
+        paused = true;
+      } else {
+        SimonStarlingaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#SimonStarlingaudiofbtn").on('tap', function() {
+      var ctime = SimonStarlingaudio.currentTime;
+      SimonStarlingaudio.currentTime = ctime + 10;
+    });
+    
+    $("#SimonStarlingaudiobbtn").on('tap', function() {
+      var ctime = SimonStarlingaudio.currentTime;
+      SimonStarlingaudio.currentTime = ctime - 10;
+    });
+    
+    $("#SimonStarlingaudiopsbtn").on('tap', function() {
+      SimonStarlingaudio.pause();
+    });
+  </script>
+  <script src="js/onecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

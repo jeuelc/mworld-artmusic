@@ -1,0 +1,119 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-art-today-new-forms-new-ideas-Marcel-Duchamp">
+  <script src="js/slidebar_art_today.js"></script>
+  <link rel="stylesheet" href="css/style_art_today.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnArtToday"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnArtToday"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnArtToday"></div></div>
+  <div class="infobtnholder"><div class="infobtnArtToday"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnArtToday"></div></div>
+  <div class="menubtnholder"><div class="menubtnArtToday"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Marcel Duchamp</h1></div>
+  <!-- <div id="MarcelDuchamplink" style="position:absolute;left: 460px;top: 492px;width: 108px;height: 143px;"></div>
+  <div id="performanceartlink" style="position:absolute;left: 105px;top: 490px;width: 103px;height: 148px;"></div>
+  <div id="thesocialturnlink" style="position:absolute;left: 808px;top: 493px;width: 100px;height: 143px;"></div> -->
+  
+  <div data-role="content" class="kidzcontent">
+	<div class="navArtToday-MarcelDuchamp">
+		<p>A big theme of art in the 20th century was what is called 'conceptual art'.</p>
+		<p>The French artist Marcel Duchamp was one of the earliest conceptual artists and he was one of the most influential artists of the past 100 years!  He wanted people to think, rather than just look at art.</p>
+		<p>His artwork called 'Fountain' changed art forever.  Duchamp didn't make 'Fountain', he bought it, and yes... it's a toilet!  Of course he was teasing the judges of the competition he entered it in, but he was also arguing that the idea behind a work of art was the most important thing about it.</p>
+		<p>Duchamp introduced the idea of the 'readymade', which means an object that the artist buys and   then renames or changes in some way.  This type of art has been very influential, because it has led to new ways for artists to think about and create art.</p>
+    </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnArtToday" id="playstopMarcelDuchamp"></div></div>
+    <div class="bArtToday"><div class="rwArtToday" id="MarcelDuchampaudiobbtn"></div></div>
+    <div class="plArtToday"><div class="plpsArtToday" id="MarcelDuchampaudioplbtn"></div></div>
+    <div class="fArtToday"><div class="fwArtToday" id="MarcelDuchampaudiofbtn"></div></div>
+    <div id="actualaudio-MarcelDuchamp" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-MarcelDuchamp').html('<audio id="MarcelDuchampaudio" controls preload onpause="playsArtToday()" onplay="pauseArtToday()"><source src="audio/Art_Today/Marcel_Duchamp.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-art-today-new-forms-new-ideas-Marcel-Duchamp").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+	/*$('#MarcelDuchamplink').on('tap', function() {
+      $.mobile.changePage("sub-art-today-new-forms-new-ideas-Marcel-Duchamp-art-and-perception.html", {transition: "slide"});
+    });
+	
+	$('#performanceartlink').on('tap', function() {
+      $.mobile.changePage("sub-art-today-new-forms-new-ideas-Marcel-Duchamp-performance-art.html", {transition: "slide"});
+    });
+	
+	$('#thesocialturnlink').on('tap', function() {
+      $.mobile.changePage("sub-art-today-new-forms-new-ideas-Marcel-Duchamp-the-social-turn.html", {transition: "slide"});
+    });*/
+	
+	$('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundArtToday.pause(); bgsoundArtToday.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-art-today-new-forms-new-ideas.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsArtToday() {
+         bgsoundArtToday.play();
+    }
+       
+    function pauseArtToday() {
+         bgsoundArtToday.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopMarcelDuchamp").on('tap', function() {
+      if(!playing) {
+        MarcelDuchampaudio.play();
+        $('.micbtnArtToday').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        MarcelDuchampaudio.pause(); MarcelDuchampaudio.currentTime = 0;
+        $('.micbtnArtToday').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#MarcelDuchampaudioplbtn").on('tap', function() {
+      if(!paused) {
+        MarcelDuchampaudio.pause();
+        paused = true;
+      } else {
+        MarcelDuchampaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#MarcelDuchampaudiofbtn").on('tap', function() {
+      var ctime = MarcelDuchampaudio.currentTime;
+      MarcelDuchampaudio.currentTime = ctime + 10;
+    });
+    
+    $("#MarcelDuchampaudiobbtn").on('tap', function() {
+      var ctime = MarcelDuchampaudio.currentTime;
+      MarcelDuchampaudio.currentTime = ctime - 10;
+    });
+    
+    $("#MarcelDuchampaudiopsbtn").on('tap', function() {
+      MarcelDuchampaudio.pause();
+    });
+  </script>
+</div> <!--//home-->
