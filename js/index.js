@@ -866,3 +866,11 @@ bgsoundArtToday.addEventListener('ended', function() { bgsoundArtToday.play(); }
 
 function pauseArtToday() { bgsoundArtToday.pause() }
 function playsArtToday() { bgsoundArtToday.play(); $(".audiopanel").css({"backgroundPosition":"0px 0px"}); }
+
+/************************ Awesome Art *******************************/
+var bgsoundAwesomeArt = new Audio();
+bgsoundAwesomeArt.src = "audio/Awesome_Art/Awesome_Art_BG.mp3";
+bgsoundAwesomeArt.addEventListener('ended', function() { bgsoundAwesomeArt.play(); });
+
+function pauseAwesomeArt() { bgsoundAwesomeArt.pause() }
+function playsAwesomeArt() { bgsoundAwesomeArt.play(); $(".audiopanel").css({"backgroundPosition":"0px 0px"}); }

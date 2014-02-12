@@ -1,0 +1,238 @@
+/* Main common basic pages */
+#sub-art-today{
+  background:url('images/9-12/Art_and_Music/Art_Today/Art_Today_BG.png') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+
+/* Custom Pages Style */
+#sub-art-today-investigating-our-world{
+  background:url('images/9-12/Art_and_Music/Art_Today/Investigating_Our_World/Investigating_Our_World_BG.png') no-repeat;
+  height:748px !important;
+  overflow:hidden !important;
+  width:1024px !important;
+}
+
+/* Custom Pages Style Ends here */
+
+/* Common Button Design */
+.plAwesomeArt, .psAwesomeArt, .bAwesomeArt, .fAwesomeArt {
+  position:absolute;
+  top:670px;
+  left:1024px;
+  z-index:20;
+}
+
+.micbtnAwesomeArt {
+  background:url('images/9-12/Art_and_Music/micam.png') no-repeat 0 -81px;
+  height:81px;
+  width:81px;
+}
+
+.rwAwesomeArt {
+  background:url('images/9-12/Art_and_Music/rwam.png') no-repeat 0 -73px;
+  height:73px;
+  width:73px;
+}
+
+.plpsAwesomeArt {
+  background:url('images/9-12/Art_and_Music/playam.png') no-repeat 0 -73px;
+  height:73px;
+  width:73px;
+}
+
+.fwAwesomeArt {
+  background:url('images/9-12/Art_and_Music/fwam.png') no-repeat 0 -73px;
+  height:73px;
+  width:73px;
+}
+
+.menubtnAwesomeArt {
+  background:url('images/9-12/Art_and_Music/menuam.png') no-repeat 0 -90px;
+  height:90px;
+  width:90px;
+}
+
+
+.homebtnAwesomeArt {
+  background:url('images/9-12/Art_and_Music/mapam.png') no-repeat 0 -74px;
+  height:74px;
+  width:80px;
+}
+
+.mpbtnAwesomeArt {
+  background:url('images/9-12/Art_and_Music/mpointsam.png') no-repeat 0 -84px;
+  height:79px;
+  width:80px;
+}
+
+.cpbtnAwesomeArt {
+  background:url('images/9-12/Art_and_Music/ctrlpnlam.png') no-repeat 0 -74px;
+  height:74px;
+  width:74px;
+}
+
+.infobtnAwesomeArt {
+  background:url('images/9-12/Art_and_Music/infoam.png') no-repeat 0 -74px;
+  height:74px;
+  width:74px;
+}
+
+.credsbtnAwesomeArt {
+  background:url('images/9-12/Art_and_Music/creditsam.png') no-repeat 0 -74px;
+  height:74px;
+  width:74px;
+}
+/* Common Button Design Ends Here */
+
+
+.navAwesomeArt-content {
+	position: absolute;
+	left: 305px;
+	top: 275px;
+	width: 410px;
+	height: 359px;
+	overflow: auto;
+	text-align: center;
+	font-family: "comic sans ms";
+	font-size: 18px;
+	font-weight: normal;
+	color: #000000;
+}
+
+/* Some pages needs different style for text content */
+.navAwesomeArtbtn1{
+	left: 134px;
+    position: absolute;
+    top: 405px;
+}
+
+.navAwesomeArtbtn2 {
+    left: 394px;
+    position: absolute;
+    top: 435px;
+}
+.navAwesomeArtbtn3 {
+    left: 657px;
+    position: absolute;
+    top: 405px;
+}
+
+			
+/**********flipcard effect**************/
+#f3_container,#f4_container,#f5_container  {
+  position: relative;
+  width: 360px;
+  height: 280px;
+  z-index: 1;
+}
+#f3_container,#f4_container,#f5_container {
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -o-perspective: 1000px;
+  perspective: 1000px;
+}
+#f3_card,#f4_card,#f5_card{
+  width: 360px;
+  height: 280px;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: all 1.0s linear;
+  -moz-transform-style: preserve-3d;
+  -moz-transition: all 1.0s linear;
+  -o-transform-style: preserve-3d;
+  -o-transition: all 1.0s linear;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+
+.bpcontentAwesomeArt{
+	color: #000000;
+    font-family: "comic sans ms";
+    font-size: 18px;
+    font-weight: normal;
+    height: 356px;
+    left: 550px;
+    overflow-y: auto;
+    position: absolute;
+    text-align: left;
+    top: 266px;
+    width: 413px;
+}
+
+.navAwesomeArt-content3{
+  position:absolute;
+  left:59px;
+  top:263px;
+  width:920px;
+  height:160px;
+  overflow-y:scroll;
+  text-align:left;
+  font-family:"comic sans ms";
+  font-size:18px;
+  font-weight:normal;
+  color:#000000;
+}
+
+
+/* Custom content */
+
+.navAwesomeArt-InvestigateOurWorld{
+	position: absolute;
+	left: 195px;
+	top: 96px;
+	width: 600px;
+	height: 185px;
+	overflow: auto;
+	text-align: left;
+	font-family: comic sans ms;
+	font-size: 18px;
+	font-weight: normal;
+	color: #ffffff;
+}
+
+/* Common Header Div Design */
+
+#sub-art-today .bptitleholder{
+	width: 627px;
+	height: 68px;
+	text-align: center;
+	line-height: 28px;
+	position: absolute;
+	top: 170px;
+	left: 194px;
+}
+
+/* Custom Header Div Design */
+
+#sub-art-today-investigating-our-world .bptitleholder{
+	width: 550px;
+	height: 68px;
+	text-align: center;
+	line-height: 28px;
+	position: absolute;
+	top: 32px;
+	left: 220px;
+}
+
+/* Common Header Design h1 */
+
+#sub-art-today .bptitleholder h1{
+	text-transform: uppercase;
+	color: #FFFFFF !important;
+	font-family: "comic sans ms" !important;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+}
+
+/* Custom Page Header Design h1 */
+
+#sub-art-today-investigating-our-world .bptitleholder h1{
+	text-transform: uppercase;
+	color: #FFFFFF !important;
+	font-family: "comic sans ms" !important;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;	
+}
