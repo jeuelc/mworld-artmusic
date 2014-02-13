@@ -1,0 +1,127 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-awesome-art-beyond-the-frame">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_awesome_art.js"></script>
+  <link rel="stylesheet" href="css/style_awesome_art.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnAwesomeArt"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnAwesomeArt"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnAwesomeArt"></div></div>
+  <div class="infobtnholder"><div class="infobtnAwesomeArt"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnAwesomeArt"></div></div>
+  <div class="menubtnholder"><div class="menubtnAwesomeArt"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Beyond the frame</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navAwesomeArt-content3">
+		<p>By the mid to late twentieth century, many artists began to feel dissatisfied with traditional ways of making art.  They wanted to create works that would capture their hope for a better world and even express their frustration that such hopes were taking so long to be realised.</p>
+		<p>New ways to explore the ideas of the modern world emerged.  Artists today have created art that invites the viewer into the space of the art, or takes the art into spaces outside of the art gallery!</p>
+      </div>
+        
+      <div class="navbtn1" style="top:420px;">
+        <p><a href="sub-awesome-art-beyond-the-frame-cloud-gate.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Awesome_Art/Beyond_The_Frame/Cloud_Gate.png"></a></p>
+      </div>
+      <div class="navbtn2" style="left:400px;">
+        <p><a href="sub-awesome-art-beyond-the-frame-house.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Awesome_Art/Beyond_The_Frame/House.png"></a></p>
+      </div>
+      <div class="navbtn3" style="top:420px;">
+        <p><a href="sub-awesome-art-beyond-the-frame-spiral-jetty.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Awesome_Art/Beyond_The_Frame/Spiral_Jetty.png"></a></p>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnAwesomeArt" id="playstopBeyondTheFrame"></div></div>
+    <div class="bAwesomeArt"><div class="rwAwesomeArt" id="BeyondTheFrameaudiobbtn"></div></div>
+    <div class="plAwesomeArt"><div class="plpsAwesomeArt" id="BeyondTheFrameaudioplbtn"></div></div>
+    <div class="fAwesomeArt"><div class="fwAwesomeArt" id="BeyondTheFrameaudiofbtn"></div></div>
+    <div id="actualaudio-BeyondTheFrame" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-BeyondTheFrame').html('<audio id="BeyondTheFrameaudio" controls preload onpause="playsAwesomeArt()" onplay="pauseAwesomeArt()"><source src="audio/Awesome_Art/Beyond_The_Frame.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-awesome-art-beyond-the-frame").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundAwesomeArt.pause(); bgsoundAwesomeArt.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-awesome-art.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsAwesomeArt() {
+         bgsoundAwesomeArt.play();
+    }
+       
+    function pauseAwesomeArt() {
+         bgsoundAwesomeArt.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopBeyondTheFrame").on('tap', function() {
+      if(!playing) {
+        BeyondTheFrameaudio.play();
+        $('.micbtnAwesomeArt').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        BeyondTheFrameaudio.pause(); BeyondTheFrameaudio.currentTime = 0;
+        $('.micbtnAwesomeArt').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#BeyondTheFrameaudioplbtn").on('tap', function() {
+      if(!paused) {
+        BeyondTheFrameaudio.pause();
+        paused = true;
+      } else {
+        BeyondTheFrameaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#BeyondTheFrameaudiofbtn").on('tap', function() {
+      var ctime = BeyondTheFrameaudio.currentTime;
+      BeyondTheFrameaudio.currentTime = ctime + 10;
+    });
+    
+    $("#BeyondTheFrameaudiobbtn").on('tap', function() {
+      var ctime = BeyondTheFrameaudio.currentTime;
+      BeyondTheFrameaudio.currentTime = ctime - 10;
+    });
+    
+    $("#BeyondTheFrameaudiopsbtn").on('tap', function() {
+      BeyondTheFrameaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+  </script>
+</div> <!--//home-->

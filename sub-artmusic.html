@@ -7,7 +7,7 @@
       <div class="aclink"><a href="sub-art-today.html" data-transition="slide" id="art_today"><img src="css/images/9-12/Art_and_Music/streetartbtn.png"></a></div>
       <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Art_and_Music/chineseopbtn.png"></a></div>
       <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Art_and_Music/famouspaintsbtn.png"></a></div><br>
-      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Art_and_Music/paintlikemasbtn.png"></a></div>
+      <div class="aclink"><a href="sub-awesome-art.html" data-transition="slide" id="awesome_art"><img src="css/images/9-12/Art_and_Music/paintlikemasbtn.png"></a></div>
       <div class="aclink"><a href="sub-jammin.html" data-transition="slide" id="jammin"><img src="css/images/9-12/Art_and_Music/jazzjambtn.png"></a></div>
       <div class="aclink"><a href="sub-secrets-of-art-drawing.html" data-transition="slide" id="secrets_of_art_drawing"><img src="css/images/9-12/Art_and_Music/modernartbtn.png"></a></div>
       <div class="aclink"><a href="sub-world-beats.html" data-transition="slide" id="world_beats"><img src="css/images/9-12/Art_and_Music/hiphopbtn.png"></a></div>
@@ -52,7 +52,11 @@
 					artmusicsoundbg.currentTime = 0;
 				}
 				else if(subjectId == "art_today"){
-					bgsoundSecretsOfArtDrawing.play();
+					bgsoundArtToday.play();
+					artmusicsoundbg.pause();
+					artmusicsoundbg.currentTime = 0;
+				}else if(subjectId == "awesome_art"){
+					bgsoundAwesomeArt.play();
 					artmusicsoundbg.pause();
 					artmusicsoundbg.currentTime = 0;
 				}

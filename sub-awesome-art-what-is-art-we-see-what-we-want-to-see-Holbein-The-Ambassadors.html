@@ -1,0 +1,142 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-awesome-art-what-is-art-we-see-what-we-want-to-see-Holbein-The-Ambassadors">
+  <script src="js/slidebar_awesome_art.js"></script>
+  <link rel="stylesheet" href="css/style_awesome_art.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnAwesomeArt"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnAwesomeArt"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnAwesomeArt"></div></div>
+  <div class="infobtnholder"><div class="infobtnAwesomeArt"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnAwesomeArt"></div></div>
+  <div class="menubtnholder"><div class="menubtnAwesomeArt"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Holbein's <br />'The Ambassadors'</h1></div>
+  <div id="watchvideolink" style="position:absolute;left: 177px;top: 663px;width: 80px;height: 80px;"></div>
+  <!--<div id="artideaslink" style="position:absolute;left: 547px;top: 215px;width: 100px;height: 283px;"></div> -->
+  
+  <div data-role="content" class="kidzcontent">
+	<div class="navAwesomeArt-HolbeinAmbassadors">
+		<p>This painting is an undisputed masterpiece of European art painted in the 1500s.  The artist has painted two men in wonderful clothing standing before a range of scientific instruments and other symbols of knowledge.</p>
+		<p>The men depicted in the painting are models of worldly success.  Look at the amazing detail with which the artist has painted the objects around them.  The level of detail paid to these things shows you how important they were to the people of this time.</p>
+		<p>Now, though, look closely at the lower part of the painting.  Splashed across the panel, as if beyond the control of the two men, is a strange form.  What do you think it is?  When you look at the painting from the side you can see that the strange stain is an image of a skull stretched across the canvas.  Try rotating the image  can you see the skull?</p>
+		<p>Why do you think the artist put the skull here?  We call this a 'momento mori', a reminder that 'all this too shall pass'... that despite all our worldy possessions, we are all mortal.</p>
+    </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnAwesomeArt" id="playstopHolbeinAmbassadors"></div></div>
+    <div class="bAwesomeArt"><div class="rwAwesomeArt" id="HolbeinAmbassadorsaudiobbtn"></div></div>
+    <div class="plAwesomeArt"><div class="plpsAwesomeArt" id="HolbeinAmbassadorsaudioplbtn"></div></div>
+    <div class="fAwesomeArt"><div class="fwAwesomeArt" id="HolbeinAmbassadorsaudiofbtn"></div></div>
+    <div id="actualaudio-HolbeinAmbassadors" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+  <!-- ----------------------- Video embedding --------------------------- -->
+  
+  <div id="watchHansHolbeinVideo" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+    <video id="watchHansHolbein" width="1024" height="748" preload>
+      <source src="css/images/9-12/Art_and_Music/Awesome_Art/What_Is_Art/We_See_What_We_Want_To_See/Holbiens/Hans_Holbein.mp4" type="video/mp4">
+    </video>
+  </div>
+  
+  <!-- ------------------------------------------------------------------ -->
+  
+  <script>
+	$('#watchHansHolbeinVideo').css({"visibility":"hidden", "z-index":-10});
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-HolbeinAmbassadors').html('<audio id="HolbeinAmbassadorsaudio" controls preload onpause="playsAwesomeArt()" onplay="pauseAwesomeArt()"><source src="audio/Awesome_Art/Holbein_Ambassadors.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-awesome-art-what-is-art-we-see-what-we-want-to-see-Holbein-The-Ambassadors").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    watchHansHolbein.addEventListener('ended', function() { 
+        $("#watchHansHolbeinVideo").css({"visibility":"hidden", "z-index":-1});
+        $("#watchHansHolbein").css({"z-index":-1});
+        bgsoundAwesomeArt.play(); 
+    });
+    
+    $("#watchHansHolbein").on('tap', function() {
+        $("#watchHansHolbeinVideo").css({"visibility":"hidden", "z-index":-1});
+        $("#watchHansHolbein").css({"z-index":-1});
+        bgsoundAwesomeArt.play();
+        watchHansHolbein.pause();
+        watchHansHolbein.currentTime = 0;
+    });
+	  
+	$('#watchvideolink').on('tap', function() {
+      $("#watchHansHolbeinVideo").css({"visibility":"visible", "z-index":10});
+      $("#watchHansHolbein").css({"z-index":9});
+      bgsoundAwesomeArt.pause();
+      watchHansHolbein.play();
+    });
+	
+	$('#artideaslink').on('tap', function() {
+      $.mobile.changePage("sub-awesome-art-what-is-art-we-see-what-we-want-to-see-Holbein-The-Ambassadors-ideas.html", {transition: "slide"});
+    });
+	
+	$('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundAwesomeArt.pause(); bgsoundAwesomeArt.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-awesome-art-what-is-art-we-see-what-we-want-to-see.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsAwesomeArt() {
+         bgsoundAwesomeArt.play();
+    }
+       
+    function pauseAwesomeArt() {
+         bgsoundAwesomeArt.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopHolbeinAmbassadors").on('tap', function() {
+      if(!playing) {
+        HolbeinAmbassadorsaudio.play();
+        $('.micbtnAwesomeArt').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        HolbeinAmbassadorsaudio.pause(); HolbeinAmbassadorsaudio.currentTime = 0;
+        $('.micbtnAwesomeArt').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#HolbeinAmbassadorsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        HolbeinAmbassadorsaudio.pause();
+        paused = true;
+      } else {
+        HolbeinAmbassadorsaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#HolbeinAmbassadorsaudiofbtn").on('tap', function() {
+      var ctime = HolbeinAmbassadorsaudio.currentTime;
+      HolbeinAmbassadorsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#HolbeinAmbassadorsaudiobbtn").on('tap', function() {
+      var ctime = HolbeinAmbassadorsaudio.currentTime;
+      HolbeinAmbassadorsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#HolbeinAmbassadorsaudiopsbtn").on('tap', function() {
+      HolbeinAmbassadorsaudio.pause();
+    });
+  </script>
+</div> <!--//home-->

@@ -1,0 +1,112 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-awesome-art-beyond-the-frame-house">
+  <script src="js/slidebar_awesome_art.js"></script>
+  <link rel="stylesheet" href="css/style_awesome_art.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnAwesomeArt"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnAwesomeArt"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnAwesomeArt"></div></div>
+  <div class="infobtnholder"><div class="infobtnAwesomeArt"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnAwesomeArt"></div></div>
+  <div class="menubtnholder"><div class="menubtnAwesomeArt"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>House, by Rachel Whiteread</h1></div>
+  <!-- <div id="artformslink" style="position:absolute;left: 374px;top: 222px;width: 99px;height: 260px;"></div>
+  <div id="artideaslink" style="position:absolute;left: 547px;top: 215px;width: 100px;height: 283px;"></div> -->
+  
+  <div data-role="content" class="kidzcontent">
+	<div class="navAwesomeArt-House">
+		<p>'House' is the best-known work of British artist Rachel Whiteread.  This is no ordinary house, although it was once.  Whiteread turns air, the invisible stuff we breathe and never really think about, into concrete!</p>
+		<p>This was a terrace house due for demolition to make way for a park.  Whiteread filled every room, nook and cranny with concrete to make a monument of the space where people once lived their lives.  In other words, she filled the house up with concrete!  The walls and roof of the house were removed leaving the space - making the invisible visible for all to see!</p>
+    </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnAwesomeArt" id="playstopHouse"></div></div>
+    <div class="bAwesomeArt"><div class="rwAwesomeArt" id="Houseaudiobbtn"></div></div>
+    <div class="plAwesomeArt"><div class="plpsAwesomeArt" id="Houseaudioplbtn"></div></div>
+    <div class="fAwesomeArt"><div class="fwAwesomeArt" id="Houseaudiofbtn"></div></div>
+    <div id="actualaudio-House" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-House').html('<audio id="Houseaudio" controls preload onpause="playsAwesomeArt()" onplay="pauseAwesomeArt()"><source src="audio/Art_Today/House.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-awesome-art-beyond-the-frame-house").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+	$('#artformslink').on('tap', function() {
+      $.mobile.changePage("sub-awesome-art-beyond-the-frame-house-forms.html", {transition: "slide"});
+    });
+	
+	$('#artideaslink').on('tap', function() {
+      $.mobile.changePage("sub-awesome-art-beyond-the-frame-house-ideas.html", {transition: "slide"});
+    });
+	
+	$('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundAwesomeArt.pause(); bgsoundAwesomeArt.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-awesome-art-beyond-the-frame.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsAwesomeArt() {
+         bgsoundAwesomeArt.play();
+    }
+       
+    function pauseAwesomeArt() {
+         bgsoundAwesomeArt.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopHouse").on('tap', function() {
+      if(!playing) {
+        Houseaudio.play();
+        $('.micbtnAwesomeArt').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Houseaudio.pause(); Houseaudio.currentTime = 0;
+        $('.micbtnAwesomeArt').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Houseaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Houseaudio.pause();
+        paused = true;
+      } else {
+        Houseaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#Houseaudiofbtn").on('tap', function() {
+      var ctime = Houseaudio.currentTime;
+      Houseaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Houseaudiobbtn").on('tap', function() {
+      var ctime = Houseaudio.currentTime;
+      Houseaudio.currentTime = ctime - 10;
+    });
+    
+    $("#Houseaudiopsbtn").on('tap', function() {
+      Houseaudio.pause();
+    });
+  </script>
+</div> <!--//home-->

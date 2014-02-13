@@ -1,0 +1,145 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-awesome-art-what-is-art-we-see-what-we-want-to-see-art-and-science">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_awesome_art.js"></script>
+  <link rel="stylesheet" href="css/style_awesome_art.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnAwesomeArt"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnAwesomeArt"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnAwesomeArt"></div></div>
+  <div class="infobtnholder"><div class="infobtnAwesomeArt"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnAwesomeArt"></div></div>
+  <div class="menubtnholder"><div class="menubtnAwesomeArt"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Art and science</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+	  
+		<a id="ganzfeldlink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Awesome_Art/What_Is_Art/We_See_What_We_Want_To_See/Art_And_Science/Ganzfeld_Hi_Res.jpg', 'This artwork by James Turrell, called Ganzfeld, uses advanced light technology to change the way we view the space around us.  (Courtesy: Craft Alan King/Alamy)');">click here</a>
+		<a id="falsemirrorlink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Awesome_Art/What_Is_Art/We_See_What_We_Want_To_See/Art_And_Science/The_False_Mirror_Hi_Res.jpg', 'Belgian artist Ren Magritte\'s artwork \'The False Mirror\' draws our attention directly to the way we see by calling our eye a false mirror.  (Courtesy: Haytham Pictures/ Alamy)');">click here</a>
+		<a id="kunsthallelink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Awesome_Art/What_Is_Art/We_See_What_We_Want_To_See/Art_And_Science/Kunsthalle_hi_Res.jpg', '\'Kunsthalle Marcel Duchamp\' is a mini-museum, reviewing contemporary art in the spirit of the French artist Marcel Duchamp.  (Courtesy: epa european pressphoto agency b.v./Alamy)');">click here</a>
+		
+		<div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/Art_and_Music/Awesome_Art/What_Is_Art/We_See_What_We_Want_To_See/Art_And_Science/Ganzfeld.jpg" alt="" />
+          </div>
+		  <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/Art_and_Music/Awesome_Art/What_Is_Art/We_See_What_We_Want_To_See/Art_And_Science/The_False_Mirror.jpg" alt="" />
+          </div>
+		  <div id="pol3"class="pPiece" style="left:80px;top:270px;">
+             <img src="css/images/9-12/Art_and_Music/Awesome_Art/What_Is_Art/We_See_What_We_Want_To_See/Art_And_Science/Kunsthalle.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+		
+      </div>
+      
+      <div class="bpcontentAwesomeArt">
+        <p>An artist expresses their sense of the truth about the world they live in.  They create art to reveal new ways of looking at the world for them and for all of us to experience.</p>
+		<p>In this way artists are a bit like scientists - they seek to understand the world.  But they do it in very different ways, and also ask how it feels to see and experience the world.</p>
+		<p>Many artists use science and technology to make their art and to inspire their art.  It might seem that art and science are very different ways of looking at the world, but actually there is much in common too.  Science has had a huge impact on our world, but so too has art and the ideas it expresses.</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnAwesomeArt" id="playstopArtAndScience"></div></div>
+    <div class="bAwesomeArt"><div class="rwAwesomeArt" id="ArtAndScienceaudiobbtn"></div></div>
+    <div class="plAwesomeArt"><div class="plpsAwesomeArt" id="ArtAndScienceaudioplbtn"></div></div>
+    <div class="fAwesomeArt"><div class="fwAwesomeArt" id="ArtAndScienceaudiofbtn"></div></div>
+    <div id="actualaudio-ArtAndScience" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol3').css("z-index", 1);
+	  $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 3);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+	  $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+	 
+      if(sound.canPlayType('audio/mpeg')) {
+			$('#actualaudio-ArtAndScience').html('<audio id="ArtAndScienceaudio" controls preload onpause="playsAwesomeArt()" onplay="pauseAwesomeArt()"><source src="audio/Awesome_Art/Art_And_Science.mp3" type="audio/mpeg"></audio>');
+		  }             
+	  $("#sub-awesome-art-what-is-art-we-see-what-we-want-to-see-art-and-science").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+	})();
+    
+	$('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundAwesomeArt.pause(); bgsoundAwesomeArt.currentTime = 0;});
+    
+	$("#pol1").on('tap', function() {
+	  $('#ganzfeldlink')[0].click();
+	});
+	
+	$("#pol2").on('tap', function() {
+		$('#falsemirrorlink')[0].click();
+	});
+	
+	$("#pol3").on('tap', function() {
+		$('#kunsthallelink')[0].click();
+	});
+	
+	function goBack() {
+      $.mobile.changePage("sub-awesome-art-what-is-art-we-see-what-we-want-to-see.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsAwesomeArt() {
+         bgsoundAwesomeArt.play();
+    }
+       
+    function pauseAwesomeArt() {
+         bgsoundAwesomeArt.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopArtAndScience").on('tap', function() {
+      if(!playing) {
+        ArtAndScienceaudio.play();
+        $('.micbtnAwesomeArt').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        ArtAndScienceaudio.pause(); ArtAndScienceaudio.currentTime = 0;
+        $('.micbtnAwesomeArt').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#ArtAndScienceaudioplbtn").on('tap', function() {
+      if(!paused) {
+        ArtAndScienceaudio.pause();
+        paused = true;
+      } else {
+        ArtAndScienceaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#ArtAndScienceaudiofbtn").on('tap', function() {
+      var ctime = ArtAndScienceaudio.currentTime;
+      ArtAndScienceaudio.currentTime = ctime + 10;
+    });
+    
+    $("#ArtAndScienceaudiobbtn").on('tap', function() {
+      var ctime = ArtAndScienceaudio.currentTime;
+      ArtAndScienceaudio.currentTime = ctime - 10;
+    });
+    
+    $("#ArtAndScienceaudiopsbtn").on('tap', function() {
+      ArtAndScienceaudio.pause();
+    });
+  </script>
+  <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

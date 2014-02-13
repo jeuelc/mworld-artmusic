@@ -1,0 +1,128 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-awesome-art-looking-at-art-forms">
+  <script src="js/slidebar_awesome_art.js"></script>
+  <link rel="stylesheet" href="css/style_awesome_art.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnAwesomeArt"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnAwesomeArt"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnAwesomeArt"></div></div>
+  <div class="infobtnholder"><div class="infobtnAwesomeArt"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnAwesomeArt"></div></div>
+  <div class="menubtnholder"><div class="menubtnAwesomeArt"></div></div>
+    
+  <a id="colourlink_bx" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Awesome_Art/Looking_At_Art/Art_Forms/Additional_Screen1.jpg', '');">click here</a>
+  <a id="lineslink_bx" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Awesome_Art/Looking_At_Art/Art_Forms/Additional_Screen2.jpg', '');">click here</a>
+  <a id="movementlink_bx" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Awesome_Art/Looking_At_Art/Art_Forms/Additional_Screen3.jpg', '');">click here</a>
+  <a id="soundlink_bx" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Awesome_Art/Looking_At_Art/Art_Forms/Additional_Screen4.jpg', '');">click here</a>
+  <a id="spacelink_bx" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Awesome_Art/Looking_At_Art/Art_Forms/Additional_Screen5.jpg', '');">click here</a>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1></h1></div>
+  <div id="colourlink" style="position:absolute;left: 790px;top: 176px;width: 146px;height: 175px;"></div>
+  <div id="lineslink" style="position:absolute;left: 36px;top: 178px;width: 177px;height: 175px;"></div>
+  <div id="movementlink" style="position:absolute;left: 634px;top: 196px;width: 132px;height: 150px;"></div>
+  <div id="soundlink" style="position:absolute;left: 497px;top: 205px;width: 112px;height: 135px;"></div>
+  <div id="spacelink" style="position:absolute;left: 296px;top: 201px;width: 125px;height: 148px;"></div>
+  
+  <div data-role="content" class="kidzcontent">
+	<div class="navAwesomeArt-ArtForms">
+		<p></p>
+    </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnAwesomeArt" id="playstopArtForms"></div></div>
+    <div class="bAwesomeArt"><div class="rwAwesomeArt" id="ArtFormsaudiobbtn"></div></div>
+    <div class="plAwesomeArt"><div class="plpsAwesomeArt" id="ArtFormsaudioplbtn"></div></div>
+    <div class="fAwesomeArt"><div class="fwAwesomeArt" id="ArtFormsaudiofbtn"></div></div>
+    <div id="actualaudio-ArtForms" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-ArtForms').html('<audio id="ArtFormsaudio" controls preload onpause="playsAwesomeArt()" onplay="pauseAwesomeArt()"><source src="audio/Art_Today/Art_Forms.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-awesome-art-looking-at-art-forms").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+	$('#colourlink').on('tap', function() {
+      $('#colourlink_bx')[0].click();
+    });
+	$('#lineslink').on('tap', function() {
+      $('#lineslink_bx')[0].click();
+    });
+	$('#movementlink').on('tap', function() {
+      $('#movementlink_bx')[0].click();
+    });
+	$('#soundlink').on('tap', function() {
+      $('#soundlink_bx')[0].click();
+    });
+	$('#spacelink').on('tap', function() {
+      $('#spacelink_bx')[0].click();
+    });
+	
+	$('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundAwesomeArt.pause(); bgsoundAwesomeArt.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-awesome-art-looking-at-art.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsAwesomeArt() {
+         bgsoundAwesomeArt.play();
+    }
+       
+    function pauseAwesomeArt() {
+         bgsoundAwesomeArt.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopArtForms").on('tap', function() {
+      if(!playing) {
+        ArtFormsaudio.play();
+        $('.micbtnAwesomeArt').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        ArtFormsaudio.pause(); ArtFormsaudio.currentTime = 0;
+        $('.micbtnAwesomeArt').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#ArtFormsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        ArtFormsaudio.pause();
+        paused = true;
+      } else {
+        ArtFormsaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#ArtFormsaudiofbtn").on('tap', function() {
+      var ctime = ArtFormsaudio.currentTime;
+      ArtFormsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#ArtFormsaudiobbtn").on('tap', function() {
+      var ctime = ArtFormsaudio.currentTime;
+      ArtFormsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#ArtFormsaudiopsbtn").on('tap', function() {
+      ArtFormsaudio.pause();
+    });
+  </script>
+</div> <!--//home-->

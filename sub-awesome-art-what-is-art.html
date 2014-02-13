@@ -1,0 +1,123 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-awesome-art-what-is-art">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_awesome_art.js"></script>
+  <link rel="stylesheet" href="css/style_awesome_art.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnAwesomeArt"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnAwesomeArt"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnAwesomeArt"></div></div>
+  <div class="infobtnholder"><div class="infobtnAwesomeArt"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnAwesomeArt"></div></div>
+  <div class="menubtnholder"><div class="menubtnAwesomeArt"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>What is Art?</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navAwesomeArt-content">
+		<p>This is a big question for such a little word.  We all think we know what art is, but when we stop for a minute and really think about it... it's not so simple.</p>
+		<p>Did you know that art has existed almost as long as people have, going right back to cave paintings more than 30,000 years old?</p>
+		<p>Over this incredibly long period of time, art has taken many forms and served different purposes depending on the society.  So what is it? Why do we make it?  And how can you make some awesome art?</p>
+		<p>Art is how we express our ideas about what we see and how we feel about the world.  Art is usually - but not always - visual.  Drawing, painting, sculpture and in recent times photography, movies and even computer games can all be art.</p>
+      </div>
+        
+      <div class="navbtn1" style="top:320px;">
+        <p><a href="sub-awesome-art-what-is-art-cave-paintings.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Awesome_Art/What_Is_Art/Cave_Painting.png"></a></p>
+      </div>
+      <div class="navbtn3" style="top:320px;">
+        <p><a href="sub-awesome-art-what-is-art-we-see-what-we-want-to-see.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Awesome_Art/What_Is_Art/We_See_What_We_Want_To_See.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnAwesomeArt" id="playstopWhatIsArt"></div></div>
+    <div class="bAwesomeArt"><div class="rwAwesomeArt" id="WhatIsArtaudiobbtn"></div></div>
+    <div class="plAwesomeArt"><div class="plpsAwesomeArt" id="WhatIsArtaudioplbtn"></div></div>
+    <div class="fAwesomeArt"><div class="fwAwesomeArt" id="WhatIsArtaudiofbtn"></div></div>
+    <div id="actualaudio-WhatIsArt" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-WhatIsArt').html('<audio id="WhatIsArtaudio" controls preload onpause="playsAwesomeArt()" onplay="pauseAwesomeArt()"><source src="audio/Awesome_Art/What_Is_Art.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-awesome-art-what-is-art").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundAwesomeArt.pause(); bgsoundAwesomeArt.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-awesome-art.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsAwesomeArt() {
+         bgsoundAwesomeArt.play();
+    }
+       
+    function pauseAwesomeArt() {
+         bgsoundAwesomeArt.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopWhatIsArt").on('tap', function() {
+      if(!playing) {
+        WhatIsArtaudio.play();
+        $('.micbtnAwesomeArt').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        WhatIsArtaudio.pause(); WhatIsArtaudio.currentTime = 0;
+        $('.micbtnAwesomeArt').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#WhatIsArtaudioplbtn").on('tap', function() {
+      if(!paused) {
+        WhatIsArtaudio.pause();
+        paused = true;
+      } else {
+        WhatIsArtaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#WhatIsArtaudiofbtn").on('tap', function() {
+      var ctime = WhatIsArtaudio.currentTime;
+      WhatIsArtaudio.currentTime = ctime + 10;
+    });
+    
+    $("#WhatIsArtaudiobbtn").on('tap', function() {
+      var ctime = WhatIsArtaudio.currentTime;
+      WhatIsArtaudio.currentTime = ctime - 10;
+    });
+    
+    $("#WhatIsArtaudiopsbtn").on('tap', function() {
+      WhatIsArtaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+  </script>
+</div> <!--//home-->

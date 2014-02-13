@@ -1,0 +1,130 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-awesome-art-what-is-art-we-see-what-we-want-to-see">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_awesome_art.js"></script>
+  <link rel="stylesheet" href="css/style_awesome_art.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnAwesomeArt"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnAwesomeArt"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnAwesomeArt"></div></div>
+  <div class="infobtnholder"><div class="infobtnAwesomeArt"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnAwesomeArt"></div></div>
+  <div class="menubtnholder"><div class="menubtnAwesomeArt"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>We see what we want to see</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navAwesomeArt-content3">
+		<p>Art is about how we perceive the world.  You could even say it is about what we decide is visible and invisible.  For instance, if I asked you to draw your bedroom, would you draw the air you breathe in it?  Would you draw what it sounds like?  How you feel in it?  Would you draw what is secret in it?  Often what is left out is very important!</p>
+		<p>Art is different from science, which works with what can be proved.  Artists work with feelings, or ideas that are often hard to put into words  with what we call intuition.</p>
+		<p>In turn, the stories artists tell about the world affect or shape the world.  Ideas and images can change how and what we see.</p>
+		<p>A famous example of seeing what you want to see is the painting called 'The Ambassadors' by the German artist Hans Holbein, painted in the sixteenth century.</p>
+		<p>Tap the buttons to find out more.</p>
+      </div>
+        
+      <div class="navbtn1" style="top:420px;">
+        <p><a href="sub-awesome-art-what-is-art-we-see-what-we-want-to-see-art-and-science.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Awesome_Art/What_Is_Art/We_See_What_We_Want_To_See/Art_and_Science.png"></a></p>
+      </div>
+      <div class="navbtn2" style="left:400px;">
+        <p><a href="sub-awesome-art-what-is-art-we-see-what-we-want-to-see-Holbein-The-Ambassadors.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Awesome_Art/What_Is_Art/We_See_What_We_Want_To_See/Holbeins_Ambassadors.png"></a></p>
+      </div>
+      <div class="navbtn3" style="top:420px;">
+        <p><a href="sub-awesome-art-what-is-art-we-see-what-we-want-to-see-lets-draw-your-bedroom.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Awesome_Art/What_Is_Art/We_See_What_We_Want_To_See/Lets_Draw_Your_Bedroom.png"></a></p>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnAwesomeArt" id="playstopWeSeeWhatWeWantToSee"></div></div>
+    <div class="bAwesomeArt"><div class="rwAwesomeArt" id="WeSeeWhatWeWantToSeeaudiobbtn"></div></div>
+    <div class="plAwesomeArt"><div class="plpsAwesomeArt" id="WeSeeWhatWeWantToSeeaudioplbtn"></div></div>
+    <div class="fAwesomeArt"><div class="fwAwesomeArt" id="WeSeeWhatWeWantToSeeaudiofbtn"></div></div>
+    <div id="actualaudio-WeSeeWhatWeWantToSee" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-WeSeeWhatWeWantToSee').html('<audio id="WeSeeWhatWeWantToSeeaudio" controls preload onpause="playsAwesomeArt()" onplay="pauseAwesomeArt()"><source src="audio/Awesome_Art/We_See_What_We_Want_To_See.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-awesome-art-what-is-art-we-see-what-we-want-to-see").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundAwesomeArt.pause(); bgsoundAwesomeArt.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-awesome-art-what-is-art.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsAwesomeArt() {
+         bgsoundAwesomeArt.play();
+    }
+       
+    function pauseAwesomeArt() {
+         bgsoundAwesomeArt.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopWeSeeWhatWeWantToSee").on('tap', function() {
+      if(!playing) {
+        WeSeeWhatWeWantToSeeaudio.play();
+        $('.micbtnAwesomeArt').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        WeSeeWhatWeWantToSeeaudio.pause(); WeSeeWhatWeWantToSeeaudio.currentTime = 0;
+        $('.micbtnAwesomeArt').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#WeSeeWhatWeWantToSeeaudioplbtn").on('tap', function() {
+      if(!paused) {
+        WeSeeWhatWeWantToSeeaudio.pause();
+        paused = true;
+      } else {
+        WeSeeWhatWeWantToSeeaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#WeSeeWhatWeWantToSeeaudiofbtn").on('tap', function() {
+      var ctime = WeSeeWhatWeWantToSeeaudio.currentTime;
+      WeSeeWhatWeWantToSeeaudio.currentTime = ctime + 10;
+    });
+    
+    $("#WeSeeWhatWeWantToSeeaudiobbtn").on('tap', function() {
+      var ctime = WeSeeWhatWeWantToSeeaudio.currentTime;
+      WeSeeWhatWeWantToSeeaudio.currentTime = ctime - 10;
+    });
+    
+    $("#WeSeeWhatWeWantToSeeaudiopsbtn").on('tap', function() {
+      WeSeeWhatWeWantToSeeaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+  </script>
+</div> <!--//home-->

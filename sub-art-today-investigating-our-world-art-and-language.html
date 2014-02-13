@@ -47,11 +47,11 @@
     </div> <!-- end content -->  
   </div><!--/spacechar-->        
   
-    <div class="micbtnholder"><div class="micbtnArtToday" id="playstopInvestigatingOurWorld"></div></div>
-    <div class="bArtToday"><div class="rwArtToday" id="InvestigatingOurWorldaudiobbtn"></div></div>
-    <div class="plArtToday"><div class="plpsArtToday" id="InvestigatingOurWorldaudioplbtn"></div></div>
-    <div class="fArtToday"><div class="fwArtToday" id="InvestigatingOurWorldaudiofbtn"></div></div>
-    <div id="actualaudio-InvestigatingOurWorld" style="visibility:hidden;"></div>
+    <div class="micbtnholder"><div class="micbtnArtToday" id="playstopArtAndLanguage"></div></div>
+    <div class="bArtToday"><div class="rwArtToday" id="ArtAndLanguageaudiobbtn"></div></div>
+    <div class="plArtToday"><div class="plpsArtToday" id="ArtAndLanguageaudioplbtn"></div></div>
+    <div class="fArtToday"><div class="fwArtToday" id="ArtAndLanguageaudiofbtn"></div></div>
+    <div id="actualaudio-ArtAndLanguage" style="visibility:hidden;"></div>
   <!-- </div> -->
   
   <script>
@@ -71,7 +71,7 @@
       $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
 	 
       if(sound.canPlayType('audio/mpeg')) {
-			$('#actualaudio-InvestigatingOurWorld').html('<audio id="InvestigatingOurWorldaudio" controls preload onpause="playsArtToday()" onplay="pauseArtToday()"><source src="audio/Art_Today/Investigating_Our_World.mp3" type="audio/mpeg"></audio>');
+			$('#actualaudio-ArtAndLanguage').html('<audio id="ArtAndLanguageaudio" controls preload onpause="playsArtToday()" onplay="pauseArtToday()"><source src="audio/Art_Today/Art_And_Language.mp3" type="audio/mpeg"></audio>');
 		  }             
 	  $("#sub-art-today-investigating-our-world-art-and-language").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
 	})();
@@ -103,43 +103,43 @@
     }
     /* ******************** */
     /* this is the microphone button */
-    $("#playstopInvestigatingOurWorld").on('tap', function() {
+    $("#playstopArtAndLanguage").on('tap', function() {
       if(!playing) {
-        InvestigatingOurWorldaudio.play();
+        ArtAndLanguageaudio.play();
         $('.micbtnArtToday').css('background-position-x', '-81px');
         playing = true;
         paused = false;
       } else {
-        InvestigatingOurWorldaudio.pause(); InvestigatingOurWorldaudio.currentTime = 0;
+        ArtAndLanguageaudio.pause(); ArtAndLanguageaudio.currentTime = 0;
         $('.micbtnArtToday').css('background-position-x', '0px');
         playing = false;
         paused = true;
       }
     });
     
-    $("#InvestigatingOurWorldaudioplbtn").on('tap', function() {
+    $("#ArtAndLanguageaudioplbtn").on('tap', function() {
       if(!paused) {
-        InvestigatingOurWorldaudio.pause();
+        ArtAndLanguageaudio.pause();
         paused = true;
       } else {
-        InvestigatingOurWorldaudio.play();
+        ArtAndLanguageaudio.play();
         paused = false;
       }
       //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
     });
     
-    $("#InvestigatingOurWorldaudiofbtn").on('tap', function() {
-      var ctime = InvestigatingOurWorldaudio.currentTime;
-      InvestigatingOurWorldaudio.currentTime = ctime + 10;
+    $("#ArtAndLanguageaudiofbtn").on('tap', function() {
+      var ctime = ArtAndLanguageaudio.currentTime;
+      ArtAndLanguageaudio.currentTime = ctime + 10;
     });
     
-    $("#InvestigatingOurWorldaudiobbtn").on('tap', function() {
-      var ctime = InvestigatingOurWorldaudio.currentTime;
-      InvestigatingOurWorldaudio.currentTime = ctime - 10;
+    $("#ArtAndLanguageaudiobbtn").on('tap', function() {
+      var ctime = ArtAndLanguageaudio.currentTime;
+      ArtAndLanguageaudio.currentTime = ctime - 10;
     });
     
-    $("#InvestigatingOurWorldaudiopsbtn").on('tap', function() {
-      InvestigatingOurWorldaudio.pause();
+    $("#ArtAndLanguageaudiopsbtn").on('tap', function() {
+      ArtAndLanguageaudio.pause();
     });
   </script>
   <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
