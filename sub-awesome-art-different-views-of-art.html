@@ -1,0 +1,136 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-awesome-art-different-views-of-art">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_awesome_art.js"></script>
+  <link rel="stylesheet" href="css/style_awesome_art.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnAwesomeArt"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnAwesomeArt"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnAwesomeArt"></div></div>
+  <div class="infobtnholder"><div class="infobtnAwesomeArt"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnAwesomeArt"></div></div>
+  <div class="menubtnholder"><div class="menubtnAwesomeArt"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Different views of the world</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navAwesomeArt-content">
+		<p>Art is made by artists born in a particular time and place.  Just as scientists learn from other scientists, artists learn from each other too.  They also learn from the culture in which they are born.  Their works can tell us a lot about what people saw and how they felt about the world.</p>
+		<p>A painting from fifteenth century Renaissance Europe is very different from a scroll painting from Song Dynasty China, or from a painting by an Aboriginal artist from Australia.  Different cultures have had different ideas about the world.  The differences are fascinating!</p>
+		<p>Space, for example, can be shown in many different ways.  Renaissance artists invented 'linear perspective' to create an illusion of space - like a window you can look through.  Chinese artists from the Song Dynasty show the world as a series of events from above, as if from a bird's eye view.  Aboriginal artists traditionally show landscapes like a map with symbols and icons to represent elements of their world.</p>
+		<p>In the twentieth century artists developed whole new ways of showing space.  For example Cubist artists sought to paint an object from all sides at once.</p>
+      </div>
+        
+      <div class="navbtn1">
+        <p><a href="sub-awesome-art-different-views-of-art-Australian-indigenous-painting.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Awesome_Art/Different_Views_Of_The_World/Australian.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-awesome-art-different-views-of-art-Cubism-and-the-Fourth-Dimension.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Awesome_Art/Different_Views_Of_The_World/cubism.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-awesome-art-different-views-of-art-Renaissance-Art.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Awesome_Art/Different_Views_Of_The_World/Renaissance.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-awesome-art-different-views-of-art-the-Song-Dynasty.html" data-transition="slide"><img src="css/images/9-12/Art_and_Music/Awesome_Art/Different_Views_Of_The_World/The_Song_Dynasty.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnAwesomeArt" id="playstopDifferentViews"></div></div>
+    <div class="bAwesomeArt"><div class="rwAwesomeArt" id="DifferentViewsaudiobbtn"></div></div>
+    <div class="plAwesomeArt"><div class="plpsAwesomeArt" id="DifferentViewsaudioplbtn"></div></div>
+    <div class="fAwesomeArt"><div class="fwAwesomeArt" id="DifferentViewsaudiofbtn"></div></div>
+    <div id="actualaudio-DifferentViews" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-DifferentViews').html('<audio id="DifferentViewsaudio" controls preload onpause="playsAwesomeArt()" onplay="pauseAwesomeArt()"><source src="audio/Awesome_Art/Different_Views_Of_Art.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-awesome-art-different-views-of-art").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundAwesomeArt.pause(); bgsoundAwesomeArt.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-awesome-art.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsAwesomeArt() {
+         bgsoundAwesomeArt.play();
+    }
+       
+    function pauseAwesomeArt() {
+         bgsoundAwesomeArt.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopDifferentViews").on('tap', function() {
+      if(!playing) {
+        DifferentViewsaudio.play();
+        $('.micbtnAwesomeArt').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        DifferentViewsaudio.pause(); DifferentViewsaudio.currentTime = 0;
+        $('.micbtnAwesomeArt').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#DifferentViewsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        DifferentViewsaudio.pause();
+        paused = true;
+      } else {
+        DifferentViewsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#DifferentViewsaudiofbtn").on('tap', function() {
+      var ctime = DifferentViewsaudio.currentTime;
+      DifferentViewsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#DifferentViewsaudiobbtn").on('tap', function() {
+      var ctime = DifferentViewsaudio.currentTime;
+      DifferentViewsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#DifferentViewsaudiopsbtn").on('tap', function() {
+      DifferentViewsaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });
+  </script>
+</div> <!--//home-->

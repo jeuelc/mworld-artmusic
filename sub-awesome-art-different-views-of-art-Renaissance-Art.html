@@ -1,0 +1,119 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-awesome-art-different-views-of-art-Renaissance-Art">
+  <script src="js/slidebar_awesome_art.js"></script>
+  <link rel="stylesheet" href="css/style_awesome_art.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnAwesomeArt"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnAwesomeArt"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnAwesomeArt"></div></div>
+  <div class="infobtnholder"><div class="infobtnAwesomeArt"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnAwesomeArt"></div></div>
+  <div class="menubtnholder"><div class="menubtnAwesomeArt"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Renaissance Art</h1></div>
+  <!--<div id="artideaslink" style="position:absolute;left: 547px;top: 215px;width: 100px;height: 283px;"></div> -->
+  
+  <div data-role="content" class="kidzcontent">
+	<div class="navAwesomeArt-RenaissanceArt">
+		<p>Artists from the <a href="#renaissance" data-rel="popup">Renaissance</a> developed a way of depicting an illusion of space called 'linear perspective'.  This means all lines meet at a vanishing point and distant objects are smaller and (some would say) less important.</p>
+		<p>In the painting below by the Italian painter Raphael, notice how all the lines meet at the white square of the building behind the figures.  The painting is almost like a doorway that you, the viewer, are standing outside.</p>
+		<p>The painting on the right, called 'Las Meninas', by the Spanish painter Diego Velazquez, is considered to be one of the great puzzles of Western painting!  It uses linear perspective, but the painter has put himself into the painting.  That's him on the left!</p>
+		<p>At the vanishing point is a mirror reflecting an image of the King and Queen of Spain who helped support Velazquez.  They're outside the painting, standing where you would be!  It's a wonderfully mysterious painting showing different ways of looking at the world.  But no one is really sure how Velazquez did it!</p>
+    </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+  </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnAwesomeArt" id="playstopRenaissanceArt"></div></div>
+    <div class="bAwesomeArt"><div class="rwAwesomeArt" id="RenaissanceArtaudiobbtn"></div></div>
+    <div class="plAwesomeArt"><div class="plpsAwesomeArt" id="RenaissanceArtaudioplbtn"></div></div>
+    <div class="fAwesomeArt"><div class="fwAwesomeArt" id="RenaissanceArtaudiofbtn"></div></div>
+    <div id="actualaudio-RenaissanceArt" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <!------------------------------------- Definition box ----------------------------------- -->
+  
+	<div data-role="popup" id="renaissance" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+		<div id="node-pop">
+			<p>RENAISSANCE</p>
+			<p>The Renaissance was a movement in European culture, which continued from the fourteenth century through to the seventeenth century.  Renaissance translates from French to English as 'Rebirth', referring to the renewed influence of classical Latin and Greek culture.  The Renaissance period led to important changes in politics and science as well as art, literature, music, religion, architecture and many more fields.Renaissance artists initiated important new painting techniques such as linear perspective, which gave artists new ways to depict the world accurately.</p>
+		</div>
+	</div>
+  <!-- ------------------------------------------------------------------------------------- -->
+  <script>
+	$('#watchHansHolbeinVideo').css({"visibility":"hidden", "z-index":-10});
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-RenaissanceArt').html('<audio id="RenaissanceArtaudio" controls preload onpause="playsAwesomeArt()" onplay="pauseAwesomeArt()"><source src="audio/Awesome_Art/Renaissance_Art.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-awesome-art-different-views-of-art-Renaissance-Art").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+	$('#artideaslink').on('tap', function() {
+      $.mobile.changePage("sub-awesome-art-different-views-of-art-Renaissance-Art-ideas.html", {transition: "slide"});
+    });
+	
+	$('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundAwesomeArt.pause(); bgsoundAwesomeArt.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-awesome-art-different-views-of-art.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsAwesomeArt() {
+         bgsoundAwesomeArt.play();
+    }
+       
+    function pauseAwesomeArt() {
+         bgsoundAwesomeArt.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopRenaissanceArt").on('tap', function() {
+      if(!playing) {
+        RenaissanceArtaudio.play();
+        $('.micbtnAwesomeArt').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        RenaissanceArtaudio.pause(); RenaissanceArtaudio.currentTime = 0;
+        $('.micbtnAwesomeArt').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#RenaissanceArtaudioplbtn").on('tap', function() {
+      if(!paused) {
+        RenaissanceArtaudio.pause();
+        paused = true;
+      } else {
+        RenaissanceArtaudio.play();
+        paused = false;
+      }
+    });
+    
+    $("#RenaissanceArtaudiofbtn").on('tap', function() {
+      var ctime = RenaissanceArtaudio.currentTime;
+      RenaissanceArtaudio.currentTime = ctime + 10;
+    });
+    
+    $("#RenaissanceArtaudiobbtn").on('tap', function() {
+      var ctime = RenaissanceArtaudio.currentTime;
+      RenaissanceArtaudio.currentTime = ctime - 10;
+    });
+    
+    $("#RenaissanceArtaudiopsbtn").on('tap', function() {
+      RenaissanceArtaudio.pause();
+    });
+  </script>
+</div> <!--//home-->

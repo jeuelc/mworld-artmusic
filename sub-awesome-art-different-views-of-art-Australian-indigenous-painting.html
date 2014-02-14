@@ -1,0 +1,192 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-awesome-art-different-views-of-art-Australian-indigenous-painting">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_awesome_art.js"></script>
+  <link rel="stylesheet" href="css/style_awesome_art.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnAwesomeArt"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnAwesomeArt"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnAwesomeArt"></div></div>
+  <div class="infobtnholder"><div class="infobtnAwesomeArt"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnAwesomeArt"></div></div>
+  <div class="menubtnholder"><div class="menubtnAwesomeArt"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Australian Indigenous Painting</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+		
+		<a id="roverlink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Awesome_Art/Different_Views_Of_The_World/Australian/Rover_Thomas_Hi_Res.jpg', 'Rover Thomas. Lundari (Barramundi Dreaming). 1985.  (Courtesy: CARL DE SOUZA/Stringer/AFP/Getty Images)');">click here</a>
+		<a id="quiz_lightbox" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Awesome_Art/Different_Views_Of_The_World/Australian/Symbols_Lightbox.png', '');">click here</a>
+		
+		<div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="css/images/9-12/Art_and_Music/Awesome_Art/Different_Views_Of_The_World/Australian/Symbols.png">
+            </div>
+            <div id="backofcard" class="back face center" style="background:url(css/images/9-12/Art_and_Music/Awesome_Art/Different_Views_Of_The_World/Australian/Symbols_Reverse.png) no-repeat;">
+              <div class="returncard" style="position:absolute;left: 140px;top: 0px;width: 98px;height: 54px;"></div>
+              <div id="trueans" style="position:absolute;left: 160px;top: 95px;width: 170px;height: 25px;"></div>
+              <div id="falseans1" style="position:absolute;left: 160px;top: 123px;width: 170px;height: 32px;"></div>
+			  <div id="falseans2" style="position:absolute;left: 160px;top: 160px;width: 170px;height: 32px;"></div>
+			  <div id="falseans3" style="position:absolute;left: 160px;top: 200px;width: 170px;height: 32px;"></div>
+			  <div id="Light_Box_Image" style="position:absolute;left: 40px;top: 105px;width: 118px;height: 138px;"></div>
+			</div>
+          </div>
+        </div><!--/f1_container-->
+		
+		<div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/Art_and_Music/Awesome_Art/Different_Views_Of_The_World/Australian/Spiral_Jetty.png" alt="" />
+          </div>
+          <div id="pol2" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/Art_and_Music/Awesome_Art/Different_Views_Of_The_World/Australian/Symbols.png" alt="" />
+          </div>
+		  <div id="pol3" class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/Art_and_Music/Awesome_Art/Different_Views_Of_The_World/Australian/Rover_Thomas.jpg" alt="" />
+          </div>
+		</div><!--/zoomwrapper-->
+	  </div>
+      
+      <div class="bpcontentAwesomeArt">
+        <p>Space is represented in an entirely different way in the indigenous art of Australia.  Australian indigenous peoples have a unique relationship to the land.  Traditionally, they believe that they and all animals and plants belong to the land.</p>
+		<p>This painting is by Rover Thomas, who is widely regarded as one of the great contemporary Aboriginal painters of Australia.  Rover Thomas had a traditional upbringing among his people in the East Kimberley region in Western Australia.</p>
+		<p>Despite their apparent simplicity, these red ochre paintings depict the East Kimberley landscape both as a map and as a spiritual place.  They echo the colours of the desert lands and refer specifically to riverbeds, dirt tracks and homesteads.  They also refer to sacred sites and even to places where there were massacres of his people by European settlers early last century.</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/Art_And_Music/bottomhomeam.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnAwesomeArt" id="playstopAustralianIndigenousPainting"></div></div>
+    <div class="bAwesomeArt"><div class="rwAwesomeArt" id="AustralianIndigenousPaintingaudiobbtn"></div></div>
+    <div class="plAwesomeArt"><div class="plpsAwesomeArt" id="AustralianIndigenousPaintingaudioplbtn"></div></div>
+    <div class="fAwesomeArt"><div class="fwAwesomeArt" id="AustralianIndigenousPaintingaudiofbtn"></div></div>
+    <div id="actualaudio-AustralianIndigenousPainting" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+	  $('#watchLavaFlowholder').css({"visibility":"hidden", "z-index":-10});
+	  $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      
+	  if(sound.canPlayType('audio/mpeg')) {
+			$('#actualaudio-AustralianIndigenousPainting').html('<audio id="AustralianIndigenousPaintingaudio" controls preload onpause="playsAwesomeArt()" onplay="pauseAwesomeArt()"><source src="audio/Awesome_Art/Australian_Indigenous_Painting.mp3" type="audio/mpeg"></audio>');
+		  }             
+	  $("#sub-awesome-art-different-views-of-art-Australian-indigenous-painting").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+	})();
+    
+	$('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundAwesomeArt.pause(); bgsoundAwesomeArt.currentTime = 0;});
+    
+	$('#falseans1').on('tap', function() {
+      alert("Wrong answer");
+    });
+	$('#falseans2').on('tap', function() {
+      alert("Wrong answer");
+    });
+	$('#falseans3').on('tap', function() {
+      alert("Wrong answer");
+    });
+	$('#trueans').on('tap', function() {
+      alert("Right answer");
+    });
+	
+	$(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol2").css({"visibility":"visible", "z-index":4});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+    
+	$("#pol1").on('tap', function() {
+      $.mobile.changePage("sub-super-fast-trains-overcoming-resistance", {transition: "slide", reverse: true });
+    });
+	
+    $("#pol2").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
+	
+	$("#pol3").on('tap', function() {
+      $('#roverlink')[0].click();
+    });
+	
+	$("#Light_Box_Image").on('tap', function() {
+      $('#quiz_lightbox')[0].click();
+    });
+	
+	function goBack() {
+      $.mobile.changePage("sub-awesome-art-different-views-of-art.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsAwesomeArt() {
+         bgsoundAwesomeArt.play();
+    }
+       
+    function pauseAwesomeArt() {
+         bgsoundAwesomeArt.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopAustralianIndigenousPainting").on('tap', function() {
+      if(!playing) {
+        AustralianIndigenousPaintingaudio.play();
+        $('.micbtnAwesomeArt').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        AustralianIndigenousPaintingaudio.pause(); AustralianIndigenousPaintingaudio.currentTime = 0;
+        $('.micbtnAwesomeArt').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#AustralianIndigenousPaintingaudioplbtn").on('tap', function() {
+      if(!paused) {
+        AustralianIndigenousPaintingaudio.pause();
+        paused = true;
+      } else {
+        AustralianIndigenousPaintingaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#AustralianIndigenousPaintingaudiofbtn").on('tap', function() {
+      var ctime = AustralianIndigenousPaintingaudio.currentTime;
+      AustralianIndigenousPaintingaudio.currentTime = ctime + 10;
+    });
+    
+    $("#AustralianIndigenousPaintingaudiobbtn").on('tap', function() {
+      var ctime = AustralianIndigenousPaintingaudio.currentTime;
+      AustralianIndigenousPaintingaudio.currentTime = ctime - 10;
+    });
+    
+    $("#AustralianIndigenousPaintingaudiopsbtn").on('tap', function() {
+      AustralianIndigenousPaintingaudio.pause();
+    });
+  </script>
+  <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->
