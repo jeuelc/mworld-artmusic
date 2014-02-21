@@ -10,10 +10,18 @@
   <div class="credsbtnholder"><div class="credsbtnArtToday"></div></div>
   <div class="menubtnholder"><div class="menubtnArtToday"></div></div>
   
+  <!-- <a id="Silhouettes_First" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Art_Today/Involving_The_Audience/Art_And_Perception/Lightbox1.png', '');">click here</a>
+  <a id="Silhouettes_Second" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Art_Today/Involving_The_Audience/Art_And_Perception/Lightbox2.png', '');">click here</a>
+  <a id="Silhouettes_Third" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Art_Today/Involving_The_Audience/Art_And_Perception/Lightbox3.png', '');">click here</a> -->
+  
   <div class="bptitleholder" style="padding-top:14px;"><h1>Art and Perception</h1></div>
-  <!-- <div id="artandperceptionlink" style="position:absolute;left: 460px;top: 492px;width: 108px;height: 143px;"></div>
-  <div id="performanceartlink" style="position:absolute;left: 105px;top: 490px;width: 103px;height: 148px;"></div>
-  <div id="thesocialturnlink" style="position:absolute;left: 808px;top: 493px;width: 100px;height: 143px;"></div> -->
+  <div id="Silhouettes_First" class="lightBoxOverlay"></div>
+  <div id="Silhouettes_Second" class="lightBoxOverlay"></div>
+  <div id="Silhouettes_Third" class="lightBoxOverlay"></div>
+  
+  <div id="clickSilhouettes_First"></div>
+  <div id="clickSilhouettes_Second"></div>
+  <div id="clickSilhouettes_Third"></div>
   
   <div data-role="content" class="kidzcontent">
 	<div class="navArtToday-ArtAndPerception">
@@ -75,6 +83,27 @@
     function pauseArtToday() {
          bgsoundArtToday.pause();
     }
+	
+	$('#clickSilhouettes_First').on('tap', function(){
+		//$('#Silhouettes_First')[0].click();
+		console.log('one');
+		$('#Silhouettes_First').show();
+	});
+	$('#clickSilhouettes_Second').on('tap', function(){
+		//$('#Silhouettes_Second')[0].click();
+		console.log('second');
+		$('#Silhouettes_Second').show();
+	});
+	$('#clickSilhouettes_Third').on('tap', function(){
+		//$('#Silhouettes_Third')[0].click();
+		console.log('third');
+		$('#Silhouettes_Third').show();
+	});
+	
+	$('.lightBoxOverlay').on('tap', function(){
+		$('.lightBoxOverlay').hide();
+	});
+	
     /* ******************** */
     /* this is the microphone button */
     $("#playstopArtAndPerception").on('tap', function() {
