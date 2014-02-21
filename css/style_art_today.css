@@ -504,3 +504,11 @@
 	display:none;
 	z-index:15;
 }
+
+.closeSilhouettes{
+	width: 20px;
+	height: 20px;
+	top: 631px;
+	left: 502px;
+	position: absolute;
+}

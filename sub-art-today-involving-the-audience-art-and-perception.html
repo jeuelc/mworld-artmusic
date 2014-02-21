@@ -10,14 +10,10 @@
   <div class="credsbtnholder"><div class="credsbtnArtToday"></div></div>
   <div class="menubtnholder"><div class="menubtnArtToday"></div></div>
   
-  <!-- <a id="Silhouettes_First" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Art_Today/Involving_The_Audience/Art_And_Perception/Lightbox1.png', '');">click here</a>
-  <a id="Silhouettes_Second" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Art_Today/Involving_The_Audience/Art_And_Perception/Lightbox2.png', '');">click here</a>
-  <a id="Silhouettes_Third" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/Art_and_Music/Art_Today/Involving_The_Audience/Art_And_Perception/Lightbox3.png', '');">click here</a> -->
-  
   <div class="bptitleholder" style="padding-top:14px;"><h1>Art and Perception</h1></div>
-  <div id="Silhouettes_First" class="lightBoxOverlay"></div>
-  <div id="Silhouettes_Second" class="lightBoxOverlay"></div>
-  <div id="Silhouettes_Third" class="lightBoxOverlay"></div>
+  <div id="Silhouettes_First" class="lightBoxOverlay"><div class="closeSilhouettes"></div></div>
+  <div id="Silhouettes_Second" class="lightBoxOverlay"><div class="closeSilhouettes"></div></div>
+  <div id="Silhouettes_Third" class="lightBoxOverlay"><div class="closeSilhouettes"></div></div>
   
   <div id="clickSilhouettes_First"></div>
   <div id="clickSilhouettes_Second"></div>
@@ -58,18 +54,6 @@
       $("#sub-art-today-involving-the-audience-art-and-perception").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     })();
     
-	/*$('#artandperceptionlink').on('tap', function() {
-      $.mobile.changePage("sub-art-today-involving-the-audience-art-and-perception-art-and-perception.html", {transition: "slide"});
-    });
-	
-	$('#performanceartlink').on('tap', function() {
-      $.mobile.changePage("sub-art-today-involving-the-audience-art-and-perception-performance-art.html", {transition: "slide"});
-    });
-	
-	$('#thesocialturnlink').on('tap', function() {
-      $.mobile.changePage("sub-art-today-involving-the-audience-art-and-perception-the-social-turn.html", {transition: "slide"});
-    });*/
-	
 	$('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundArtToday.pause(); bgsoundArtToday.currentTime = 0;});
     
     function goBack() {
@@ -85,22 +69,16 @@
     }
 	
 	$('#clickSilhouettes_First').on('tap', function(){
-		//$('#Silhouettes_First')[0].click();
-		console.log('one');
 		$('#Silhouettes_First').show();
 	});
 	$('#clickSilhouettes_Second').on('tap', function(){
-		//$('#Silhouettes_Second')[0].click();
-		console.log('second');
 		$('#Silhouettes_Second').show();
 	});
 	$('#clickSilhouettes_Third').on('tap', function(){
-		//$('#Silhouettes_Third')[0].click();
-		console.log('third');
 		$('#Silhouettes_Third').show();
 	});
 	
-	$('.lightBoxOverlay').on('tap', function(){
+	$('.closeSilhouettes').on('tap', function(){
 		$('.lightBoxOverlay').hide();
 	});
 	
